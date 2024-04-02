@@ -16,10 +16,10 @@ public class BreweryController {
     public Brewery getBreweryByCity(String name){
         Brewery breweryEntry = Brewery.findBySearchInput(name);
 
-        if(breweryEntry != null){
+        if(!(breweryEntry == null)){
             return breweryEntry;
         } else{
-            String data = breweryDBService.getBreweryByCity(name, "3");
+            String data = breweryDBService.getBreweryByCity(name, "1");
 
             breweryEntry = new Brewery();
             breweryEntry.searchInput = name;
