@@ -8,5 +8,5 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 public interface BreweryDBService {
 
     @GET
-    String getBreweryByCity(@QueryParam("by_city") String city, @QueryParam("per_page") String amount);
+    String getBreweryByCity(@QueryParam("by_city") String city, @QueryParam("per_page") int count);
 }

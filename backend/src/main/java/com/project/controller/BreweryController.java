@@ -2,30 +2,30 @@ package com.project.controller;
 
 import com.project.entity.Brewery;
 import com.project.service.BreweryDBService;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.inject.Singleton;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
-@Singleton
+@ApplicationScoped
 public class BreweryController {
 
     @Inject
     @RestClient
     BreweryDBService breweryDBService;
 
-    public Brewery getBreweryByCity(String name){
+    public Brewery getBreweryByCity(String name, int count){
         Brewery breweryEntry = Brewery.findBySearchInput(name);
 
-        if(!(breweryEntry == null)){
-            return breweryEntry;
-        } else{
-            String data = breweryDBService.getBreweryByCity(name, "1");
+        if(breweryEntry == null){
+            String data = breweryDBService.getBreweryByCity(name, count);
 
             breweryEntry = new Brewery();
             breweryEntry.searchInput = name;
             breweryEntry.data = data;
 
             breweryEntry.persist();
+            return breweryEntry;
+        } else{
             return breweryEntry;
         }
 

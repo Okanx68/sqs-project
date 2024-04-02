@@ -4,10 +4,7 @@ import com.project.controller.BreweryController;
 import com.project.entity.Brewery;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
@@ -22,11 +19,9 @@ public class BreweryResource {
     @GET
     @Path("/{cityName}")
     @Transactional
-    public Response getBreweryByCity(@PathParam("cityName") String name){
-
-        Brewery brewery = breweryController.getBreweryByCity(name);
+    public Response getBreweryByCity(@PathParam("cityName") String name, @QueryParam("count") int count){
+        Brewery brewery = breweryController.getBreweryByCity(name, count);
         return Response.ok(200).entity(brewery).build();
 
     }
-
 }
