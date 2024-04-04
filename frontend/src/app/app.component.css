@@ -13,7 +13,6 @@ body {
   min-height: 100vh;
 }
 footer {
-  position: relative;
   width: 100%;
   text-align: center;
   margin-top: auto;
@@ -28,10 +27,20 @@ a:hover {
   text-decoration: none;
 }
 
+th {
+  vertical-align: middle;
+}
+
+td {
+  min-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 table {
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 20px;
-  padding-right:20px;
   font-size: 90%;
 }

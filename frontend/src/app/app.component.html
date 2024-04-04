@@ -1,4 +1,4 @@
-<h1 class="header-style">Brewery Details</h1>
+<h1 class="header-style">Brewery Detail List</h1>
 
 <div class="container">
   <div class="row justify-content-center">
@@ -9,40 +9,40 @@
   </div>
 </div>
 
-<div class="table table-striped" style="width: 100%">
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Brewery Type</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>State Province</th>
-      <th>Postal Code</th>
-      <th>Country</th>
-      <th>Longitude</th>
-      <th>Latitude</th>
-      <th>Phone</th>
-      <th>Website URL</th>
-      <th>State</th>
-      <th>Street</th>
-    </tr>
-    <tr *ngFor="let brewery of breweries">
-      <td>{{ brewery.name }}</td>
-      <td>{{ brewery.brewery_type }}</td>
-      <td>{{ brewery.address_1 }}</td>
-      <td>{{ brewery.city }}</td>
-      <td>{{ brewery.state_province }}</td>
-      <td>{{ brewery.postal_code }}</td>
-      <td>{{ brewery.country }}</td>
-      <td>{{ brewery.longitude }}</td>
-      <td>{{ brewery.latitude }}</td>
-      <td>{{ brewery.phone}}</td>
-      <td style="color: blue; text-decoration: underline">
-        <a [href]="brewery.website_url">{{ brewery.website_url }}</a>
-      </td>
-      <td>{{ brewery.state }}</td>
-      <td>{{ brewery.street }}</td>
-    </tr>
+<div>
+  <table class="table table-bordered table-hover">
+    <thead class="text-center table-warning">
+      <tr>
+        <th>Name</th>
+        <th>Brewery Type</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State Province</th>
+        <th>Postal Code</th>
+        <th>Country</th>
+        <th>Phone</th>
+        <th>Website URL</th>
+        <th>State</th>
+        <th>Street</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let brewery of breweries">
+        <td>{{ brewery.name }}</td>
+        <td>{{ brewery.brewery_type }}</td>
+        <td>{{ brewery.address_1 }}</td>
+        <td>{{ brewery.city }}</td>
+        <td>{{ brewery.state_province }}</td>
+        <td>{{ brewery.postal_code }}</td>
+        <td>{{ brewery.country }}</td>
+        <td>{{ brewery.phone}}</td>
+        <td style="color: blue; text-decoration: underline">
+          <a [href]="brewery.website_url">{{ brewery.website_url }}</a>
+        </td>
+        <td>{{ brewery.state }}</td>
+        <td>{{ brewery.street }}</td>
+      </tr>
+    </tbody>
   </table>
 </div>
 
