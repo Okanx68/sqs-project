@@ -1,18 +1,15 @@
-<title>{{ title }}</title>
-<h3 class="header-style">Brewery Details</h3>
-<div class="container-fluid">
-  <form [formGroup]="newForm">
-    <div class="form-group">
-      <label>City Name</label>
-      <input type="text" class="form-control" formControlName="fieldVal" />
-      <button class="btn btn-primary" type="submit" (click)="onSearch()">
-        Search
-      </button>
-    </div>
-  </form>
+<h1 class="header-style">Brewery Details</h1>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <form class="form-inline d-flex justify-content-center align-items-center" [formGroup]="newForm">
+      <input type="text" class="form-control mb-2 mr-sm-2" formControlName="fieldVal" placeholder="Enter City Name">
+      <button type="submit" class="btn btn-primary mb-2" (click)="onSearch()">Search</button>
+    </form>
+  </div>
 </div>
 
-<div class="container-fluid" style="white-space: pre">
+<div class="table table-striped" style="width: 100%">
   <table>
     <tr>
       <th>Name</th>
@@ -48,3 +45,10 @@
     </tr>
   </table>
 </div>
+
+<footer>
+  <p>External API used for this Project: <a class="link-reference" href="https://openbrewerydb.org">Open Brewery DB</a></p>
+  <img src="https://www.openbrewerydb.org/obdb-og.png"  alt="Open Brewery DB"/>
+</footer>
+
+
