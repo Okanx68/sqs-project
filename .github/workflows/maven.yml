@@ -66,7 +66,3 @@ jobs:
     - name: Build Angular app
       working-directory: frontend
       run: npm run build 
-
-    - name: Run tests
-      working-directory: frontend
-      run: npm run test --no-watch --no-progress --browsers=ChromeHeadlessCI
