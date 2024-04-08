@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<div>
+<div *ngIf="breweries.length > 0; else noData">
   <table class="table table-bordered table-hover">
     <thead class="text-center table-warning">
       <tr>
@@ -45,6 +45,12 @@
     </tbody>
   </table>
 </div>
+
+<ng-template #noData>
+  <<div class="noData">
+    <p>No data fetched!</p>
+  </div>
+</ng-template>
 
 <footer>
   <p>External API used for this Project: <a class="link-reference" href="https://openbrewerydb.org">Open Brewery DB</a></p>

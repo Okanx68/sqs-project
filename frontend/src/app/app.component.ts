@@ -3,12 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {BreweryService} from "./services/brewery.service";
 import {brewery} from "./models/brewery";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ReactiveFormsModule, NgForOf],
+  imports: [RouterOutlet, ReactiveFormsModule, NgForOf, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
