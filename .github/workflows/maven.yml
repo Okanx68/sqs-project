@@ -64,7 +64,9 @@ jobs:
       run: npm install
 
     - name: Build Angular app
+      working-directory: frontend
       run: npm run build -- --prod
 
     - name: Run tests
+      working-directory: frontend
       run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
