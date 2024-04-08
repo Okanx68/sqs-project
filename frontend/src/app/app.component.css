@@ -18,7 +18,7 @@ body {
 footer {
   width: 100%;
   text-align: center;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 img {
@@ -48,22 +48,19 @@ table {
   font-size: 90%;
 }
 
-.noData {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+#noDataContent {
   width: 20%;
-  margin: 5px auto;
+  margin: 10px auto;
   padding: 10px;
   background-color: #f8f9fa;
   border: 1px solid #dee2e6;
   border-radius: 5px;
 }
 
-.noData p {
+#noDataContent p {
   color: #333;
   font-weight: bold;
   line-height: 1.2;
   padding-top: 5px;
+  padding-bottom: 5px;
 }
