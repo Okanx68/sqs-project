@@ -24,10 +24,8 @@ public class BreweryController {
             breweryEntry.data = data;
 
             breweryEntry.persist();
-            return breweryEntry;
-        } else{
-            return breweryEntry;
         }
 
+        return breweryEntry;
     }
 }
