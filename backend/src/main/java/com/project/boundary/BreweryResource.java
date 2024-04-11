@@ -21,6 +21,9 @@ public class BreweryResource {
     @Transactional
     public Response getBreweryByCity(@PathParam("cityName") String name, @QueryParam("count") int count){
         Brewery brewery = breweryController.getBreweryByCity(name, count);
+        if(brewery == null){
+            return Response.noContent().build();
+        }
         return Response.ok(200).entity(brewery).build();
 
     }

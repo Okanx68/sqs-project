@@ -18,7 +18,7 @@ export class AppComponent {
   newForm = new FormGroup({
     fieldVal: new FormControl('')
   });
-  noDataMessage: string = "No data fetched!";
+  noDataMessage: string = "No data fetched, please insert a city name!";
 
   constructor(private breweryService: BreweryService) { }
 
@@ -27,10 +27,11 @@ export class AppComponent {
   onSearch() {
     let enteredCityName = this.newForm.get('fieldVal')?.value;
     this.breweryService.getBreweriesByCity(enteredCityName).subscribe((data: any) => {
-          console.log(data);
-          this.breweries = JSON.parse(data.data);
-          if(this.breweries.length == 0){
+          if(data == null){
             this.noDataMessage = "City not found. Try again.";
+            this.breweries = [];
+          } else {
+            this.breweries = JSON.parse(data.data);
           }
           console.log(this.breweries);
         }

@@ -19,7 +19,7 @@ public class BreweryController {
         if(breweryEntry == null){
             String data = breweryDBService.getBreweryByCity(name, count);
 
-            if(!data.isEmpty()) {
+            if(!"[]".equals(data)) {
                 breweryEntry = new Brewery();
                 breweryEntry.searchInput = name;
                 breweryEntry.data = data;
