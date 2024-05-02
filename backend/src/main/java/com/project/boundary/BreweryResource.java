@@ -24,7 +24,7 @@ public class BreweryResource {
         if(brewery == null){
             return Response.noContent().build();
         }
-        return Response.ok(200).entity(brewery).build();
+        return Response.ok().entity(brewery).build();
 
     }
 }
