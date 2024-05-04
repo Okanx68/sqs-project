@@ -13,13 +13,13 @@ import static org.mockito.Mockito.when;
 
 @QuarkusTest
 @Transactional
-public class BreweryResourceTest {
+class BreweryResourceTest {
 
     @InjectMock
     BreweryController breweryController;
 
     @Test
-    public void testGetBreweryByCityEndpoint(){
+    void testGetBreweryByCityEndpoint(){
         Brewery brewery = new Brewery();
         brewery.searchInput = "TestSearchInput";
         brewery.data = "TestData";
@@ -38,7 +38,7 @@ public class BreweryResourceTest {
     }
 
     @Test
-    public void testGetBreweryByCityEndpointReturnsNoContent() {
+    void testGetBreweryByCityEndpointReturnsNoContent() {
         when(breweryController.getBreweryByCity("NonExistentCity", 1)).thenReturn(null);
 
         given()

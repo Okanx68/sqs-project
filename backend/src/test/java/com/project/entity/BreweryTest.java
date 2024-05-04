@@ -7,11 +7,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @QuarkusTest
-public class BreweryTest {
+class BreweryTest {
 
     @Test
     @Transactional
-    public void testFindBySearchInputReturnsBrewery(){
+    void testFindBySearchInputReturnsBrewery(){
         Brewery brewery = new Brewery();
         brewery.searchInput = "TestSearchInput";
         brewery.persist();
