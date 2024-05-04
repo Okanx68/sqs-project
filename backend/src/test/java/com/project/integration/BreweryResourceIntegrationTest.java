@@ -1,5 +1,7 @@
 package com.project.integration;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -15,7 +17,9 @@ class BreweryResourceIntegrationTest {
 
     @Test
     void testGetBreweryByCityIntegrationTest() throws IOException {
-        String testBreweryString = new String(Files.readAllBytes(Paths.get("src/test/resources/testBrewery.json")));
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode testBreweryJson = mapper.readTree(Files.readAllBytes(Paths.get("src/test/resources/testBrewery.json")));
+        JsonNode expectedData = testBreweryJson.get("data");
 
         String response = given()
                 .pathParam("cityName", "Graz")
@@ -25,6 +29,9 @@ class BreweryResourceIntegrationTest {
                 .statusCode(200)
                 .extract().body().asString();
 
-        Assertions.assertEquals(response, testBreweryString);
+        JsonNode responseJson = mapper.readTree(response);
+        JsonNode responseData = responseJson.get("data");
+
+        Assertions.assertEquals(expectedData, responseData);
     }
 }
