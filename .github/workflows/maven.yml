@@ -46,6 +46,9 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file backend/pom.xml
 
+      - name: List output directories
+        run: ls -la backend/target && ls -la backend/src/main/docker
+
       - name: Use Node.js 18.17
         uses: actions/setup-node@v2
         with:
