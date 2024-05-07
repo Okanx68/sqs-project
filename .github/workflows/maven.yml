@@ -64,7 +64,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
-          context: backend
-          file: src/main/docker/Dockerfile.jvm
+          context: backend/src/main/docker
+          file: Dockerfile.jvm
           push: true
           tags: ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_karaoglan-jvm:latest
