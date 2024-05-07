@@ -46,8 +46,25 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file backend/pom.xml
 
-      - name: List output directories
-        run: ls -la backend/target && ls -la backend/src/main/docker
+      - name: Use Node.js 18.17
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.17'
+
+      - name: Cache Node.js packages
+        uses: actions/cache@v2
+        with:
+          path: frontend/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node
+
+      - name: Install dependencies
+        working-directory: frontend
+        run: npm install
+
+      - name: Build Angular app
+        working-directory: frontend
+        run: npm run build
 
       - name: Prepare lowercase variables
         id: vars
@@ -64,7 +81,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
-          context: backend/src/main/docker
-          file: Dockerfile.jvm
+          context: backend
+          file: src/main/docker/Dockerfile.jvm
           push: true
           tags: ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_karaoglan-jvm:latest
