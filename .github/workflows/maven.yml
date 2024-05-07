@@ -74,7 +74,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          cd backend
+          cd backend/target
           docker build -t docker.pkg.github.com/${{ env.LOWER_REPO_NAME }}/quarkus-app:${{ env.LOWER_COMMIT_SHA }} -f backend/src/main/docker/Dockerfile.jvm .
 
       - name: Login to GitHub Container Registry
