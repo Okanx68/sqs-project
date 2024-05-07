@@ -47,7 +47,7 @@ jobs:
         run: mvn -B package --file backend/pom.xml
 
       - name: List output directories
-        run: ls -la backend/ && ls -la backend/src/main/docker
+        run: ls -la backend/target && ls -la backend/src/main/docker
 
       - name: Prepare lowercase variables
         id: vars
