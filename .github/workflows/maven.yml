@@ -67,7 +67,7 @@ jobs:
         run: npm run build
 
       - name: Build Docker image
-        run: docker build -t docker.pkg.github.com/${{ github.repository }}/quarkus-app:${{ github.sha }} .
+        run: docker build -t docker.pkg.github.com/${{ github.repository }}/quarkus-app:${{ github.sha }} -f backend/src/main/docker/Dockerfile.jvm .
 
       - name: Login to GitHub Container Registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
