@@ -67,10 +67,10 @@ jobs:
         run: npm run build
 
       - name: Build Docker image
-        run: docker build -t docker.pkg.github.com/${{ github.repository }}/quarkus-app:${{ github.sha }} -f backend/src/main/docker/Dockerfile.jvm .
+        run: docker build -t docker.pkg.github.com/${{ github.repository | lower }}/quarkus-app:${{ github.sha | lower }} -f backend/src/main/docker/Dockerfile.jvm .
 
       - name: Login to GitHub Container Registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
       - name: Push Docker image
-        run: docker push docker.pkg.github.com/${{ github.repository }}/quarkus-app:${{ github.sha }}
+        run: docker push docker.pkg.github.com/${{ github.repository | lower }}/quarkus-app:${{ github.sha | lower }}
