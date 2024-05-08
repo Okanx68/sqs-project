@@ -1,0 +1,39 @@
+version: '3.7'
+
+volumes:
+  postgres_data:
+
+services:
+  db:
+    container_name: sqs_pg_compose
+    image: postgres:14
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: sqs
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    restart: unless-stopped
+    container_name: sqs_backend
+    build:
+      context: ./backend
+      dockerfile: src/main/docker/Dockerfile.jvm
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+  frontend:
+    restart: unless-stopped
+    container_name: sqs_frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
