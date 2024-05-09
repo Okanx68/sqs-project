@@ -13,15 +13,15 @@ public class BreweryController {
     @RestClient
     BreweryDBService breweryDBService;
 
-    public Brewery getBreweryByCity(String name, int count){
-        Brewery breweryEntry = Brewery.findBySearchInput(name);
+    public Brewery getBreweryByCity(String city, int count){
+        Brewery breweryEntry = Brewery.findBySearchInput(city);
 
         if(breweryEntry == null){
-            String data = breweryDBService.getBreweryByCity(name, count);
+            String data = breweryDBService.getBreweryByCity(city, count);
 
             if(!"[]".equals(data)) {
                 breweryEntry = new Brewery();
-                breweryEntry.searchInput = name;
+                breweryEntry.searchInput = city;
                 breweryEntry.data = data;
 
                 breweryEntry.persist();

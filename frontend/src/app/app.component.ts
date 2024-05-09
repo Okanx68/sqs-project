@@ -13,16 +13,18 @@ import {NgForOf, NgIf} from "@angular/common";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Brewery Details';
+  title: string = 'Brewery Details';
   breweries: brewery[] = [];
-  newForm = new FormGroup({
+  newForm: FormGroup = new FormGroup({
     fieldVal: new FormControl('')
   });
-  noDataMessage: string = "No data fetched, please insert a city name!";
+  noDataMessage: string = '';
 
   constructor(private breweryService: BreweryService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.noDataMessage = "No data fetched, please insert a city name!";
+  }
 
   onSearch() {
     let enteredCityName = this.newForm.get('fieldVal')?.value;

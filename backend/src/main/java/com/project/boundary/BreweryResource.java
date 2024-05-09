@@ -19,8 +19,8 @@ public class BreweryResource {
     @GET
     @Path("/{cityName}")
     @Transactional
-    public Response getBreweryByCity(@PathParam("cityName") String name, @QueryParam("count") int count){
-        Brewery brewery = breweryController.getBreweryByCity(name, count);
+    public Response getBreweryByCity(@PathParam("cityName") String city, @QueryParam("count") int count){
+        Brewery brewery = breweryController.getBreweryByCity(city, count);
         if(brewery == null){
             return Response.noContent().build();
         }
