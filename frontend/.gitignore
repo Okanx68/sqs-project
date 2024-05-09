@@ -42,4 +42,4 @@ testem.log
 Thumbs.db
 
 #SonarQube
-.scannerwork
+/.scannerwork
