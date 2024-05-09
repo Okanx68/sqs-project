@@ -19,6 +19,7 @@ services:
   backend:
     restart: unless-stopped
     container_name: sqs_backend
+    image: ghcr.io/okanx68/sqs-project/sqs_backend:latest
     build:
       context: ./backend
       dockerfile: src/main/docker/Dockerfile.jvm
@@ -30,6 +31,7 @@ services:
   frontend:
     restart: unless-stopped
     container_name: sqs_frontend
+    image: ghcr.io/okanx68/sqs-project/sqs_frontend:latest
     build:
       context: ./frontend
       dockerfile: Dockerfile
