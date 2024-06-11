@@ -2,8 +2,7 @@
 FROM node:20.13-alpine as build
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci
-RUN npm install -g @angular/cli
+RUN npm ci && npm install -g @angular/cli@latest
 COPY . .
 RUN npm run build --configuration=production
 
