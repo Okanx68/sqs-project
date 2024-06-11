@@ -11,7 +11,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build_analyse_push:
+  build_analyze_push:
     runs-on: ubuntu-latest
 
     services:
@@ -39,6 +39,13 @@ jobs:
           distribution: 'temurin'
           cache: maven
           
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar  
+          
       - name: Build with Maven
         run: mvn -B package --file backend/pom.xml
 
@@ -47,7 +54,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=sqs-project_sqs-backend
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=sqs-project_sqs-backend -Dsonar.organization=SQS-project -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
       - name: Use Node.js 18.17
         uses: actions/setup-node@v2
