@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {BreweryService} from "./services/brewery.service";
-import {brewery} from "./models/brewery";
+import {Brewery} from "./models/brewery";
 import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
@@ -14,7 +14,7 @@ import {NgForOf, NgIf} from "@angular/common";
 })
 export class AppComponent {
   title: string = 'Brewery Details';
-  breweries: brewery[] = [];
+  breweries: Brewery[] = [];
   newForm: FormGroup = new FormGroup({
     fieldVal: new FormControl('')
   });
