@@ -7,4 +7,4 @@ config:
 scenarios:
   - flow:
       - get:
-          url: "api/v1/brewery/San Diego?count=20"
+          url: "api/v1/brewery/Austin?count=20"
