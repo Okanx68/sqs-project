@@ -124,6 +124,18 @@ jobs:
       - name: Show Running Containers
         run: docker ps
 
+      - name: Wait for services to start
+        run: sleep 15
+
+      - name: Show Backend Logs
+        run: docker logs sqs_backend
+
+      - name: Show Frontend Logs
+        run: docker logs sqs_frontend
+
+      - name: Show Running Containers
+        run: docker ps
+        
       - name: Test Backend Connectivity
         run: curl -v http://0.0.0.0:8080/api/v1/brewery/Austin?count=20
 
