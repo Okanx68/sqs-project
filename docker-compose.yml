@@ -20,8 +20,6 @@ services:
     restart: unless-stopped
     container_name: sqs_backend
     image: ghcr.io/okanx68/sqs-project/sqs_backend:latest
-    environment:
-      - SERVER_ADDRESS=0.0.0.0
     build:
       context: ./backend
       dockerfile: src/main/docker/Dockerfile.jvm
