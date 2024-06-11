@@ -53,7 +53,7 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file backend/pom.xml
 
-      - name: Build and analyze Backend
+      - name: Run SonarCloud Analysis for Backend
         working-directory: backend
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
