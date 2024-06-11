@@ -11,7 +11,23 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build_analyze_push:
+  docker_lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Lint Backend Dockerfile
+      uses: hadolint/hadolint-action@v3.1.0
+      with:
+        dockerfile: ./backend/src/main/docker/Dockerfile.jvm
+        
+    - name: Lint Frontend Dockerfile
+      uses: hadolint/hadolint-action@v3.1.0
+      with:
+        dockerfile: ./frontend/Dockerfile
+
+  backend:
     runs-on: ubuntu-latest
 
     services:
@@ -38,7 +54,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-          
+        
       - name: Build with Maven
         run: mvn -B package --file backend/pom.xml
 
@@ -49,6 +65,12 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify sonar:sonar -Dsonar.projectKey=sqs-project_sqs-backend -Dsonar.organization=sqs-project -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=${{ secrets.SONAR_TOKEN }}
 
+  frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      
       - name: Use Node.js 18.17
         uses: actions/setup-node@v2
         with:
@@ -76,6 +98,12 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: npx sonar-scanner -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=${{ secrets.SONAR_TOKEN }}
 
+  dockerize:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      
       - name: Prepare lowercase variables
         run: echo "LOWER_REPO_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
 
