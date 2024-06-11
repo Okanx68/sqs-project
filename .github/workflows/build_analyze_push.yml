@@ -112,3 +112,17 @@ jobs:
           file: ./frontend/Dockerfile
           push: true
           tags: ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_frontend:latest
+
+      - name: Stop and remove any running containers
+        run: |
+          docker ps -q | xargs docker stop
+          docker ps -aq | xargs docker rm
+          
+      - name: Start Docker Compose
+        run: docker-compose -f ./docker-compose.yml up -d
+
+      - name: Run Artillery Tests
+        if: success()
+        run: |
+          npm install -g artillery
+          artillery run artillery-tests/artillery.yml
