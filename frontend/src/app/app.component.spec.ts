@@ -11,8 +11,7 @@ describe('AppComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule],
-      declarations: [AppComponent],
+      imports: [ReactiveFormsModule, AppComponent],
       providers: [
         { provide: BreweryService, useValue: { getBreweriesByCity: () => of([]) } }
       ]

@@ -31,7 +31,7 @@ describe('BreweryService', () => {
       expect(breweries).toEqual(mockBreweries);
     });
 
-    const req = httpMock.expectOne('https://api.openbrewerydb.org/v1/breweries');
+    const req = httpMock.expectOne('http://localhost:8080/api/v1/brewery/test?count=20');
     expect(req.request.method).toBe('GET');
     req.flush(mockBreweries);
   });
