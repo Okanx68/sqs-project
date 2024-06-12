@@ -28,7 +28,7 @@ jobs:
         with:
           dockerfile: ./frontend/Dockerfile
           
-  build_analyze_push:
+  build_analyze_push_test:
     runs-on: ubuntu-latest
     needs: lint_dockerfiles
     
@@ -124,9 +124,6 @@ jobs:
         run: |
           docker ps -q | xargs docker stop
           docker ps -aq | xargs docker rm
-          
-      - name: Show Running Containers
-        run: docker ps
     
       - name: Start Docker Compose
         run: docker-compose -f ./docker-compose.yml up -d
