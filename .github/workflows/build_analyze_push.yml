@@ -120,25 +120,16 @@ jobs:
           push: true
           tags: ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_frontend:latest
 
-  artillery_test:
-    runs-on: ubuntu-latest
-    needs: build_analyze_push
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Stop and remove any running containers
+        run: |
+          docker ps -q | xargs docker stop
+          docker ps -aq | xargs docker rm
           
       - name: Show Running Containers
         run: docker ps
     
       - name: Start Docker Compose
-        run: docker-compose -f ./docker-compose.yml up -d --no-build
+        run: docker-compose -f ./docker-compose.yml up -d
 
       - name: Wait for services to start
         run: sleep 15
@@ -148,29 +139,6 @@ jobs:
         run: |
           npm install -g artillery
           artillery run artillery-tests/artillery.yml
-
-  End-To-End-Test_Frontend-Test:
-    runs-on: ubuntu-latest
-    needs: build_analyze_push
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Show Running Containers
-        run: docker ps
-
-      - name: Start Docker Compose
-        run: docker-compose -f ./docker-compose.yml up -d --no-build
-
-      - name: Wait for services to start
-        run: sleep 15
   
       - name: Build playwright with npm
         working-directory: playwright
