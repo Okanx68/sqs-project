@@ -1,5 +1,6 @@
 package com.project.controller;
 
+import com.project.dto.BreweryDTO;
 import com.project.entity.Brewery;
 import com.project.service.BreweryDBService;
 import io.quarkus.panache.mock.PanacheMock;
@@ -33,7 +34,7 @@ class BreweryControllerTest {
         PanacheMock.mock(Brewery.class);
         when(Brewery.findBySearchInput("TestCity")).thenReturn(brewery);
 
-        Brewery result = breweryController.getBreweryByCity("TestCity", 1);
+        BreweryDTO result = breweryController.getBreweryByCity("TestCity", 1);
 
         assertEquals("TestSearchInput", result.searchInput);
         assertEquals("TestData", result.data);
@@ -48,7 +49,7 @@ class BreweryControllerTest {
         String breweryData = "{\"name\":\"TestBrewery\"}";
         when(breweryDBService.getBreweryByCity("NotCachedCity", 1)).thenReturn(breweryData);
 
-        Brewery result = breweryController.getBreweryByCity("NotCachedCity", 1);
+        BreweryDTO result = breweryController.getBreweryByCity("NotCachedCity", 1);
 
         assertEquals("NotCachedCity", result.searchInput);
         assertEquals(breweryData, result.data);
@@ -62,7 +63,7 @@ class BreweryControllerTest {
 
         when(breweryDBService.getBreweryByCity("NotCachedCity", 1)).thenReturn("[]");
 
-        Brewery result = breweryController.getBreweryByCity("NotCachedCity", 1);
+        BreweryDTO result = breweryController.getBreweryByCity("NotCachedCity", 1);
 
         assertNull(result);
     }

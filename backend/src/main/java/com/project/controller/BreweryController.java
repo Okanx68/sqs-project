@@ -1,5 +1,6 @@
 package com.project.controller;
 
+import com.project.dto.BreweryDTO;
 import com.project.entity.Brewery;
 import com.project.service.BreweryDBService;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -13,7 +14,7 @@ public class BreweryController {
     @RestClient
     BreweryDBService breweryDBService;
 
-    public Brewery getBreweryByCity(String city, int count){
+    public BreweryDTO getBreweryByCity(String city, int count){
         Brewery breweryEntry = Brewery.findBySearchInput(city);
 
         if(breweryEntry == null){
@@ -28,6 +29,6 @@ public class BreweryController {
             }
         }
 
-        return breweryEntry;
+        return Brewery.convertToDTO(breweryEntry);
     }
 }

@@ -1,7 +1,7 @@
 package com.project.boundary;
 
 import com.project.controller.BreweryController;
-import com.project.entity.Brewery;
+import com.project.dto.BreweryDTO;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
@@ -20,11 +20,11 @@ public class BreweryResource {
     @Path("/{cityName}")
     @Transactional
     public Response getBreweryByCity(@PathParam("cityName") String city, @QueryParam("count") int count){
-        Brewery brewery = breweryController.getBreweryByCity(city, count);
-        if(brewery == null){
+        BreweryDTO breweryDTO = breweryController.getBreweryByCity(city, count);
+        if(breweryDTO == null){
             return Response.noContent().build();
         }
-        return Response.ok().entity(brewery).build();
+        return Response.ok().entity(breweryDTO).build();
 
     }
 }

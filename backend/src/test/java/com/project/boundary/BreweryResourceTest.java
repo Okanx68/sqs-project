@@ -1,6 +1,7 @@
 package com.project.boundary;
 
 import com.project.controller.BreweryController;
+import com.project.dto.BreweryDTO;
 import com.project.entity.Brewery;
 import io.quarkus.test.InjectMock;
 import io.quarkus.test.junit.QuarkusTest;
@@ -23,8 +24,9 @@ class BreweryResourceTest {
         Brewery brewery = new Brewery();
         brewery.searchInput = "TestSearchInput";
         brewery.data = "TestData";
+        BreweryDTO breweryDTO = Brewery.convertToDTO(brewery);
 
-        when(breweryController.getBreweryByCity("TestCity", 1)).thenReturn(brewery);
+        when(breweryController.getBreweryByCity("TestCity", 1)).thenReturn(breweryDTO);
 
         given()
                 .pathParam("cityName", "TestCity")
