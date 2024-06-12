@@ -10,5 +10,12 @@
   "include": [
     "src/**/*.spec.ts",
     "src/**/*.d.ts"
+  ],
+  "exclude": [
+    "src/app/app.config.ts",
+    "src/app/app.routes.ts",
+    "src/environments/**/*.ts",
+    "src/main.ts",
+    "src/polyfills.ts"
   ]
 }
