@@ -28,17 +28,17 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'frontend' title`, () => {
+  it(`should have the 'Brewery Details' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('frontend');
+    expect(app.title).toEqual('Brewery Details');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, frontend');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Brewery Detail List');
   });
 
   it(`should have the 'Brewery Details' title`, () => {
@@ -64,7 +64,7 @@ describe('AppComponent', () => {
   });
 
   it('should update breweries to an empty array and noDataMessage to an error message when no data is returned', () => {
-    spyOn(breweryService, 'getBreweriesByCity').and.returnValue(of(null));
+    spyOn(breweryService, 'getBreweriesByCity').and.returnValue(of([]));
 
     component.onSearch();
 
