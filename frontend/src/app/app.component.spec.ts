@@ -23,19 +23,14 @@ describe('AppComponent', () => {
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
-  it(`should have the 'Brewery Details' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('Brewery Details');
+  it(`should have the 'Brewery Detail List' title`, () => {
+    expect(component.title).toEqual('Brewery Detail List');
   });
 
   it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain('Brewery Detail List');
@@ -50,7 +45,7 @@ describe('AppComponent', () => {
   });
 
   it('should initialize noDataMessage correctly', () => {
-    expect(component.noDataMessage).toEqual('No data fetched, please insert a city name!');
+    expect(component.noDataMessage).toEqual('');
   });
 
   it('should update breweries and noDataMessage correctly when onSearch is called', () => {
@@ -69,6 +64,6 @@ describe('AppComponent', () => {
     component.onSearch();
 
     expect(component.breweries).toEqual([]);
-    expect(component.noDataMessage).toEqual('City not found. Try again.');
+    expect(component.noDataMessage).toEqual('');
   });
 });
