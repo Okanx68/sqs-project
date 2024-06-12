@@ -82,6 +82,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "codeCoverage": true,
+            "coverageReporters": ["lcov"],
             "polyfills": [
               "zone.js",
               "zone.js/testing"
