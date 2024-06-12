@@ -46,16 +46,16 @@ describe('AppComponent', () => {
 
   it('should update breweries and noDataMessage correctly when onSearch is called', () => {
     const mockBreweries = [{ name: 'Test Brewery' }];
-    spyOn(breweryService, 'getBreweriesByCity').and.returnValue(of(mockBreweries));
+    spyOn(breweryService, 'getBreweriesByCity').and.returnValue(of({data: JSON.stringify(mockBreweries)}));
 
     component.onSearch();
 
-    expect(component.breweries.length).toEqual(0);
+    expect(component.breweries.length).toEqual(1);
     expect(component.noDataMessage).toEqual('');
   });
 
   it('should update breweries to an empty array and noDataMessage to an error message when no data is returned', () => {
-    spyOn(breweryService, 'getBreweriesByCity').and.returnValue(of([]));
+    spyOn(breweryService, 'getBreweriesByCity').and.returnValue(of(null));
 
     component.onSearch();
 
