@@ -72,13 +72,6 @@ jobs:
         with:
           node-version: '18.17'
 
-      - name: Cache Node.js packages
-        uses: actions/cache@v2
-        with:
-          path: frontend/node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node
-
       - name: Install dependencies
         working-directory: frontend
         run: npm install
