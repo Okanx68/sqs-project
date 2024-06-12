@@ -35,7 +35,6 @@ export class AppComponent {
           } else {
             this.breweries = JSON.parse(data.data);
           }
-          console.log(this.breweries);
         }
       );
   }

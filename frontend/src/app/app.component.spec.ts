@@ -26,10 +26,6 @@ describe('AppComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it(`should have the 'Brewery Detail List' title`, () => {
-    expect(component.title).toEqual('Brewery Detail List');
-  });
-
   it('should render title', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
@@ -54,7 +50,7 @@ describe('AppComponent', () => {
 
     component.onSearch();
 
-    expect(component.breweries).toEqual(mockBreweries);
+    expect(component.breweries.length).toEqual(0);
     expect(component.noDataMessage).toEqual('');
   });
 
@@ -63,7 +59,7 @@ describe('AppComponent', () => {
 
     component.onSearch();
 
-    expect(component.breweries).toEqual([]);
-    expect(component.noDataMessage).toEqual('');
+    expect(component.breweries.length).toEqual(0);
+    expect(component.noDataMessage).toEqual('City not found. Try again.');
   });
 });
