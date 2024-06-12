@@ -15,31 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-
-
-      - name: Install dependencies
-        working-directory: frontend
-        run: npm install
-
-      - name: Build Angular app with npm
-        working-directory: frontend
-        run: npm run build
-
-      - name: Test with coverage
-        working-directory: frontend
-        run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI --code-coverage
-
-      - name: Run SonarCloud Analysis for Frontend
-        working-directory: frontend
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: npx sonar-scanner -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=${{ secrets.SONAR_TOKEN }} -Dsonar.javascript.lcov.reportPaths=coverage/frontend/lcov.info
-
-
-
-        
+      - uses: actions/checkout@v3  
 
       - name: Lint Backend Dockerfile
         uses: hadolint/hadolint-action@v3.1.0
@@ -101,11 +77,25 @@ jobs:
           path: frontend/node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node
-        
 
+      - name: Install dependencies
+        working-directory: frontend
+        run: npm install
 
+      - name: Build Angular app with npm
+        working-directory: frontend
+        run: npm run build
 
+      - name: Test with coverage
+        working-directory: frontend
+        run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI --code-coverage
 
+      - name: Run SonarCloud Analysis for Frontend
+        working-directory: frontend
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: npx sonar-scanner -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=${{ secrets.SONAR_TOKEN }} -Dsonar.javascript.lcov.reportPaths=coverage/frontend/lcov.info
 
       - name: Prepare lowercase variables
         run: echo "LOWER_REPO_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
