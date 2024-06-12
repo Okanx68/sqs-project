@@ -1,4 +1,3 @@
-
 name: SQS Project
 
 permissions:
@@ -90,6 +89,14 @@ jobs:
       - name: Test with coverage
         working-directory: frontend
         run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI --code-coverage
+
+      - name: Verify Coverage Report
+        working-directory: frontend
+        run: |
+          echo "Listing files in the coverage directory"
+          ls -l coverage
+          echo "Displaying lcov.info content"
+          cat coverage/lcov.info
 
       - name: Run SonarCloud Analysis for Frontend
         working-directory: frontend
