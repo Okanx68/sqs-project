@@ -88,6 +88,7 @@ jobs:
         run: npm run build
 
       - name: Test with coverage
+        working-directory: frontend
         run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI --code-coverage
 
       - name: Run SonarCloud Analysis for Frontend
