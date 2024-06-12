@@ -71,7 +71,10 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '18.17'
-
+          
+      - name: Clear NPM Cache
+        run: npm cache clean --force
+        
       - name: Install dependencies
         working-directory: frontend
         run: npm install
