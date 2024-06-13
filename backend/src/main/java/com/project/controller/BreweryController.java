@@ -15,7 +15,6 @@ public class BreweryController {
     BreweryDBService breweryDBService;
 
     public BreweryDTO getBreweryByCity(String city, int count){
-        BreweryDTO result = new BreweryDTO();
         Brewery breweryEntry = Brewery.findBySearchInput(city);
 
         if(breweryEntry == null){

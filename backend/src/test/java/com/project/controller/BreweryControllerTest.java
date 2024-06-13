@@ -3,7 +3,6 @@ package com.project.controller;
 import com.project.dto.BreweryDTO;
 import com.project.entity.Brewery;
 import com.project.service.BreweryDBService;
-import io.quarkus.hibernate.orm.panache.Panache;
 import io.quarkus.panache.mock.PanacheMock;
 import io.quarkus.test.InjectMock;
 import io.quarkus.test.junit.QuarkusTest;
@@ -40,8 +39,8 @@ class BreweryControllerTest {
 
         BreweryDTO result = breweryController.getBreweryByCity("TestCity", 1);
 
-        assertEquals("TestSearchInput", result.searchInput);
-        assertEquals("TestData", result.data);
+        assertEquals("TestSearchInput", result.getSearchInput());
+        assertEquals("TestData", result.getData());
     }
 
     @Test
@@ -56,8 +55,8 @@ class BreweryControllerTest {
 
         BreweryDTO result = breweryController.getBreweryByCity("NotCachedCity", 1);
 
-        assertEquals("NotCachedCity", result.searchInput);
-        assertEquals(breweryData, result.data);
+        assertEquals("NotCachedCity", result.getSearchInput());
+        assertEquals(breweryData, result.getData());
     }
 
     @Test

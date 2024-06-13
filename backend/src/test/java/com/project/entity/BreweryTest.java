@@ -6,6 +6,7 @@ import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 @QuarkusTest
 class BreweryTest {
@@ -32,5 +33,14 @@ class BreweryTest {
 
         assertEquals(brewery.searchInput, breweryDTO.searchInput);
         assertEquals(brewery.data, breweryDTO.data);
+    }
+
+    @Test
+    void testConvertToDTOBreweryIsNull() {
+        Brewery brewery = null;
+
+        BreweryDTO breweryDTO = Brewery.convertToDTO(brewery);
+
+        assertNull(breweryDTO);
     }
 }

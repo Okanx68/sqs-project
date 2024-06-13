@@ -10,10 +10,10 @@ import org.junit.jupiter.api.Test;
 
 
 @AnalyzeClasses(packages = "com.project")
-public class ArchitectureTest {
+class ArchitectureTest {
 
     @Test
-    public void boundary_should_depend_on_controller_and_dto() {
+    void boundary_should_depend_on_controller_and_dto() {
         JavaClasses importedClasses = new ClassFileImporter().importPackages("com.project");
 
         ArchRule boundaryShouldUseController = ArchRuleDefinition.classes().that().resideInAPackage("..boundary..")
@@ -31,7 +31,7 @@ public class ArchitectureTest {
     }
 
     @Test
-    public void controller_should_depend_on_entity_dto_and_service() {
+    void controller_should_depend_on_entity_dto_and_service() {
         JavaClasses importedClasses = new ClassFileImporter().importPackages("com.project");
 
         ArchRule controllerShouldUseEntity = ArchRuleDefinition.classes().that().resideInAPackage("..controller..")
@@ -61,7 +61,7 @@ public class ArchitectureTest {
     }
 
     @Test
-    public void entity_should_depend_on_dto() {
+    void entity_should_depend_on_dto() {
         JavaClasses importedClasses = new ClassFileImporter().importPackages("com.project");
 
         ArchRule entityShouldUseDTO = ArchRuleDefinition.classes().that().resideInAPackage("..entity..")
@@ -79,7 +79,7 @@ public class ArchitectureTest {
     }
 
     @Test
-    public void service_should_depend_on_nothing() {
+    void service_should_depend_on_nothing() {
         JavaClasses importedClasses = new ClassFileImporter().importPackages("com.project");
 
         ArchRule serviceShouldDependOnNothing = ArchRuleDefinition.noClasses().that().resideInAPackage("..service..")
@@ -91,7 +91,7 @@ public class ArchitectureTest {
     }
 
     @Test
-    public void boundary_classes_should_have_specific_naming_convention() {
+    void boundary_classes_should_have_specific_naming_convention() {
         JavaClasses importedClasses = new ClassFileImporter().importPackages("com.project");
 
         ArchRule rule = ArchRuleDefinition.classes().that().resideInAPackage("..boundary..")
@@ -103,7 +103,7 @@ public class ArchitectureTest {
     }
 
     @Test
-    public void controller_classes_should_have_specific_naming_convention() {
+    void controller_classes_should_have_specific_naming_convention() {
         JavaClasses importedClasses = new ClassFileImporter().importPackages("com.project");
 
         ArchRule rule = ArchRuleDefinition.classes().that().resideInAPackage("..controller..")
@@ -115,7 +115,7 @@ public class ArchitectureTest {
     }
 
     @Test
-    public void dto_classes_should_have_specific_naming_convention() {
+    void dto_classes_should_have_specific_naming_convention() {
         JavaClasses importedClasses = new ClassFileImporter().importPackages("com.project");
 
         ArchRule rule = ArchRuleDefinition.classes().that().resideInAPackage("..dto..")
@@ -127,7 +127,7 @@ public class ArchitectureTest {
     }
 
     @Test
-    public void service_classes_should_have_specific_naming_convention() {
+    void service_classes_should_have_specific_naming_convention() {
         JavaClasses importedClasses = new ClassFileImporter().importPackages("com.project");
 
         ArchRule rule = ArchRuleDefinition.classes().that().resideInAPackage("..service..")

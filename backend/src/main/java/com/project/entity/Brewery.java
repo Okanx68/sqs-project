@@ -24,8 +24,8 @@ public class Brewery extends PanacheEntity {
             return null;
         }
 
-        breweryDTO.searchInput = brewery.searchInput;
-        breweryDTO.data = brewery.data;
+        breweryDTO.setSearchInput(brewery.searchInput);
+        breweryDTO.setData(brewery.data);
         return breweryDTO;
     }
 }
