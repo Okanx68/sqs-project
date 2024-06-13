@@ -86,7 +86,7 @@ jobs:
         working-directory: frontend
         run: npm run build
 
-      - name: Test with coverage
+      - name: Run frontend tests with coverage
         working-directory: frontend
         run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI --code-coverage
 
@@ -115,7 +115,7 @@ jobs:
           push: true
           tags: ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_backend:latest
 
-      - name: Build and push Frontend Docker image
+      - name: Build and push frontend docker image
         uses: docker/build-push-action@v2
         with:
           context: ./frontend
