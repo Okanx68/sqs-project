@@ -31,16 +31,14 @@ class BreweryTest {
 
         BreweryDTO breweryDTO = Brewery.convertToDTO(brewery);
 
-        assertEquals(brewery.searchInput, breweryDTO.searchInput);
-        assertEquals(brewery.data, breweryDTO.data);
+        assertEquals(brewery.searchInput, breweryDTO.getSearchInput());
+        assertEquals(brewery.data, breweryDTO.getData());
     }
 
     @Test
     void testConvertToDTOBreweryIsNull() {
         Brewery brewery = null;
 
-        BreweryDTO breweryDTO = Brewery.convertToDTO(brewery);
-
-        assertNull(breweryDTO);
+        assertNull(Brewery.convertToDTO(brewery));
     }
 }
