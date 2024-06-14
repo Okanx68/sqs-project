@@ -20,9 +20,6 @@ services:
     restart: unless-stopped
     container_name: sqs_backend
     image: ghcr.io/okanx68/sqs-project/sqs_backend:latest
-    build:
-      context: ./backend
-      dockerfile: src/main/docker/Dockerfile.jvm
     ports:
       - "8080:8080"
     depends_on:
@@ -32,9 +29,6 @@ services:
     restart: unless-stopped
     container_name: sqs_frontend
     image: ghcr.io/okanx68/sqs-project/sqs_frontend:latest
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
     ports:
       - "4200:4200"
     depends_on:
