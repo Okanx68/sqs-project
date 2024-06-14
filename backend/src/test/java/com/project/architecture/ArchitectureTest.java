@@ -31,10 +31,10 @@ class ArchitectureTest {
                 .layer("Entity").definedBy("..entity..")
                 .layer("DTO").definedBy("..dto..")
                 .whereLayer("Boundary").mayOnlyBeAccessedByLayers("Controller")
-                .whereLayer("Controller").mayOnlyBeAccessedByLayers("Boundary", "Service")
+                .whereLayer("Controller").mayOnlyBeAccessedByLayers("Boundary")
                 .whereLayer("Service").mayOnlyBeAccessedByLayers("Controller")
-                .whereLayer("Entity").mayOnlyBeAccessedByLayers("Controller", "Service")
-                .whereLayer("DTO").mayOnlyBeAccessedByLayers("Boundary", "Controller", "Service", "Entity");
+                .whereLayer("Entity").mayOnlyBeAccessedByLayers("Controller")
+                .whereLayer("DTO").mayOnlyBeAccessedByLayers("Boundary", "Controller", "Entity");
 
         layeredArchitecture.check(importedClasses);
     }
