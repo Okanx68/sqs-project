@@ -1,7 +1,14 @@
 package com.project.dto;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
+@Schema(description = "Data Transfer Object representing a list of breweries in a specified city")
 public class BreweryDTO {
+
+    @Schema(description = "The search input used to find the breweries", example = "Austin")
     private String searchInput;
+
+    @Schema(description = "The data related to the brewery search")
     private String data;
 
     public String getSearchInput() {

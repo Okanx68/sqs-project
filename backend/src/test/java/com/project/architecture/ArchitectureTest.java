@@ -117,6 +117,19 @@ class ArchitectureTest {
     }
 
     @Test
+    void dto_should_depend_on_nothing() {
+        JavaClasses importedClasses = new ClassFileImporter()
+                .withImportOption(new ImportOption.DoNotIncludeTests())
+                .importPackages("com.project");
+
+        ArchRule serviceShouldDependOnNothing = ArchRuleDefinition.noClasses().that().resideInAPackage("..dto..")
+                .should().dependOnClassesThat().resideInAnyPackage("..boundary..", "..controller..", "..entity..", "..service")
+                .because("Service should depend on nothing");
+
+        serviceShouldDependOnNothing.check(importedClasses);
+    }
+
+    @Test
     void boundary_classes_should_have_specific_naming_convention() {
         JavaClasses importedClasses = new ClassFileImporter()
                 .withImportOption(new ImportOption.DoNotIncludeTests())
