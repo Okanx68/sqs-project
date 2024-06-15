@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 
 test('wirdSeiteRichtigAufgebaut', async ({ page }) => {
     await page.goto('http://localhost:4200/');
-    await expect(page.getByRole('heading', { name: 'Brewery List' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Brewery Explorer' })).toBeVisible();
     await expect(page.getByPlaceholder('Enter City Name')).toBeVisible();
     await expect(page.getByRole('button', { name: 'Search' })).toBeVisible();
     await expect(page.locator('#noDataContent')).toBeVisible();
@@ -107,7 +107,7 @@ test('verlinkungenInDerTabelleVerbindenAufDieJeweiligeSeite', async ({ page }) =
     await page.getByRole('link', { name: 'http://www.512brewing.com' }).click();
     await expect(page.locator('.wvc-clearfix').first()).toBeVisible();
     await page.goto('http://localhost:4200/');
-    await expect(page.getByText('Brewery Detail ListSearchNo')).toBeVisible();
+    await expect(page.getByText('Brewery ExplorerSearchNo')).toBeVisible();
     
 });
 
