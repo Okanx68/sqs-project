@@ -21,6 +21,7 @@ public class Brewery extends PanacheEntity {
         return find("searchInput", searchInput).firstResult();
     }
 
+    //wandle Brewery in BreweryDTO um
     public static BreweryDTO convertToDTO(Brewery brewery) {
         BreweryDTO breweryDTO = new BreweryDTO();
 

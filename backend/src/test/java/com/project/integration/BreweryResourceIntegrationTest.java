@@ -22,12 +22,14 @@ class BreweryResourceIntegrationTest {
     @RestClient
     BreweryDBService breweryDBService;
 
+    //führe einen komplett parametrisierten Integrationstest durch
     @ParameterizedTest
     @ValueSource(strings = {"Graz", "San Diego", "Denver", "Austin", "Cincinnati"})
     void testGetBreweryByCityParametrizedIntegrationTest(String city) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        int count = 5;
+        int count = 20;
 
+        //erhalte eine Response aus der Open Brewery DB
         String testBreweriesFromRestClient = breweryDBService.getBreweryByCity(city, count);
         JsonNode testJson = mapper.readTree(testBreweriesFromRestClient);
         String testData = mapper.writeValueAsString(testJson);
@@ -40,11 +42,13 @@ class BreweryResourceIntegrationTest {
                 .statusCode(200)
                 .extract().body().asString();
 
+        //prüfe, ob Brauereien in der Datenbank abgespeichert wurden
         Brewery testPersistedEntity = Brewery.findBySearchInput(city);
 
         JsonNode responseJson = mapper.readTree(response);
         String responseData = responseJson.get("data").asText();
 
+        //gleiche Ergebnisse mit der Open Brewery DB Response ab
         Assertions.assertEquals(testData, responseData);
         Assertions.assertEquals(testData, testPersistedEntity.data);
     }

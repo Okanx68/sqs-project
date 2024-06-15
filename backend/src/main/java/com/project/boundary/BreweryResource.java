@@ -63,9 +63,11 @@ public class BreweryResource {
     @Transactional
     public Response getBreweryByCity(@PathParam("cityName") String city, @QueryParam("count") int count){
         BreweryDTO breweryDTO = breweryController.getBreweryByCity(city, count);
+
         if(breweryDTO == null){
             return Response.noContent().build();
         }
+
         return Response.ok().entity(breweryDTO).build();
 
     }

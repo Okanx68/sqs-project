@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 
 test('wirdSeiteRichtigAufgebaut', async ({ page }) => {
     await page.goto('http://localhost:4200/');
-    await expect(page.getByRole('heading', { name: 'Brewery Detail List' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Brewery List' })).toBeVisible();
     await expect(page.getByPlaceholder('Enter City Name')).toBeVisible();
     await expect(page.getByRole('button', { name: 'Search' })).toBeVisible();
     await expect(page.locator('#noDataContent')).toBeVisible();

@@ -19,6 +19,7 @@ class BreweryResourceTest {
     @InjectMock
     BreweryController breweryController;
 
+    //Endpoint mit einem normalen Request prüfen
     @Test
     void testGetBreweryByCityEndpoint(){
         Brewery brewery = new Brewery();
@@ -39,6 +40,7 @@ class BreweryResourceTest {
                         "data", is("TestData"));
     }
 
+    //Endpoint mit einer Stadt prüfen, die nicht in der Open Brewery DB vorhanden ist
     @Test
     void testGetBreweryByCityEndpointReturnsNoContent() {
         when(breweryController.getBreweryByCity("NonExistentCity", 1)).thenReturn(null);

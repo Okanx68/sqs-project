@@ -29,11 +29,11 @@ describe('AppComponent', () => {
   it('should render title', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Brewery Detail List');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Brewery List');
   });
 
   it(`should have the 'Brewery Details' title`, () => {
-    expect(component.title).toEqual('Brewery Details');
+    expect(component.title).toEqual('Brewery List');
   });
 
   it('should initialize breweries as an empty array', () => {

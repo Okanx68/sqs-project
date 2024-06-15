@@ -13,7 +13,7 @@ import {NgForOf, NgIf} from "@angular/common";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title: string = 'Brewery Details';
+  title: string = 'Brewery List';
   breweries: Brewery[] = [];
   newForm: FormGroup = new FormGroup({
     fieldVal: new FormControl('')
