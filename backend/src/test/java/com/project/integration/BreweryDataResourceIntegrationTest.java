@@ -30,7 +30,7 @@ class BreweryDataResourceIntegrationTest {
         int count = 5;
 
         //erhalte eine Response aus der Open Brewery DB
-        String testBreweriesFromRestClient = breweryDBService.getBreweryDataByCity(city, count);
+        String testBreweriesFromRestClient = breweryDBService.getBreweriesByCity(city, count);
         JsonNode testJson = mapper.readTree(testBreweriesFromRestClient);
         String testData = mapper.writeValueAsString(testJson);
 
@@ -51,6 +51,6 @@ class BreweryDataResourceIntegrationTest {
 
         //gleiche Datenbankergebnis und Response mit der Open Brewery DB Response ab
         Assertions.assertEquals(testData, responseData);
-        Assertions.assertEquals(testData, testPersistedEntity.data);
+        Assertions.assertEquals(testData, testPersistedEntity.breweries);
     }
 }

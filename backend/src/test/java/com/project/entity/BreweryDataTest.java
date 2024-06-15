@@ -29,12 +29,12 @@ class BreweryDataTest {
     void testConvertToDTO() {
         BreweryData breweryData = new BreweryData();
         breweryData.searchInput = "TestSearchInput";
-        breweryData.data = "TestData";
+        breweryData.breweries = "TestData";
 
         BreweryDataDTO breweryDataDTO = BreweryData.convertToDTO(breweryData);
 
         assertEquals(breweryData.searchInput, breweryDataDTO.getSearchInput());
-        assertEquals(breweryData.data, breweryDataDTO.getData());
+        assertEquals(breweryData.breweries, breweryDataDTO.getBreweries());
     }
 
     //prüfe, ob Umwandlung in DTO mit fehlender Entity fehlschlägt

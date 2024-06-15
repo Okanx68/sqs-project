@@ -31,7 +31,7 @@ class BreweryDataControllerTest {
     void testGetBreweryDataByCityBreweriesFoundInOwnDatabase(){
         BreweryData breweryData = new BreweryData();
         breweryData.searchInput = "TestSearchInput";
-        breweryData.data = "TestData";
+        breweryData.breweries = "TestData";
         BreweryDataDTO breweryDataDTO = BreweryData.convertToDTO(breweryData);
         PanacheMock.mock(BreweryData.class);
 
@@ -41,7 +41,7 @@ class BreweryDataControllerTest {
         BreweryDataDTO result = breweryDataController.getBreweryDataByCity("TestCity", 1);
 
         assertEquals("TestSearchInput", result.getSearchInput());
-        assertEquals("TestData", result.getData());
+        assertEquals("TestData", result.getBreweries());
     }
 
     //teste Methode mit gefundenen Brauereien in der Open Brewery DB (cache miss)
@@ -52,13 +52,13 @@ class BreweryDataControllerTest {
         PanacheMock.mock(BreweryData.class);
 
         when(BreweryData.findBySearchInput("NotCachedCity")).thenReturn(null);
-        when(breweryDBService.getBreweryDataByCity("NotCachedCity", 1)).thenReturn(breweryData);
+        when(breweryDBService.getBreweriesByCity("NotCachedCity", 1)).thenReturn(breweryData);
         when(BreweryData.convertToDTO(any(BreweryData.class))).thenCallRealMethod();
 
         BreweryDataDTO result = breweryDataController.getBreweryDataByCity("NotCachedCity", 1);
 
         assertEquals("NotCachedCity", result.getSearchInput());
-        assertEquals(breweryData, result.getData());
+        assertEquals(breweryData, result.getBreweries());
     }
 
     //teste Methode ohne gefundene Brauereien in der Open Brewery DB
@@ -68,7 +68,7 @@ class BreweryDataControllerTest {
         PanacheMock.mock(BreweryData.class);
 
         when(BreweryData.findBySearchInput("NotCachedCity")).thenReturn(null);
-        when(breweryDBService.getBreweryDataByCity("NotCachedCity", 1)).thenReturn("[]");
+        when(breweryDBService.getBreweriesByCity("NotCachedCity", 1)).thenReturn("[]");
 
         BreweryDataDTO result = breweryDataController.getBreweryDataByCity("NotCachedCity", 1);
 

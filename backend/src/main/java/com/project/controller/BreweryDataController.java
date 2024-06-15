@@ -20,13 +20,13 @@ public class BreweryDataController {
 
         if(breweryDataEntry == null){
             //falls kein Eintrag in der Datenbank vorhanden ist, führe einen Request an die Open Brewery DB durch
-            String data = breweryDBService.getBreweryDataByCity(city, count);
+            String breweries = breweryDBService.getBreweriesByCity(city, count);
 
-            if(!"[]".equals(data)) {
+            if(!"[]".equals(breweries)) {
                 //speichere die Open Brewery DB Response in der Datenbank ab
                 breweryDataEntry = new BreweryData();
                 breweryDataEntry.searchInput = city;
-                breweryDataEntry.data = data;
+                breweryDataEntry.breweries = breweries;
 
                 breweryDataEntry.persist();
             }

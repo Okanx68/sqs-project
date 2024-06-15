@@ -33,7 +33,7 @@ export class AppComponent {
             this.noDataMessage = "City not found. Try again.";
             this.breweries = [];
           } else {
-            this.breweries = JSON.parse(data.data);
+            this.breweries = JSON.parse(data.breweries);
           }
         }
       );

@@ -24,7 +24,7 @@ class BreweryDataResourceTest {
     void testGetBreweryDataByCityEndpoint(){
         BreweryData breweryData = new BreweryData();
         breweryData.searchInput = "TestSearchInput";
-        breweryData.data = "TestData";
+        breweryData.breweries = "TestData";
         BreweryDataDTO breweryDataDTO = BreweryData.convertToDTO(breweryData);
 
         when(breweryDataController.getBreweryDataByCity("TestCity", 1)).thenReturn(breweryDataDTO);

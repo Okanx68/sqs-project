@@ -8,8 +8,8 @@ public class BreweryDataDTO {
     @Schema(description = "The search input used to find the breweries", example = "Austin")
     private String searchInput;
 
-    @Schema(description = "The data related to the brewery search")
-    private String data;
+    @Schema(description = "The breweries related to the brewery search")
+    private String breweries;
 
     public String getSearchInput() {
         return searchInput;
@@ -19,11 +19,11 @@ public class BreweryDataDTO {
         this.searchInput = searchInput;
     }
 
-    public String getData() {
-        return data;
+    public String getBreweries() {
+        return breweries;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setBreweries(String breweries) {
+        this.breweries = breweries;
     }
 }

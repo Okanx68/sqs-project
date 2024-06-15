@@ -13,9 +13,9 @@ public class BreweryData extends PanacheEntity {
     @Schema(description = "The search input used to find the breweries", example = "Austin")
     public String searchInput;
 
-    @Schema(description = "The data related to the brewery search")
+    @Schema(description = "The breweries related to the brewery search")
     @Column(columnDefinition = "TEXT")
-    public String data;
+    public String breweries;
 
     public static BreweryData findBySearchInput(String searchInput){
         return find("searchInput", searchInput).firstResult();
@@ -30,7 +30,7 @@ public class BreweryData extends PanacheEntity {
         }
 
         breweryDataDTO.setSearchInput(breweryData.searchInput);
-        breweryDataDTO.setData(breweryData.data);
+        breweryDataDTO.setBreweries(breweryData.breweries);
         return breweryDataDTO;
     }
 }

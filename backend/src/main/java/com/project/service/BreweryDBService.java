@@ -9,6 +9,6 @@ public interface BreweryDBService {
 
     //führe einen Request an die Open Brewery DB durch, um Brauereien für eine bestimmte Stadt zu erhalten
     @GET
-    String getBreweryDataByCity(@QueryParam("by_city") String city, @QueryParam("per_page") int count);
+    String getBreweriesByCity(@QueryParam("by_city") String city, @QueryParam("per_page") int count);
 
 }
