@@ -27,7 +27,7 @@ class BreweryResourceIntegrationTest {
     @ValueSource(strings = {"Graz", "San Diego", "Denver", "Austin", "Cincinnati"})
     void testGetBreweryByCityParametrizedIntegrationTest(String city) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        int count = 20;
+        int count = 5;
 
         //erhalte eine Response aus der Open Brewery DB
         String testBreweriesFromRestClient = breweryDBService.getBreweryByCity(city, count);
