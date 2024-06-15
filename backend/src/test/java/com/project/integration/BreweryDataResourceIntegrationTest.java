@@ -38,7 +38,7 @@ class BreweryDataResourceIntegrationTest {
         String response = given()
                 .pathParam("cityName", city)
                 .queryParam("count", count)
-                .when().get("/brewery/{cityName}")
+                .when().get("/breweryData/{cityName}")
                 .then()
                 .statusCode(200)
                 .extract().body().asString();
