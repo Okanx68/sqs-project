@@ -46,7 +46,7 @@ describe('AppComponent', () => {
 
   it('should update breweries and noDataMessage correctly when onSearch is called', () => {
     const mockBreweries = [{ name: 'Test Brewery' }];
-    spyOn(breweryService, 'getBreweriesByCity').and.returnValue(of({data: JSON.stringify(mockBreweries)}));
+    spyOn(breweryService, 'getBreweriesByCity').and.returnValue(of({breweries: JSON.stringify(mockBreweries)}));
 
     component.onSearch();
 
