@@ -1,37 +1,37 @@
 package com.project.controller;
 
-import com.project.dto.BreweryDTO;
-import com.project.entity.Brewery;
+import com.project.dto.BreweryDataDTO;
+import com.project.entity.BreweryData;
 import com.project.service.BreweryDBService;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 @ApplicationScoped
-public class BreweryController {
+public class BreweryDataController {
 
     @Inject
     @RestClient
     BreweryDBService breweryDBService;
 
-    public BreweryDTO getBreweryByCity(String city, int count){
+    public BreweryDataDTO getBreweryDataByCity(String city, int count){
         //finde zunächst heraus, ob ein Eintrag in der Datenbank vorhanden ist
-        Brewery breweryEntry = Brewery.findBySearchInput(city);
+        BreweryData breweryDataEntry = BreweryData.findBySearchInput(city);
 
-        if(breweryEntry == null){
+        if(breweryDataEntry == null){
             //falls kein Eintrag in der Datenbank vorhanden ist, führe einen Request an die Open Brewery DB durch
-            String data = breweryDBService.getBreweryByCity(city, count);
+            String data = breweryDBService.getBreweryDataByCity(city, count);
 
             if(!"[]".equals(data)) {
                 //speichere die Open Brewery DB Response in der Datenbank ab
-                breweryEntry = new Brewery();
-                breweryEntry.searchInput = city;
-                breweryEntry.data = data;
+                breweryDataEntry = new BreweryData();
+                breweryDataEntry.searchInput = city;
+                breweryDataEntry.data = data;
 
-                breweryEntry.persist();
+                breweryDataEntry.persist();
             }
         }
 
-        return Brewery.convertToDTO(breweryEntry);
+        return BreweryData.convertToDTO(breweryDataEntry);
     }
 }

@@ -1,8 +1,8 @@
 package com.project.boundary;
 
-import com.project.controller.BreweryController;
-import com.project.dto.BreweryDTO;
-import com.project.entity.Brewery;
+import com.project.controller.BreweryDataController;
+import com.project.dto.BreweryDataDTO;
+import com.project.entity.BreweryData;
 import io.quarkus.test.InjectMock;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.transaction.Transactional;
@@ -14,20 +14,20 @@ import static org.mockito.Mockito.when;
 
 @QuarkusTest
 @Transactional
-class BreweryResourceTest {
+class BreweryDataResourceTest {
 
     @InjectMock
-    BreweryController breweryController;
+    BreweryDataController breweryDataController;
 
-    //Endpoint mit einem normalen Request prüfen
+    //Endpoint prüfen
     @Test
-    void testGetBreweryByCityEndpoint(){
-        Brewery brewery = new Brewery();
-        brewery.searchInput = "TestSearchInput";
-        brewery.data = "TestData";
-        BreweryDTO breweryDTO = Brewery.convertToDTO(brewery);
+    void testGetBreweryDataByCityEndpoint(){
+        BreweryData breweryData = new BreweryData();
+        breweryData.searchInput = "TestSearchInput";
+        breweryData.data = "TestData";
+        BreweryDataDTO breweryDataDTO = BreweryData.convertToDTO(breweryData);
 
-        when(breweryController.getBreweryByCity("TestCity", 1)).thenReturn(breweryDTO);
+        when(breweryDataController.getBreweryDataByCity("TestCity", 1)).thenReturn(breweryDataDTO);
 
         given()
                 .pathParam("cityName", "TestCity")
@@ -42,8 +42,8 @@ class BreweryResourceTest {
 
     //Endpoint mit einer Stadt prüfen, die nicht in der Open Brewery DB vorhanden ist
     @Test
-    void testGetBreweryByCityEndpointReturnsNoContent() {
-        when(breweryController.getBreweryByCity("NonExistentCity", 1)).thenReturn(null);
+    void testGetBreweryDataByCityEndpointReturnsNoContent() {
+        when(breweryDataController.getBreweryDataByCity("NonExistentCity", 1)).thenReturn(null);
 
         given()
                 .pathParam("cityName", "NonExistentCity")

@@ -1,7 +1,7 @@
 package com.project.boundary;
 
-import com.project.controller.BreweryController;
-import com.project.dto.BreweryDTO;
+import com.project.controller.BreweryDataController;
+import com.project.dto.BreweryDataDTO;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
@@ -18,10 +18,10 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 
 @Path("/brewery")
 @Produces(MediaType.APPLICATION_JSON)
-public class BreweryResource {
+public class BreweryDataResource {
 
     @Inject
-    BreweryController breweryController;
+    BreweryDataController breweryDataController;
 
     @GET
     @Path("/{cityName}")
@@ -44,7 +44,7 @@ public class BreweryResource {
                     description = "A list of breweries",
                     content = @Content(
                             mediaType = "application/json",
-                            schema = @Schema(type = SchemaType.ARRAY, implementation = BreweryDTO.class)
+                            schema = @Schema(type = SchemaType.ARRAY, implementation = BreweryDataDTO.class)
                     )
             ),
             @APIResponse(
@@ -61,14 +61,14 @@ public class BreweryResource {
             )
     })
     @Transactional
-    public Response getBreweryByCity(@PathParam("cityName") String city, @QueryParam("count") int count){
-        BreweryDTO breweryDTO = breweryController.getBreweryByCity(city, count);
+    public Response getBreweryDataByCity(@PathParam("cityName") String city, @QueryParam("count") int count){
+        BreweryDataDTO breweryDataDTO = breweryDataController.getBreweryDataByCity(city, count);
 
-        if(breweryDTO == null){
+        if(breweryDataDTO == null){
             return Response.noContent().build();
         }
 
-        return Response.ok().entity(breweryDTO).build();
+        return Response.ok().entity(breweryDataDTO).build();
 
     }
 }

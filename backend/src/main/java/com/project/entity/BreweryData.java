@@ -1,6 +1,6 @@
 package com.project.entity;
 
-import com.project.dto.BreweryDTO;
+import com.project.dto.BreweryDataDTO;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,7 +8,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 @Entity
 @Schema(description = "Entity representing a list of breweries in a specified city")
-public class Brewery extends PanacheEntity {
+public class BreweryData extends PanacheEntity {
 
     @Schema(description = "The search input used to find the breweries", example = "Austin")
     public String searchInput;
@@ -17,20 +17,20 @@ public class Brewery extends PanacheEntity {
     @Column(columnDefinition = "TEXT")
     public String data;
 
-    public static Brewery findBySearchInput(String searchInput){
+    public static BreweryData findBySearchInput(String searchInput){
         return find("searchInput", searchInput).firstResult();
     }
 
     //wandle Brewery in BreweryDTO um
-    public static BreweryDTO convertToDTO(Brewery brewery) {
-        BreweryDTO breweryDTO = new BreweryDTO();
+    public static BreweryDataDTO convertToDTO(BreweryData breweryData) {
+        BreweryDataDTO breweryDataDTO = new BreweryDataDTO();
 
-        if(brewery == null){
+        if(breweryData == null){
             return null;
         }
 
-        breweryDTO.setSearchInput(brewery.searchInput);
-        breweryDTO.setData(brewery.data);
-        return breweryDTO;
+        breweryDataDTO.setSearchInput(breweryData.searchInput);
+        breweryDataDTO.setData(breweryData.data);
+        return breweryDataDTO;
     }
 }
