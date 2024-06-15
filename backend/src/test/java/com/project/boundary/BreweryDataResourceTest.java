@@ -24,7 +24,7 @@ class BreweryDataResourceTest {
     void testGetBreweryDataByCityEndpoint(){
         BreweryData breweryData = new BreweryData();
         breweryData.searchInput = "TestSearchInput";
-        breweryData.breweries = "TestData";
+        breweryData.breweries = "TestBreweries";
         BreweryDataDTO breweryDataDTO = BreweryData.convertToDTO(breweryData);
 
         when(breweryDataController.getBreweryDataByCity("TestCity", 1)).thenReturn(breweryDataDTO);
@@ -37,7 +37,7 @@ class BreweryDataResourceTest {
                 .then()
                 .statusCode(200)
                 .body("searchInput", is("TestSearchInput"),
-                        "data", is("TestData"));
+                        "breweries", is("TestBreweries"));
     }
 
     //Endpoint mit einer Stadt prüfen, die nicht in der Open Brewery DB vorhanden ist

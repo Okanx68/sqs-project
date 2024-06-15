@@ -31,7 +31,7 @@ class BreweryDataControllerTest {
     void testGetBreweryDataByCityBreweriesFoundInOwnDatabase(){
         BreweryData breweryData = new BreweryData();
         breweryData.searchInput = "TestSearchInput";
-        breweryData.breweries = "TestData";
+        breweryData.breweries = "TestBreweries";
         BreweryDataDTO breweryDataDTO = BreweryData.convertToDTO(breweryData);
         PanacheMock.mock(BreweryData.class);
 
@@ -41,7 +41,7 @@ class BreweryDataControllerTest {
         BreweryDataDTO result = breweryDataController.getBreweryDataByCity("TestCity", 1);
 
         assertEquals("TestSearchInput", result.getSearchInput());
-        assertEquals("TestData", result.getBreweries());
+        assertEquals("TestBreweries", result.getBreweries());
     }
 
     //teste Methode mit gefundenen Brauereien in der Open Brewery DB (cache miss)

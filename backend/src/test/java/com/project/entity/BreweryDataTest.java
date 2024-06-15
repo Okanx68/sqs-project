@@ -29,7 +29,7 @@ class BreweryDataTest {
     void testConvertToDTO() {
         BreweryData breweryData = new BreweryData();
         breweryData.searchInput = "TestSearchInput";
-        breweryData.breweries = "TestData";
+        breweryData.breweries = "TestBreweries";
 
         BreweryDataDTO breweryDataDTO = BreweryData.convertToDTO(breweryData);
 
