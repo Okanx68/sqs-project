@@ -47,7 +47,7 @@ class BreweryDataResourceIntegrationTest {
         BreweryData testPersistedEntity = BreweryData.findBySearchInput(city);
 
         JsonNode responseJson = mapper.readTree(response);
-        String responseData = responseJson.get("data").asText();
+        String responseData = responseJson.get("breweries").asText();
 
         //gleiche Datenbankergebnis und Response mit der Open Brewery DB Response ab
         Assertions.assertEquals(testData, responseData);
