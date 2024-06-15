@@ -16,7 +16,7 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 
 
-@Path("/breweryData")
+@Path("/breweries")
 @Produces(MediaType.APPLICATION_JSON)
 public class BreweryDataResource {
 

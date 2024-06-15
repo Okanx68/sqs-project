@@ -13,6 +13,6 @@ export class BreweryService {
   params = new HttpParams().set('count', '20');
 
   getBreweriesByCity(cityName: any): any {
-    return this.http.get<Brewery[]>(environment.apiUrl + '/breweryData/' + cityName, {params: this.params});
+    return this.http.get<Brewery[]>(environment.apiUrl + '/breweries/' + cityName, {params: this.params});
   }
 }

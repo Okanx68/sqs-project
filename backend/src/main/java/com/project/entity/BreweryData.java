@@ -13,7 +13,7 @@ public class BreweryData extends PanacheEntity {
     @Schema(description = "The search input used to find the breweries", example = "Austin")
     public String searchInput;
 
-    @Schema(description = "The breweries related to the search")
+    @Schema(description = "The breweries retrieved from the external API response")
     @Column(columnDefinition = "TEXT")
     public String breweries;
 

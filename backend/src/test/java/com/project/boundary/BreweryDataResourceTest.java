@@ -33,7 +33,7 @@ class BreweryDataResourceTest {
                 .pathParam("cityName", "TestCity")
                 .queryParam("count", 1)
                 .when()
-                .get("/breweryData/{cityName}")
+                .get("/breweries/{cityName}")
                 .then()
                 .statusCode(200)
                 .body("searchInput", is("TestSearchInput"),
@@ -49,7 +49,7 @@ class BreweryDataResourceTest {
                 .pathParam("cityName", "NonExistentCity")
                 .queryParam("count", 1)
                 .when()
-                .get("/breweryData/{cityName}")
+                .get("/breweries/{cityName}")
                 .then()
                 .statusCode(204);
     }

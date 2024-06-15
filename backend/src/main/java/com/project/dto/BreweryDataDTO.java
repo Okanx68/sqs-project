@@ -8,7 +8,7 @@ public class BreweryDataDTO {
     @Schema(description = "The search input used to find the breweries", example = "Austin")
     private String searchInput;
 
-    @Schema(description = "The breweries related to the search")
+    @Schema(description = "The breweries retrieved from the external API response")
     private String breweries;
 
     public String getSearchInput() {
