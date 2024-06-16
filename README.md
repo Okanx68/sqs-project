@@ -72,7 +72,8 @@ Responses:
 Die API-Dokumentation wird mittels Swagger UI bereitgestellt: http://localhost:8080/api/v1/q/swagger-ui
 
 Die OpenAPI-Spezifikation des Backends kann mit folgendem Link im JSON-Format abgerufen werden: http://localhost:8080/api/v1/q/openapi?format=json
-### Externe Schnittstelle Open Brewery DB
+
+### Externe technische Schnittstelle - Open Brewery DB
 
 Die externe Schnittstelle ermöglicht das Abrufen einer Liste von Brauereiinformationen für eine bestimmte Stadt.
 
@@ -85,12 +86,6 @@ Parameter:
 * per_page: Die maximale Anzahl an Brauereien als Queryparameter.
 
 API-Dokumentation des externen Endpunkts: https://openbrewerydb.org/documentation#list-breweries
-
-**\<Diagramm oder Tabelle>**
-
-**\<optional: Erläuterung der externen technischen Schnittstellen>**
-
-**\<Mapping fachliche auf technische Schnittstellen>**
 
 # Lösungsstrategie
 
