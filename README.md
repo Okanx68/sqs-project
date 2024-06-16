@@ -29,6 +29,7 @@ Das Ziel der Brewery Explorer Webanwendung ist es, Brauereien in einer bestimmte
 # Randbedingungen
 
 Folgende Randbedingungen wurden im Rahmen dieses Projektes festgelegt:
+
 * 
 # Kontextabgrenzung
 
