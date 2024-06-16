@@ -42,6 +42,10 @@ Das Ziel der Brewery Explorer Webanwendung ist es, Brauereien in einer bestimmte
 
 ## Technischer Kontext
 
+### UML Diagramm
+
+![UML Diagramm](https://github.com/Okanx68/sqs-project/blob/main/doc/images/UMLDiagramm.png)
+
 ### Schnittstelle zum Backend
 Das System interagiert mit der Open Brewery DB API, um Brauereiinformationen im Quarkus-Backend abzurufen. Diese Daten werden in der PostgreSQL-Datenbank zwischengespeichert und Benutzern über die Angular-Webanwendung zugänglich gemacht.
 
