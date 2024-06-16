@@ -22,15 +22,15 @@ Ein besonderer Schwerpunkt liegt auf der Abfrage von Brauereien in spezifischen 
 ## Fachlicher Kontext
 Das System interagiert mit der Open Brewery DB API, um Brauereiinformationen im Quarkus-Backend abzurufen. Diese Daten werden in der PostgreSQL-Datenbank zwischengespeichert und Benutzern über die Angular-Webanwendung zugänglich gemacht.
 
-Die Schnittstelle im Backend bietet eine einfache Möglichkeit, eine Liste von Brauereien sowie ihre Daten für eine bestimmte Stadt zurückzugeben.
+Die Schnittstelle im Backend bietet die einfache Möglichkeit, eine Liste von Brauereien mit Informationen wie beispielsweise Adresse, Telefonnummer oder Link zur Webseite für eine bestimmte Stadt zurückzugeben.
 
-* GET /api/v1/breweries/{cityName}: Dies ist der Endpunkt, um die Liste der Brauereien abzurufen. Der Pfadparameter {cityName} wird durch den Stadtnamen ersetzt, für die die Brauereien abgerufen werden sollen.
+* GET /api/v1/breweries/{cityName}: Dies ist der Endpunkt, um die Liste der Brauereien abzurufen. Der Pfadparameter {cityName} wird dabei durch den Stadtnamen ersetzt.
 
 Parameter:
 
 * cityName*: Der Name der Stadt, für die die Brauereien und ihre Daten abgerufen werden sollen. Dabei handelt es sich um einen Pfadparameter vom Typ String. Zum Beispiel: "Austin".
   
-* count*: Die maximale Anzahl an Brauereien, die abgerufen und abgespeichert werden sollen. Dabei handelt es sich um einen Queryparameter vom Typ Integer. Von der Angular-Webanwendung aus werden standardmäßig maximal 20 Brauereien abgerufen.
+* count*: Die maximale Anzahl an Brauereien, die abgerufen und zwischengespeichert werden sollen. Dabei handelt es sich um einen Queryparameter vom Typ Integer. Von der Angular-Webanwendung aus werden standardmäßig maximal 20 Brauereien abgerufen.
 
 Responses:
 
@@ -50,9 +50,9 @@ Die API-Dokumentation wird mittels Swagger UI bereitgestellt: http://localhost:8
 
 ### Externe Schnittstelle Open Brewery DB
 
-Die externe Schnittstelle ermöglicht das einfache Abrufen eine Liste von Brauereiinformationen für eine bestimmte Stadt.
+Die externe Schnittstelle ermöglicht das Abrufen einer Liste von Brauereiinformationen für eine bestimmte Stadt.
 
-* GET https://api.openbrewerydb.org/v1/breweries: Dies ist der externe Endpunkt, über den die Liste der Brauereien abgerufen werden, wenn kein Eintrag im Cache vorhanden ist.
+* GET https://api.openbrewerydb.org/v1/breweries: Dies ist der externe Endpunkt, über den die Liste der Brauereien abgerufen werden, wenn kein Eintrag im Cache zwischengespeichert ist.
 
 Parameter:
 
