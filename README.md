@@ -40,6 +40,8 @@ Das Ziel der Brewery Explorer Webanwendung ist es, Brauereien in einer bestimmte
 | Brewery Explorer    | Open Brewery DB    | Sendet Anfragen mit dem Stadtnamen zur Suche von Brauereien  |
 | Open Brewery DB     | Brewery Explorer   | Gibt die gefundenen Brauereien basierend auf der Suchanfrage zurück |
 
+## Technischer Kontext
+
 Das System interagiert mit der Open Brewery DB API, um Brauereiinformationen im Quarkus-Backend abzurufen. Diese Daten werden in der PostgreSQL-Datenbank zwischengespeichert und Benutzern über die Angular-Webanwendung zugänglich gemacht.
 
 Die Schnittstelle im Backend bietet die einfache Möglichkeit, eine Liste von Brauereien mit Informationen wie beispielsweise Adresse, Telefonnummer oder Link zur Webseite für eine bestimmte Stadt zurückzugeben.
@@ -82,8 +84,6 @@ Parameter:
 * per_page: Die maximale Anzahl an Brauereien als Queryparameter.
 
 API-Dokumentation des externen Endpunkts: https://openbrewerydb.org/documentation#list-breweries
-
-## Technischer Kontext
 
 **\<Diagramm oder Tabelle>**
 
