@@ -56,7 +56,7 @@ Die externe Schnittstelle ermöglicht das Abrufen von Brauereiinformationen für
 
 Parameter:
 
-* by_city: Der Name der Stadt als Queryparamter, für die eine Liste an Brauereien zurückgegeben werden sollen.
+* by_city: Der Name der Stadt als Queryparamter, für die eine Liste an Brauereien im JSON-Format zurückgegeben werden sollen.
 
 * per_page: Die maximale Anzahl an Brauereien als Queryparameter, die für eine bestimmte Stadt zurückgegeben werden sollen.
 
