@@ -12,8 +12,8 @@ Ein besonderer Schwerpunkt liegt auf der Abfrage von Brauereien in spezifischen 
 
 | Rolle        | Kontakt        | Erwartungshaltung |
 |--------------|----------------|-------------------|
-| *\<Rolle-1>* | *\<Kontakt-1>* | *\<Erwartung-1>*  |
-| *\<Rolle-2>* | *\<Kontakt-2>* | *\<Erwartung-2>*  |
+| Dozent | Beneken, Gerd (gerd.beneken@th-rosenheim.de) | "Will ein funktionierendes und gutes Projekt sehen!"  |
+| Dozent | Reimer, Mario-Leander (mario-leander.reimer@th-rosenheim.de) | "Will ein funktionierendes und sehr gutes Projekt sehen!"  |
 
 # Randbedingungen
 
