@@ -24,21 +24,23 @@ Das Ziel der Brewery Explorer Webanwendung ist es, Brauereien in einer bestimmte
 |--------------|----------------|-------------------|
 | Dozent | Beneken, Gerd (gerd.beneken@th-rosenheim.de) | "Will ein funktionierendes und gutes Projekt sehen!"  |
 | Dozent | Reimer, Mario-Leander (mario-leander.reimer@th-rosenheim.de) | "Will ein funktionierendes und sehr gutes Projekt sehen!"  |
+| Entwickler | Karaoglan, Okan (okan.karaoglan@stud.th-rosenheim.de) | "Wiel ein funktionierendes und sehr gutes Projekt entwickeln!" |
 
 # Randbedingungen
 
-# Kontextabgrenzung
+Folgende Randbedingungen wurden im Rahmen dieses Projektes festgelegt:
 
-![Kontextdiagramm](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Kontextdiagramm.drawio.png)
+* 
+# Kontextabgrenzung
 
 ## Fachlicher Kontext
 
+![Kontextdiagramm](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Kontextdiagramm.drawio.png)
+
 | Kommunikationsbeziehung      | Eingabe                            | Ausgabe                                |
 |------------------------------|------------------------------------|----------------------------------------|
-| User -> Brewery Explorer     | Stadtnamen                         | Aktualisierung der Benutzeroberfläche  |
-| Brewery Explorer -> User     | Aktualisierung der Benutzeroberfläche   | Anzeige der gefundenen Brauereien      |
-| Brewery Explorer -> Open Brewery DB | Suchanfrage mit Stadtnamen  | -                                      |
-| Open Brewery DB -> Brewery Explorer | -                           | Liste der gefundenen Brauereien        |
+| User <-> Brewery Explorer     | Stadtnamen                         | Anzeige der gefundenen Brauereien  |
+| Brewery Explorer <-> Open Brewery DB | Suchanfrage mit Stadtnamen  | Liste der gefundenen Brauereien        |
 
 ## Technischer Kontext
 
