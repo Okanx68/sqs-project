@@ -1,6 +1,6 @@
 # Brewery Explorer
 
-Software-Qualitätssicherung SoSe 2024
+**Software-Qualitätssicherung SoSe 2024**
 
 # Einführung und Ziele
 
