@@ -1,37 +1,75 @@
-# sqs-project
+# Brewery Explorer
 
-**Über arc42**
-
-arc42, das Template zur Dokumentation von Software- und
-Systemarchitekturen.
-
-Template Version 8.2 DE. (basiert auf AsciiDoc Version), Januar 2023
-
-Created, maintained and © by Dr. Peter Hruschka, Dr. Gernot Starke and
-contributors. Siehe <https://arc42.org>.
+**Software-Qualitätssicherung SoSe 2024**
 
 # Einführung und Ziele
+
+Das Ziel der Brewery Explorer Webanwendung ist das Abrufen von Brauereien in einer bestimmten Stadt sowie deren Informationen wie beispielsweise Adresse, Telefonnummer oder Link zur Webseite. Um die Effizienz der Abfrage der Brauereiinformationen zu verbessern wird eine gezielte Caching-Strategie angewendet. Dafür setze ich Quarkus als Backend-Framework, Angular als Frontend-Framework und PostgreSQL als Datenbank ein. Die benötigten Brauereiinformationen werden von der *Open Brewery DB* API (https://openbrewerydb.org) abgerufen und in der Datenbank, die hierbei als Cache dient, für erneute Anfragen abgespeichert. Die Suche nach den Brauereien erfolgt durch die Eingabe des Stadtnamens. Zu diesem Zweck wird eine Webseite bereitgestellt, die es Benutzern ermöglicht, Städtenamen einzugeben und die entsprechenden Brauereien in dieser Stadt anzuzeigen.
 
 ## Aufgabenstellung
 
 ## Qualitätsziele
 
+| Qualitätskriterium | Beschreibung | Ziele | Maßnahmen |
+|---------------------|---------------|-------|-----------|
+| **1. Reliability - Zuverlässigkeit** | Die Fähigkeit der Anwendung, stabil und fehlerfrei zu laufen, selbst bei unerwarteten Eingaben und hoher Last. | - Resiliente Verarbeitung von Benutzereingaben <br>- Hohe Stabilität bei starker Nutzung | - Umfangreiche Testabdeckung<br>- Lasttests mit Artillery<br>|
+| **2. Portability - Übertragbarkeit** | Flexibilität der Anwendung in Bezug auf die Laufzeitumgebung. |- Externe Abhängigkeiten verringern<br>- Ressourcen effizient nutzen | - Containerisierung mithilfe von Docker zur Isolierung der Laufzeitumgebungen sowie Sicherstellung der Plattformunabhängigkeit |
+| **3. Usability - Benutzerfreundlichkeit** | Einfache Interaktion mit der Benutzeroberfläche. | - Simple Bedienung<br>- Schnelle Ladezeiten | - End-to-End-Tests mit Playwright<br>- Integrationstest |
+
 ## Stakeholder
 
 | Rolle        | Kontakt        | Erwartungshaltung |
 |--------------|----------------|-------------------|
-| *\<Rolle-1>* | *\<Kontakt-1>* | *\<Erwartung-1>*  |
-| *\<Rolle-2>* | *\<Kontakt-2>* | *\<Erwartung-2>*  |
+| Dozent | Beneken, Gerd (gerd.beneken@th-rosenheim.de) | "Will ein funktionierendes und gutes Projekt sehen!"  |
+| Dozent | Reimer, Mario-Leander (mario-leander.reimer@th-rosenheim.de) | "Will ein funktionierendes und sehr gutes Projekt sehen!"  |
 
 # Randbedingungen
 
 # Kontextabgrenzung
 
 ## Fachlicher Kontext
+Das System interagiert mit der Open Brewery DB API, um Brauereiinformationen im Quarkus-Backend abzurufen. Diese Daten werden in der PostgreSQL-Datenbank zwischengespeichert und Benutzern über die Angular-Webanwendung zugänglich gemacht.
 
-**\<Diagramm und/oder Tabelle>**
+Die Schnittstelle im Backend bietet die einfache Möglichkeit, eine Liste von Brauereien mit Informationen wie beispielsweise Adresse, Telefonnummer oder Link zur Webseite für eine bestimmte Stadt zurückzugeben.
 
-**\<optional: Erläuterung der externen fachlichen Schnittstellen>**
+* GET /api/v1/breweries/{cityName}: Dies ist der Endpunkt, um die Liste der Brauereien abzurufen. Der Pfadparameter {cityName} wird dabei durch den Stadtnamen ersetzt.
+
+Parameter:
+
+* cityName*: Der Name der Stadt, welche für die Suche der Brauereien benötigt wird. Dabei handelt es sich um einen Pfadparameter vom Typ String. Zum Beispiel: "Austin".
+  
+* count*: Die maximale Anzahl an Brauereien, die abgerufen und zwischengespeichert werden sollen. Dabei handelt es sich um einen Queryparameter vom Typ Integer. Von der Angular-Webanwendung aus werden standardmäßig maximal 20 Brauereien abgerufen.
+
+Responses:
+
+* 200 Success: Erfolgreiche Antwort, die eine Liste der Brauereien in einer jeweiligen Stadt zurückgibt.
+
+* 204 No Content: Es wurden keine Brauereien gefunden.
+
+* 400 Bad Request: Invalide Parameter.
+
+* 404 Not Found: Die angeforderte Ressource wurde nicht gefunden.
+
+* 500 Internal Server Error: Interner Serverfehler.
+
+* Media Type: Die Antwort ist im JSON-Format ('application/json').
+
+Die API-Dokumentation wird mittels Swagger UI bereitgestellt: http://localhost:8080/api/v1/q/swagger-ui
+
+Die OpenAPI-Spezifikation des Backends kann mit folgendem Link im JSON-Format abgerufen werden: http://localhost:8080/api/v1/q/openapi?format=json
+### Externe Schnittstelle Open Brewery DB
+
+Die externe Schnittstelle ermöglicht das Abrufen einer Liste von Brauereiinformationen für eine bestimmte Stadt.
+
+* GET https://api.openbrewerydb.org/v1/breweries: Dies ist der externe Endpunkt, über den die Liste der Brauereien abgerufen werden, wenn kein Eintrag im Cache zwischengespeichert ist.
+
+Parameter:
+
+* by_city: Der Name der Stadt als Queryparamter, für die eine Liste an Brauereien im JSON-Format zurückgegeben werden sollen.
+
+* per_page: Die maximale Anzahl an Brauereien als Queryparameter.
+
+API-Dokumentation des externen Endpunkts: https://openbrewerydb.org/documentation#list-breweries
 
 ## Technischer Kontext
 
