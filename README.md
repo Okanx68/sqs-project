@@ -28,7 +28,7 @@ Die Schnittstelle im Backend bietet die einfache Möglichkeit, eine Liste von Br
 
 Parameter:
 
-* cityName*: Der Name der Stadt, für die die Brauereien und ihre Daten abgerufen werden sollen. Dabei handelt es sich um einen Pfadparameter vom Typ String. Zum Beispiel: "Austin".
+* cityName*: Der Name der Stadt, welche für die Suche der Brauereien benötigt wird. Dabei handelt es sich um einen Pfadparameter vom Typ String. Zum Beispiel: "Austin".
   
 * count*: Die maximale Anzahl an Brauereien, die abgerufen und zwischengespeichert werden sollen. Dabei handelt es sich um einen Queryparameter vom Typ Integer. Von der Angular-Webanwendung aus werden standardmäßig maximal 20 Brauereien abgerufen.
 
