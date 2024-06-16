@@ -1,6 +1,6 @@
 # Einführung und Ziele
 
-Das Ziel dieses Projekts ist es, die Effizienz bei der Abfrage von Brauereiinformationen durch eine gezielte Caching-Strategie zu verbessern. Dafür setze ich Quarkus als Backend-Framework, Angular für das Frontend und PostgreSQL als Datenbank ein. Die benötigten Brauereiinformationen werden von der Open Brewery DB API (https://openbrewerydb.org) abgerufen und in der Datenbank, die als Cache dient, für zukünftige Anfragen gespeichert.
+Das Ziel dieses Projekts ist es, die Effizienz bei der Abfrage von Brauereiinformationen durch eine gezielte Caching-Strategie zu verbessern. Dafür setze ich Quarkus als Backend-Framework, Angular für das Frontend und PostgreSQL als Datenbank ein. Die benötigten Brauereiinformationen werden von der *Open Brewery DB* API (https://openbrewerydb.org) abgerufen und in der Datenbank, die als Cache dient, für zukünftige Anfragen gespeichert.
 
 Ein besonderer Schwerpunkt liegt auf der Abfrage von Brauereien in spezifischen Städten wie Austin oder San Diego. Die Suche nach Brauereien erfolgt durch die Eingabe des Stadtnamens. Zu diesem Zweck wird eine Webseite bereitgestellt, die es Benutzern ermöglicht, Städtenamen einzugeben und die entsprechenden Brauereien in dieser Stadt anzuzeigen.
 
