@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
-import {BreweryService} from "./services/brewery.service";
-import {Brewery} from "./models/brewery";
+import {BreweryService} from "./service/brewery.service";
+import {Brewery} from "./model/brewery";
 import {NgForOf, NgIf} from "@angular/common";
 
 @Component({

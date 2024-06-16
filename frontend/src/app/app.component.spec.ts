@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { BreweryService } from './services/brewery.service';
+import { BreweryService } from './service/brewery.service';
 import { of } from 'rxjs';
 import { ReactiveFormsModule } from '@angular/forms';
 

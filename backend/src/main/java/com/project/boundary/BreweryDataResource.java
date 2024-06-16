@@ -53,7 +53,11 @@ public class BreweryDataResource {
             ),
             @APIResponse(
                     responseCode = "400",
-                    description = "Invalid city parameter"
+                    description = "Bad Request"
+            ),
+            @APIResponse(
+                    responseCode = "404",
+                    description = "Not Found"
             ),
             @APIResponse(
                     responseCode = "500",
