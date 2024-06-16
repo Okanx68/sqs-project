@@ -58,7 +58,9 @@ Parameter:
 
 * by_city: Der Name der Stadt als Queryparamter, für die eine Liste an Brauereien zurückgegeben werden sollen.
 
-* per_page: Die maximale Anzahl an Brauereien als Queryparameter, die für eine bestimmte Stadt zurückgegeben werden sollen,
+* per_page: Die maximale Anzahl an Brauereien als Queryparameter, die für eine bestimmte Stadt zurückgegeben werden sollen.
+
+API-Dokumentation des Endpoints: https://openbrewerydb.org/documentation#list-breweries
 
 ## Technischer Kontext
 
