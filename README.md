@@ -29,9 +29,9 @@ Das Ziel der Brewery Explorer Webanwendung ist es, Brauereien in einer bestimmte
 
 # Kontextabgrenzung
 
-![Kontextdiagramm](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Kontextdiagramm.drawio.png)
-
 ## Fachlicher Kontext
+
+![Kontextdiagramm](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Kontextdiagramm.drawio.png)
 
 | Kommunikationsbeziehung      | Eingabe                            | Ausgabe                                |
 |------------------------------|------------------------------------|----------------------------------------|
