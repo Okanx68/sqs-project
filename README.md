@@ -30,7 +30,7 @@ Parameter:
 
 * cityName*: Der Name der Stadt, für die die Brauereien und ihre Daten abgerufen werden sollen. Dabei handelt es sich um einen Pfadparameter vom Typ String. Zum Beispiel: "Austin".
   
-* count*: Die maximale Anzahl an Brauereien, die abgerufen werden sollen. Dabei handelt es sich um einen Queryparameter vom Typ Integer. Standardmäßig werden vom Frontend maximal 20 Brauereien abgerufen.
+* count*: Die maximale Anzahl an Brauereien, die abgerufen werden sollen. Dabei handelt es sich um einen Queryparameter vom Typ Integer. Von der Angular-Webanwendung aus werden standardmäßig maximal 20 Brauereien abgerufen.
 
 Responses:
 
