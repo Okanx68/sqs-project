@@ -46,7 +46,7 @@ Responses:
 
 * Media Type: Die Antwort ist im JSON-Format (application/json=.
 
-Die API wird mittels Swagger UI dokumentiert: http://localhost:8080/api/v1/q/swagger-ui
+Die API-Dokumentation wird mittels Swagger UI bereitgestellt: http://localhost:8080/api/v1/q/swagger-ui
 
 ### Externe Schnittstelle Open Brewery DB
 
