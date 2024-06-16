@@ -16,7 +16,7 @@ Der besonderer Schwerpunkt dieser Anwendung liegt auf der Abfrage von Brauereien
 |---------------------|---------------|-------|-----------|
 | **1. Reliability - Zuverlässigkeit** | Die Fähigkeit der Anwendung, stabil und fehlerfrei zu laufen, selbst bei unerwarteten Eingaben und hoher Last. | - Resiliente Verarbeitung von Benutzereingaben <br>- Hohe Stabilität bei starker Nutzung | - Umfangreiche Testabdeckung<br>- Lasttests mit Artillery<br>|
 | **2. Portability - Übertragbarkeit** | Flexibilität der Anwendung in Bezug auf die Laufzeitumgebung. |- Externe Abhängigkeiten verringern<br>- Ressourcen effizient nutzen | - Containerisierung mithilfe von Docker zur Isolierung der Laufzeitumgebungen sowie Sicherstellung der Plattformunabhängigkeit |
-| **3. Usability - Benutzerfreundlichkeit** | Die Benutzerfreundlichkeit der Anwendung, einschließlich Benutzeroberfläche, Navigation und Interaktion. | - Simple Bedienung<br>- Schnelle Ladezeiten | - End-to-End-Tests mit Playwright<br>- Integrationstest |
+| **3. Usability - Benutzerfreundlichkeit** | Die eine Interaktion mit der Benutzeroberfläche. | - Simple Bedienung<br>- Schnelle Ladezeiten | - End-to-End-Tests mit Playwright<br>- Integrationstest |
 
 ## Stakeholder
 
