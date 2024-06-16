@@ -20,10 +20,34 @@ Ein besonderer Schwerpunkt liegt auf der Abfrage von Brauereien in spezifischen 
 # Kontextabgrenzung
 
 ## Fachlicher Kontext
+Das System interagiert mit der Open Brewery DB API, um Brauereiinformationen im Quarkus-Backend abzurufen. Diese Daten werden in der PostgreSQL-Datenbank zwischengespeichert und Benutzern über eine Angular-Webanwendung zugänglich gemacht.
 
-**\<Diagramm und/oder Tabelle>**
+Die Schnittstelle im Backend bietet eine einfache Möglichkeit, eine Liste von Brauereien für eine bestimmte Stadt abzurufen.
 
-**\<optional: Erläuterung der externen fachlichen Schnittstellen>**
+* GET /api/v1/breweries/{cityName}: Dies ist der Endpunkt, um die Liste der Brauereien abzurufen. Der Pfadparameter {cityName} wird durch den Stadtnamen ersetzt, für die die Brauerein abgerufen werden sollen.
+
+Parameter:
+
+* cityName*: Der Name der Stadt, für die die Brauereien abgerufen werden sollen. Dabei handelt es sich um einen Pfadparameter vom Typ String. Zum Beispiel: "Austin".
+* count*: Die maximale Anzahl an Brauereien, die abgerufen werden sollen. Dabei handelt es sich um einen Queryparameter vom Typ Integer. Standardmäßig werden vom Frontend maximal 20 Brauereien abgerufen.
+
+Responses:
+
+* 200 Success: Erfolgreiche Antwort, die eine Liste der aktuellen Baustellen im JSON-Format zurückgibt.
+
+* 204 Not Found: Es wurden keine Baustellen gefunden.
+
+* 400 Bad Request: Invalide Parameter.
+
+* 404 Not Found: Die angeforderte Ressource wurde nicht gefunden.
+
+* 500 Internal Server Error: Interner Serverfehler.
+
+* Media Type: Die Antwort ist im JSON-Format (application/json=.
+
+Die API wird mittels Swagger UI dokumentiert: http://localhost:8080/api/v1/q/swagger-ui
+
+### Externe Schnittstelle Open Brewery DB
 
 ## Technischer Kontext
 
