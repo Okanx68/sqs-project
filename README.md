@@ -1,5 +1,3 @@
-# sqs-project
-
 # Einführung und Ziele
 
 Das Ziel dieses Projekts ist es, die Effizienz bei der Abfrage von Brauereiinformationen durch eine gezielte Caching-Strategie zu verbessern. Dafür setze ich Quarkus als Backend-Framework, Angular für das Frontend und PostgreSQL als Datenbank und Cache ein. Die benötigten Brauereiinformationen werden von der Open Brewery DB API (https://openbrewerydb.org) abgerufen und in der Datenbank, die als Cache dient, für zukünftige Anfragen gespeichert.
