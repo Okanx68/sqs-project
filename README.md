@@ -44,7 +44,7 @@ Responses:
 
 * 500 Internal Server Error: Interner Serverfehler.
 
-* Media Type: Die Antwort ist im JSON-Format (application/json=.
+* Media Type: Die Antwort ist im JSON-Format ('application/json').
 
 Die API-Dokumentation wird mittels Swagger UI bereitgestellt: http://localhost:8080/api/v1/q/swagger-ui
 
