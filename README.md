@@ -8,7 +8,7 @@ Das Ziel der Brewery Explorer Webanwendung ist das Abrufen von Brauereien in ein
 
 ## Aufgabenstellung
 
-[Assignment Details](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Assignment%20Details%20SQS2024.png)
+[Assignment Details SQS 2024](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Assignment%20Details%20SQS2024.png)
 
 ## Qualitätsziele
 
