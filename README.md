@@ -1,16 +1,8 @@
 # sqs-project
 
-**Über arc42**
-
-arc42, das Template zur Dokumentation von Software- und
-Systemarchitekturen.
-
-Template Version 8.2 DE. (basiert auf AsciiDoc Version), Januar 2023
-
-Created, maintained and © by Dr. Peter Hruschka, Dr. Gernot Starke and
-contributors. Siehe <https://arc42.org>.
-
 # Einführung und Ziele
+
+Das Ziel dieses Projekts ist es, die Effizienz bei der Abfrage von Brauereiinformationen durch eine Caching-Strategie zu erhöhen. Dafür verwende ich Quarkus als Backend-Framework, Angular für das Frontend und PostgreSQL als Datenbank. Die benötigten Brauereiinformationen werden zunächst von der Open Brewery DB API (https://openbrewerydb.org) bezogen und anschließend in der Datenbank, die hierbei als Cache dient, für künftige Anfragen abgespeichert. Ein besonderer Schwerpunkt liegt auf der Abfrage von Brauereien in spezifischen Städten wie München oder Berlin. Die Suche nach Brauereien wird dabei durch die Eingabe des Stadtnamens ermöglicht.
 
 ## Aufgabenstellung
 
