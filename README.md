@@ -30,7 +30,7 @@ Parameter:
 
 * cityName*: Der Name der Stadt, für die die Brauereien und ihre Daten abgerufen werden sollen. Dabei handelt es sich um einen Pfadparameter vom Typ String. Zum Beispiel: "Austin".
   
-* count*: Die maximale Anzahl an Brauereien, die abgerufen werden sollen. Dabei handelt es sich um einen Queryparameter vom Typ Integer. Von der Angular-Webanwendung aus werden standardmäßig maximal 20 Brauereien abgerufen.
+* count*: Die maximale Anzahl an Brauereien, die abgerufen und abgespeichert werden sollen. Dabei handelt es sich um einen Queryparameter vom Typ Integer. Von der Angular-Webanwendung aus werden standardmäßig maximal 20 Brauereien abgerufen.
 
 Responses:
 
@@ -50,7 +50,7 @@ Die API-Dokumentation wird mittels Swagger UI bereitgestellt: http://localhost:8
 
 ### Externe Schnittstelle Open Brewery DB
 
-Die externe Schnittstelle ermöglicht das Abrufen von Brauereiinformationen für eine bestimmte Stadt.
+Die externe Schnittstelle ermöglicht das einfache Abrufen eine Liste von Brauereiinformationen für eine bestimmte Stadt.
 
 * GET https://api.openbrewerydb.org/v1/breweries: Dies ist der externe Endpunkt, über den die Liste der Brauereien abgerufen werden, wenn kein Eintrag im Cache vorhanden ist.
 
