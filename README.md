@@ -33,12 +33,12 @@ Das Ziel der Brewery Explorer Webanwendung ist es, Brauereien in einer bestimmte
 
 ## Fachlicher Kontext
 
-| Akteur              | System             | Interaktion                                                  |
-|---------------------|--------------------|--------------------------------------------------------------|
-| User                | Brewery Explorer   | Gibt den Stadtnamen ein, um Brauereien zu suchen             |
-| Brewery Explorer    | User               | Zeigt die gefundenen Brauereien an                           |
-| Brewery Explorer    | Open Brewery DB    | Sendet Anfragen mit dem Stadtnamen zur Suche von Brauereien  |
-| Open Brewery DB     | Brewery Explorer   | Gibt die gefundenen Brauereien basierend auf der Suchanfrage zurück |
+| Kommunikationsbeziehung      | Eingabe                            | Ausgabe                                |
+|------------------------------|------------------------------------|----------------------------------------|
+| User -> Brewery Explorer     | Stadtnamen                         | Aktualisierung der Benutzeroberfläche  |
+| Brewery Explorer -> User     | Aktualisierung der Benutzeroberfläche   | Anzeige der gefundenen Brauereien      |
+| Brewery Explorer -> Open Brewery DB | Suchanfrage mit Stadtnamen  | -                                      |
+| Open Brewery DB -> Brewery Explorer | -                           | Liste der gefundenen Brauereien        |
 
 ## Technischer Kontext
 
