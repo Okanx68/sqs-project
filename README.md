@@ -20,7 +20,7 @@ Ein besonderer Schwerpunkt liegt auf der Abfrage von Brauereien in spezifischen 
 # Kontextabgrenzung
 
 ## Fachlicher Kontext
-Das System interagiert mit der Open Brewery DB API, um Brauereiinformationen im Quarkus-Backend abzurufen. Diese Daten werden in der PostgreSQL-Datenbank zwischengespeichert und Benutzern über eine Angular-Webanwendung zugänglich gemacht.
+Das System interagiert mit der Open Brewery DB API, um Brauereiinformationen im Quarkus-Backend abzurufen. Diese Daten werden in der PostgreSQL-Datenbank zwischengespeichert und Benutzern über die Angular-Webanwendung zugänglich gemacht.
 
 Die Schnittstelle im Backend bietet eine einfache Möglichkeit, eine Liste von Brauereien sowie ihre Daten für eine bestimmte Stadt zurückzugeben.
 
