@@ -42,6 +42,7 @@ Das Ziel der Brewery Explorer Webanwendung ist es, Brauereien in einer bestimmte
 
 ## Technischer Kontext
 
+### Backend-Schnittstelle
 Das System interagiert mit der Open Brewery DB API, um Brauereiinformationen im Quarkus-Backend abzurufen. Diese Daten werden in der PostgreSQL-Datenbank zwischengespeichert und Benutzern über die Angular-Webanwendung zugänglich gemacht.
 
 Die Schnittstelle im Backend bietet die einfache Möglichkeit, eine Liste von Brauereien mit Informationen wie beispielsweise Adresse, Telefonnummer oder Link zur Webseite für eine bestimmte Stadt zurückzugeben.
