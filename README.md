@@ -34,7 +34,7 @@ Parameter:
 
 Responses:
 
-* 200 Success: Erfolgreiche Antwort, die eine Liste der Brauereien in dieser Stadt zurückgibt.
+* 200 Success: Erfolgreiche Antwort, die eine Liste der Brauereien in einer jeweiligen Stadt zurückgibt.
 
 * 204 No Content: Es wurden keine Brauereien gefunden.
 
