@@ -127,6 +127,20 @@ API-Dokumentation des externen Endpunkts: https://openbrewerydb.org/documentatio
 
 # Lösungsstrategie
 
+Die zentrale Entwurfsstrategie dieses Projekts basiert auf mehreren wichtigen Technologieentscheidungen und Systementwürfen, die auf die spezifischen Aufgabenstellungen, Qualitätsziele und Randbedingungen abgestimmt sind.
+
+## Technologieentscheidungen
+Für das Backend wurde Quarkus als Framework ausgewählt. Quarkus bietet schnelle Startzeiten, geringe Speicherauslastung und native Unterstützung für GraalVM, was den Anforderungen an Performance und Skalierbarkeit gerecht wird. Angular wurde als Frontend-Framework gewählt, da es eine robuste Plattform für die Entwicklung dynamischer Single-Page-Anwendungen bietet und eine intuitive Benutzeroberfläche ermöglicht. PostgreSQL dient als Datenbank und wurde aufgrund seiner Zuverlässigkeit, Leistungsfähigkeit und Erweiterbarkeit ausgewählt. Die Datenbank wird als Cache für die Daten der externen API genutzt. Zur Beschaffung von Brauereiinformationen wird die Open Brewery DB API verwendet, da sie eine umfassende Datenquelle für die benötigten Informationen bietet.
+
+## Top-Level-Zerlegung des Systems
+Das System folgt einer Microservices-Architektur, bei der mehrere lose gekoppelte Dienste jeweils spezifische Funktionalitäten bereitstellen. Diese Architektur ermöglicht eine einfachere Wartung, Skalierung und Weiterentwicklung der einzelnen Komponenten. Zudem werden alle Services als Docker-Container bereitgestellt, was für Konsistenz zwischen Entwicklungs-, Test- und Produktionsumgebungen sorgt und die Bereitstellung und Skalierung erleichtert.
+
+## Qualitätsanforderungen
+Ein zentraler Aspekt der Entwurfsstrategie ist die Sicherstellung der **Zuverlässigkeit (Reliability)** der Anwendung. Diese umfasst die Fähigkeit der Anwendung, stabil und fehlerfrei zu laufen, selbst bei unerwarteten Eingaben und hoher Last. Um diese Ziele zu erreichen, wird eine resiliente Verarbeitung von Benutzereingaben und eine hohe Stabilität bei starker Nutzung angestrebt. Maßnahmen zur Erreichung dieser Ziele umfassen eine umfangreiche Testabdeckung, Lasttests mit Artillery sowie Integrationstests.
+
+Ein weiteres wichtiges Qualitätsziel ist die **Übertragbarkeit (Portability)** der Anwendung. Dies bezieht sich auf die Flexibilität der Anwendung in Bezug auf die Laufzeitumgebung. Um dies zu gewährleisten, sollen externe Abhängigkeiten verringert und die Ressourcennutzung effizient gestaltet werden. Hierfür wird die Containerisierung mithilfe von Docker eingesetzt, um isolierte Laufzeitumgebungen zu schaffen und die Plattformunabhängigkeit sicherzustellen.
+
+Darüber hinaus spielt die **Benutzerfreundlichkeit (Usability)** eine entscheidende Rolle. Eine einfache Interaktion mit der Benutzeroberfläche ist essentiell. Die Ziele hierbei sind eine simple Bedienung und schnelle Ladezeiten. Maßnahmen zur Erreichung dieser Ziele umfassen End-to-End-Tests mit Playwright und UI-Tests, um eine optimale Benutzererfahrung zu gewährleisten.
 # Bausteinsicht
 
 ## Whitebox Gesamtsystem
