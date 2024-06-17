@@ -64,7 +64,7 @@ Das System interagiert mit der Open Brewery DB API, um Brauereiinformationen im 
 
 ### Schnittstelle zum Backend
 
-Die Schnittstelle im Backend bietet die einfache Möglichkeit, eine Liste von Brauereien mit Informationen wie beispielsweise Adresse, Telefonnummer oder Link zur Webseite für eine bestimmte Stadt zurückzugeben.
+Die '*BreweryDataResource* Schnittstelle im Backend bietet die einfache Möglichkeit, eine Liste von Brauereien mit Informationen wie beispielsweise Adresse, Telefonnummer oder Link zur Webseite für eine bestimmte Stadt zurückzugeben.
 
 * GET /api/v1/breweries/{cityName}: Dies ist der Endpunkt, um die Liste der Brauereien abzurufen. Der Pfadparameter {cityName} wird dabei durch den Stadtnamen ersetzt.
 
