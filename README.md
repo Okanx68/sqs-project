@@ -43,13 +43,26 @@ Folgende Randbedingungen wurden im Rahmen dieses Projektes festgelegt:
 | Brewery Explorer <-> Open Brewery DB | Suchanfrage mit Stadtnamen  | Liste der gefundenen Brauereien        |
 
 ## Technischer Kontext
-
+Das System interagiert mit der Open Brewery DB API, um Brauereiinformationen im Quarkus-Backend abzurufen. Diese Daten werden in der PostgreSQL-Datenbank zwischengespeichert und Benutzern über die Angular-Webanwendung zugänglich gemacht.
 ### UML Deployment Diagramm
 
 ![UML Deployment Diagramm](https://github.com/Okanx68/sqs-project/blob/main/doc/images/UML_Deployment_Diagram.png)
 
+| Technischer Kanal                  | Eingabe                                      | Ausgabe                                |
+|------------------------------------|----------------------------------------------|----------------------------------------|
+| User -> Angular Frontend           | Benutzeraktionen (z.B. Stadtnamen)           | Aktualisierte Benutzeroberfläche       |
+| Angular Frontend -> BreweryDataResource | HTTP Request (Stadtnamen)              | HTTP Response (Brauereiinformationen)  |
+| BreweryDataResource -> BreweryDataController | API Call                              | Datenabfrage Ergebnis                  |
+| BreweryDataController -> BreweryDBService | API Request (Stadtnamen)               | API Response (Brauereidaten)           |
+| BreweryDBService -> Open Brewery DB | API Request (Stadtnamen)                   | Liste der Brauereien                   |
+| Open Brewery DB -> BreweryDBService | -                                           | Brauereiinformationen                  |
+| BreweryDataController -> BreweryData | Datenabfrage                                | Daten speichern/abrufen                |
+| BreweryData -> PostgreSQL          | SQL Query                                   | SQL Response                           |
+| BreweryDataController -> BreweryDataDTO | Datenkonvertierung                       | DTO                                    |
+| BreweryDataResource -> Angular Frontend | HTTP Response                          | Aktualisierte Benutzeroberfläche       |
+
+
 ### Schnittstelle zum Backend
-Das System interagiert mit der Open Brewery DB API, um Brauereiinformationen im Quarkus-Backend abzurufen. Diese Daten werden in der PostgreSQL-Datenbank zwischengespeichert und Benutzern über die Angular-Webanwendung zugänglich gemacht.
 
 Die Schnittstelle im Backend bietet die einfache Möglichkeit, eine Liste von Brauereien mit Informationen wie beispielsweise Adresse, Telefonnummer oder Link zur Webseite für eine bestimmte Stadt zurückzugeben.
 
