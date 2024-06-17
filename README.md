@@ -1,6 +1,6 @@
 # Brewery Explorer
 
-**Software-Qualitätssicherung SoSe 2024**
+**Software-Qualitätssicherung SoSe 2024** 
 
 # Einführung und Ziele
 
@@ -15,7 +15,7 @@ Das Ziel der Brewery Explorer Webanwendung ist es, Brauereien in einer bestimmte
 | Qualitätskriterium | Beschreibung | Ziele | Maßnahmen |
 |---------------------|---------------|-------|-----------|
 | **1. Reliability - Zuverlässigkeit** | Die Fähigkeit der Anwendung, stabil und fehlerfrei zu laufen, selbst bei unerwarteten Eingaben und hoher Last. | - Resiliente Verarbeitung von Benutzereingaben <br>- Hohe Stabilität bei starker Nutzung | - Umfangreiche Testabdeckung<br>- Lasttests mit Artillery<br>- Integrationstest|
-| **2. Portability - Übertragbarkeit** | Flexibilität der Anwendung in Bezug auf die Laufzeitumgebung. |- Externe Abhängigkeiten verringern<br>- Ressourcen effizient nutzen | - Containerisierung mithilfe von Docker zur Isolierung der Laufzeitumgebungen sowie Sicherstellung der Plattformunabhängigkeit |
+| **2. Portability - Übertragbarkeit** | Flexibilität der Anwendung in Bezug auf die Laufzeitumgebung. |- Externe Abhängigkeiten verringern<br>- Ressourcen effizient nutzen | - Containerisierung mithilfe von Docker zur Isolierung der Laufzeitumgebungen sowie Sicherstellung der Plattformunabhängigkeit<br>- Docker-Compose-Datei zum Starten der Services|
 | **3. Usability - Benutzerfreundlichkeit** | Einfache Interaktion mit der Benutzeroberfläche. | - Simple Bedienung<br>- Schnelle Ladezeiten | - End-to-End-Tests mit Playwright<br>- UI-Tests |
 
 ## Stakeholder
@@ -24,23 +24,39 @@ Das Ziel der Brewery Explorer Webanwendung ist es, Brauereien in einer bestimmte
 |--------------|----------------|-------------------|
 | Dozent | Beneken, Gerd (gerd.beneken@th-rosenheim.de) | "Will ein funktionierendes und gutes Projekt sehen!"  |
 | Dozent | Reimer, Mario-Leander (mario-leander.reimer@th-rosenheim.de) | "Will ein funktionierendes und sehr gutes Projekt sehen!"  |
-| Entwickler | Karaoglan, Okan (okan.karaoglan@stud.th-rosenheim.de) | "Wiel ein funktionierendes und sehr gutes Projekt entwickeln!" |
+| Entwickler | Karaoglan, Okan (okan.karaoglan@stud.th-rosenheim.de) | "Will ein funktionierendes und sehr gutes Projekt entwickeln!" |
 
 # Randbedingungen
 
 Folgende Randbedingungen wurden im Rahmen dieses Projektes festgelegt:
 
-* 
+* Das Projekt besteht aus einem Frontend, einem Backend, einer Datenbank und einer externen API
+* Zur Datenbeschaffung wird eine externe API verwendet
+* Die Datenbank dient als Cache bzw. Zwischenspeicher für die Daten
+* Das Backend speichert die Daten der externen API in der Datenbank
+* Im Frontend kann der Benutzer einen Suchbegriff eingeben
+* Nach Eingabe eines Suchbegriffs im Frontend wird zunächst in der Datenbank nach einem Eintrag gesucht
+* Die externe API wird nur angesprochen, wenn kein Eintrag in der Datenbank existiert
+* Die gefundenen Daten werden im Frontend visuell dargestellt
+* Der eigens geschriebene Code wird umfassend getestet, einschließlich Last-, Integrations-, Unit-, UI- sowie End-to-End-Tests
+* Eine CI/CD-Pipeline wird implementiert, die den Code nach jedem Push automatisch baut, testet und bereitstellt
+* Der Code wird zusätzlich durch statische Code-Analyse in der Pipeline geprüft
+* Alle Services werden als Docker-Container bereitgestellt
+* Die Docker-Container werden nach jedem Push in der Pipeline neu gebaut und in der Registry abgelegt
+* Über eine Docker-Compose-Datei können die Docker-Container gestartet werden
+
 # Kontextabgrenzung
 
 ## Fachlicher Kontext
 
 ![Kontextdiagramm](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Kontextdiagramm.drawio.png)
 
-| Kommunikationsbeziehung      | Eingabe                            | Ausgabe                                |
-|------------------------------|------------------------------------|----------------------------------------|
-| User <-> Brewery Explorer     | Stadtnamen                         | Anzeige der gefundenen Brauereien  |
-| Brewery Explorer <-> Open Brewery DB | Suchanfrage mit Stadtnamen  | Liste der gefundenen Brauereien        |
+| Kommunikationsbeziehung            | Eingabe                                 | Ausgabe                                |
+|------------------------------------|-----------------------------------------|----------------------------------------|
+| User -> Brewery Explorer           | Eingabe des Stadtnamens                 | Aktualisierung der Benutzeroberfläche  |
+| Brewery Explorer -> User           | -                                       | Anzeige der Brauereiinformationen      |
+| Brewery Explorer -> Open Brewery DB| Suchanfrage mit Stadtnamen              | -                                      |
+| Open Brewery DB -> Brewery Explorer| -                                       | Rückgabe der Brauereidaten             |
 
 ## Technischer Kontext
 Das System interagiert mit der externen Open Brewery DB API, um Brauereiinformationen im Quarkus-Backend abzurufen. Diese Daten werden in der PostgreSQL-Datenbank zwischengespeichert und Benutzern über die Angular-Webanwendung zugänglich gemacht.
@@ -108,10 +124,27 @@ API-Dokumentation des externen Endpunkts: https://openbrewerydb.org/documentatio
 ### Mapping fachlicher auf technische Schnittstellen
 
 - **Fachliche Eingabe: Stadtnamen** -> **Technische Schnittstelle: HTTP Request von der Angular Application an BreweryDataResource**
-- **Fachliche Ausgabe: Brauereiinformationen** -> **Technische Schnittstelle: HTTP Response von BreweryDataResource an die Angular Application**
+- **Fachliche Ausgabe: Brauereidaten** -> **Technische Schnittstelle: HTTP Response von BreweryDataResource an die Angular Application**
 
 # Lösungsstrategie
 
+Die zentrale Entwurfsstrategie dieses Projekts basiert auf mehreren wichtigen Technologieentscheidungen und Systementwürfen, die auf die spezifischen Aufgabenstellungen, Qualitätsziele und Randbedingungen abgestimmt sind.
+
+## Technologieentscheidungen
+Für das Backend wurde Quarkus als Framework ausgewählt. Quarkus bietet schnelle Startzeiten, geringe Speicherauslastung und native Unterstützung für GraalVM, was den Anforderungen an Performance und Skalierbarkeit gerecht wird. Angular wurde als Frontend-Framework gewählt, da es eine robuste Plattform für die Entwicklung dynamischer Single-Page-Anwendungen bietet und eine intuitive Benutzeroberfläche ermöglicht. PostgreSQL dient als Datenbank und wurde aufgrund seiner Zuverlässigkeit, Leistungsfähigkeit und Erweiterbarkeit ausgewählt. Die Datenbank wird als Cache für die Daten der externen API genutzt. Zur Beschaffung von Brauereiinformationen wird die Open Brewery DB API verwendet, da sie eine umfassende Datenquelle für die benötigten Informationen bietet.
+
+## Top-Level-Zerlegung des Systems
+Das System folgt einer Microservices-Architektur, bei der mehrere lose gekoppelte Dienste jeweils spezifische Funktionalitäten bereitstellen. Diese Architektur ermöglicht eine einfachere Wartung, Skalierung und Weiterentwicklung der einzelnen Komponenten. Zudem werden alle Services als Docker-Container bereitgestellt, was für Konsistenz zwischen Entwicklungs- und Produktionsumgebungen sorgt und die Bereitstellung und Skalierung mithilfe einer Docker-Compose-Datei erleichtert.
+
+## Qualitätsanforderungen
+Ein zentraler Aspekt der Entwurfsstrategie ist die Sicherstellung der **Zuverlässigkeit (Reliability)** der Anwendung. Diese umfasst die Fähigkeit der Anwendung, stabil und fehlerfrei zu laufen, selbst bei unerwarteten Eingaben und hoher Last. Um diese Ziele zu erreichen, wird eine resiliente Verarbeitung von Benutzereingaben und eine hohe Stabilität bei starker Nutzung angestrebt. Maßnahmen zur Erreichung dieser Ziele umfassen eine umfangreiche Testabdeckung, Lasttests mit Artillery sowie Integrationstests.
+
+Ein weiteres wichtiges Qualitätsziel ist die **Übertragbarkeit (Portability)** der Anwendung. Dies bezieht sich auf die Flexibilität der Anwendung in Bezug auf die Laufzeitumgebung. Um dies zu gewährleisten, sollen externe Abhängigkeiten verringert und die Ressourcennutzung effizient gestaltet werden. Hierfür wird die Containerisierung mithilfe von Docker eingesetzt, um isolierte Laufzeitumgebungen zu schaffen und die Plattformunabhängigkeit sicherzustellen. Eine Docker-Compose-Datei wird bereitgestellt, um die Verwaltung und Orchestrierung der verschiedenen Docker-Container zu erleichtern.
+
+Darüber hinaus spielt die **Benutzerfreundlichkeit (Usability)** eine entscheidende Rolle. Eine einfache Interaktion mit der Benutzeroberfläche ist essentiell. Die Ziele hierbei sind eine simple Bedienung und schnelle Ladezeiten. Maßnahmen zur Erreichung dieser Ziele umfassen End-to-End-Tests mit Playwright und UI-Tests, um eine optimale Benutzererfahrung zu gewährleisten.
+
+## Organisatorische Entscheidungen
+Ein wesentlicher Bestandteil der organisatorischen Entscheidungen in diesem Projekt ist die Implementierung einer CI/CD-Pipeline mithilfe von GitHub Actions um für eine hohe Qualität und Zuverlässigkeit des Codes zu sorgen. Diese Pipeline automatisiert den gesamten Prozess vom Code-Commit bis zur Bereitstellung und gewährleistet eine kontinuierliche Integration und Auslieferung neuer Funktionen und Verbesserungen. Bei jedem Push oder Pull-Request wird der Code automatisch gebaut und durch eine Reihe automatisierter Tests, einschließlich Unit-, Integrations- und End-to-End-Tests, geprüft. Zusätzlich werden Frontend-Tests durchgeführt, um sicherzustellen, dass die Benutzeroberfläche den Erwartungen entspricht. SonarCloud ergänzt als statisches Code-Analyse-Tool die Tests, um sicherzustellen, dass der Code den Qualitätsstandards entspricht. Nach erfolgreichem Bestehen aller Tests werden Docker-Container erstellt und in einer Registry gespeichert. Diese Container können dann in die verschiedenen Umgebungen mithilfe der Docker-Compose-Datei bereitgestellt werden. Um die Leistungsfähigkeit und Stabilität der Anwendung unter hoher Last zu gewährleisten, werden zudem automatisierte Lasttests mit Artillery durchgeführt.
 # Bausteinsicht
 
 ## Whitebox Gesamtsystem
