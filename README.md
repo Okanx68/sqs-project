@@ -252,6 +252,23 @@ Wichtige Schnittstellen
 
 ![Laufzeitdiagramm_Szenario2](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Laufzeitdiagramm_Szenario2_cache_miss.drawio.png)
 
+## Szenario 3: Fehlgeschlagener Abruf von Brauereiinformationen (falscher Stadtnamen)
+
+### Ablaufbeschreibung
+
+1. **Benutzeranfrage im Frontend**: Ein Benutzer navigiert auf der Angular-basierten Webanwendung und gibt den Namen einer Stadt ein, um Informationen zu Brauereien abzurufen.
+2. **Anfrage an das Backend**: Das Frontend sendet eine HTTP GET-Anfrage an das Quarkus-Backend. Der Endpunkt ist `/api/v1/breweries/{cityName}`.
+3. **Überprüfung des Caches im Backend**: Das Backend prüft, ob die Brauereiinformationen für die angefragte Stadt bereits im Cache (PostgreSQL-Datenbank) vorhanden sind.
+4. **Cache-Miss**: Wenn die Informationen nicht im Cache vorhanden sind, wird eine Anfrage an die externe API der Open Brewery DB gesendet.
+5. **Anfrage and die API der Open Brewery DB**: Das Backend sendet eine HTTP GET-Anfrage an die API der Open Brewery DB, um die Brauereiinformationen für die angefragte Stadt abzurufen.
+6. **Fehlerantwort von der API der Open Brewery DB**: Die API der Open Brewery DB liefert keine Brauereiinformationen zurück:
+7. **Antwort an das Frontend**: Das Backend sendet eine Fehlerantwort an das Frontend, um den Benutzer über den Fehler zu informieren.
+8. **Anzeige der Daten**: Das Frontend zeigt eine entsprechende Fehlermeldung dem Benutzer an ("City not found. Try again.").
+
+### Laufzeitdiagramm
+
+![Laufzeitdiagramm_Szenario2](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Laufzeitdiagramm_Szenario3.drawio.png)
+
 # Verteilungssicht
 
 ## Infrastruktur Ebene 1
