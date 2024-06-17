@@ -43,7 +43,7 @@ Folgende Randbedingungen wurden im Rahmen dieses Projektes festgelegt:
 * Der Code wird zusätzlich durch statische Code-Analyse in der Pipeline geprüft
 * Alle Services werden als Docker-Container bereitgestellt
 * Die Docker-Container werden nach jedem Push in der Pipeline neu gebaut und in der Registry abgelegt
-* Die Docker-Container können über eine Docker-Compose-Datei gestartet werden
+* Über eine Docker-Compose-Datei können die Docker-Container gestartet werden
 
 # Kontextabgrenzung
 
