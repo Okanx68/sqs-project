@@ -39,6 +39,7 @@ Folgende Randbedingungen wurden im Rahmen dieses Projektes festgelegt:
 * Die externe API wird nur angesprochen, wenn kein Eintrag in der Datenbank existiert
 * Die gefundenen Daten werden im Frontend visuell dargestellt
 * Der eigens geschriebene Code wird umfassend getestet, einschließlich Last-, Integrations-, Unit-, UI- sowie End-to-End-Tests
+* Eine CI/CD-Pipeline wird implementiert, die den Code nach jedem Push automatisch baut, testet und bereitstellt
 * Der Code wird zusätzlich durch statische Code-Analyse in der Pipeline geprüft
 * Alle Services werden als Docker-Container bereitgestellt
 * Die Docker-Container werden nach jedem Push in der Pipeline neu gebaut und in der Registry abgelegt
