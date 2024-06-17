@@ -30,18 +30,19 @@ Das Ziel der Brewery Explorer Webanwendung ist es, Brauereien in einer bestimmte
 
 Folgende Randbedingungen wurden im Rahmen dieses Projektes festgelegt:
 
-* Eine externe API soll zur Datenbeschaffung verwendet werden
-* Eine Datenbank soll als Cache bzw. als Zwischenspeicher der Daten dienen
-* Das Backend soll die Daten der externen API in einer Datenbank abspeichern
-* Im Frontend soll der User einen Suchbegriff eingeben können
-* Nach Eingabe eines Suchbegriffs im Frontend soll zunächst in der Datenbank nach einem Eintrag gesucht werden
-* Die externe API wird angesprochen, wenn kein Eintrag in der Datenbank existiert
-* Die gesuchten Daten werden im Frontend visuell dargestellt
-* Eigen geschriebener Code soll vollständig getestet werden in Form von Last-, Integrations-, Unit-, UI- sowie End-to-End-Tests
-* Der Code soll mit statischer Code-Analyse in der Pipeline zusätzlich geprüft werden
-* Alle Services sollen als Docker Container zur Verfügung stehen
-* Die Docker Container sollen nach jedem Push in der Pipeline neu gebaut und in der Registry abgelegt werden
-  
+* Das Projekt besteht aus einem Frontend, einem Backend, einer Datenbank und einer externen API
+* Zur Datenbeschaffung wird eine externe API verwendet
+* Die Datenbank dient als Cache bzw. Zwischenspeicher für die Daten
+* Das Backend speichert die Daten der externen API in der Datenbank
+* Im Frontend kann der Benutzer einen Suchbegriff eingeben
+* Nach Eingabe eines Suchbegriffs im Frontend wird zunächst in der Datenbank nach einem Eintrag gesucht
+* Die externe API wird nur angesprochen, wenn kein Eintrag in der Datenbank existiert
+* Die gefundenen Daten werden im Frontend visuell dargestellt
+* Der eigens geschriebene Code wird umfassend getestet, einschließlich Last-, Integrations-, Unit-, UI- sowie End-to-End-Tests
+* Der Code wird zusätzlich durch statische Code-Analyse in der Pipeline geprüft
+* Alle Services werden als Docker-Container bereitgestellt
+* Die Docker-Container werden nach jedem Push in der Pipeline neu gebaut und in der Registry abgelegt
+
 # Kontextabgrenzung
 
 ## Fachlicher Kontext
