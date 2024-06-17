@@ -261,7 +261,7 @@ Wichtige Schnittstellen
 3. **Überprüfung des Caches im Backend**: Das Backend prüft, ob die Brauereiinformationen für die angefragte Stadt bereits im Cache (PostgreSQL-Datenbank) vorhanden sind.
 4. **Cache-Miss**: Wenn die Informationen nicht im Cache vorhanden sind, wird eine Anfrage an die externe API der Open Brewery DB gesendet.
 5. **Anfrage and die API der Open Brewery DB**: Das Backend sendet eine HTTP GET-Anfrage an die API der Open Brewery DB, um die Brauereiinformationen für die angefragte Stadt abzurufen.
-6. **Fehlerantwort von der API der Open Brewery DB**: Die API der Open Brewery DB liefert keine Brauereiinformationen zurück:
+6. **Fehlerantwort von der API der Open Brewery DB**: Die API der Open Brewery DB liefert keine Brauereiinformationen zurück.
 7. **Antwort an das Frontend**: Das Backend sendet eine Fehlerantwort an das Frontend, um den Benutzer über den Fehler zu informieren.
 8. **Anzeige der Daten**: Das Frontend zeigt eine entsprechende Fehlermeldung dem Benutzer an ("City not found. Try again.").
 
