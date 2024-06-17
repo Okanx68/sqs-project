@@ -220,20 +220,37 @@ Wichtige Schnittstellen
 
 # Laufzeitsicht
 
-## *\<Bezeichnung Laufzeitszenario 1>*
+## Szenario 1: Abruf von Brauereiinformationen (Cache-Hit)
 
--   \<hier Laufzeitdiagramm oder Ablaufbeschreibung einfügen>
+### Ablaufbeschreibung
 
--   \<hier Besonderheiten bei dem Zusammenspiel der Bausteine in diesem
-    Szenario erläutern>
+1. **Benutzeranfrage im Frontend**: Ein Benutzer navigiert auf der Angular-basierten Webanwendung und gibt den Namen einer Stadt ein, um Informationen zu Brauereien abzurufen.
+2. **Anfrage an das Backend**: Das Frontend sendet eine HTTP GET-Anfrage an das Quarkus-Backend. Der Endpunkt ist `/api/v1/breweries/{cityName}`.
+3. **Überprüfung des Caches im Backend**: Das Backend prüft, ob die Brauereiinformationen für die angefragte Stadt bereits im Cache (PostgreSQL-Datenbank) vorhanden sind.
+4. **Cache-Hit**: Wenn die Informationen im Cache vorhanden sind, werden diese aus dem Cache an das Backend gesendet.
+5. **Antwort an das Frontend**: Das Backend sendet die Brauereiinformationen an das Frontend.
+6. **Anzeige der Daten**: Das Frontend zeigt die erhaltenen Baustelleninformationen dem Benutzer an.
 
-## *\<Bezeichnung Laufzeitszenario 2>*
+### Laufzeitdiagramm
 
-…
+![Laufzeitdiagramm_Szenario1](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Laufzeitdiagramm_Szenario1.drawio.png)
 
-## *\<Bezeichnung Laufzeitszenario n>*
+## Szenario 2: Abruf von Brauereiinformationen (Cache-Miss)
 
-…
+### Ablaufbeschreibung
+
+1. **Benutzeranfrage im Frontend**: Ein Benutzer navigiert auf der Angular-basierten Webanwendung und gibt den Namen einer Stadt ein, um Informationen zu Brauereien abzurufen.
+2. **Anfrage an das Backend**: Das Frontend sendet eine HTTP GET-Anfrage an das Quarkus-Backend. Der Endpunkt ist `/api/v1/breweries/{cityName}`.
+3. **Überprüfung des Caches im Backend**: Das Backend prüft, ob die Brauereiinformationen für die angefragte Stadt bereits im Cache (PostgreSQL-Datenbank) vorhanden sind.
+4. **Cache-Miss**: Wenn die Informationen nicht im Cache vorhanden sind, wird eine Anfrage an die externe API der Open Brewery DB gesendet.
+5. **Anfrage and die API der Open Brewery DB**: Das Backend sendet eine HTTP GET-Anfrage an die API der Open Brewery DB, um die Brauereiinformationen für die angefragte Stadt abzurufen.
+6. **Empfang und Speicherung der Daten**: Die API der Open Brewery DB liefert die Daten im JSON-Format zurück. Das Backend speichert diese Daten im Cache (PostgreSQL-Datenbank).
+7. **Antwort an das Frontend**: Das Backend sendet die Brauereiinformationen an das Frontend.
+8. **Anzeige der Daten**: Das Frontend zeigt die erhaltenen Baustelleninformationen dem Benutzer an.
+
+### Laufzeitdiagramm
+
+![Laufzeitdiagramm_Szenario2](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Laufzeitdiagramm_Szenario2.drawio.png)
 
 # Verteilungssicht
 
