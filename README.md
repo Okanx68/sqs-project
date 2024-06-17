@@ -64,7 +64,7 @@ Das System interagiert mit der Open Brewery DB API, um Brauereiinformationen im 
 
 ### Schnittstelle zum Backend
 
-Die '*BreweryDataResource* Schnittstelle im Backend bietet die einfache Möglichkeit, eine Liste von Brauereien mit Informationen wie beispielsweise Adresse, Telefonnummer oder Link zur Webseite für eine bestimmte Stadt zurückzugeben.
+Die '*BreweryDataResource*' Schnittstelle im Backend bietet die einfache Möglichkeit, eine Liste von Brauereien mit Informationen wie beispielsweise Adresse, Telefonnummer oder Link zur Webseite für eine bestimmte Stadt zurückzugeben.
 
 * GET /api/v1/breweries/{cityName}: Dies ist der Endpunkt, um die Liste der Brauereien abzurufen. Der Pfadparameter {cityName} wird dabei durch den Stadtnamen ersetzt.
 
@@ -93,8 +93,7 @@ Die API-Dokumentation wird mittels Swagger UI bereitgestellt: http://localhost:8
 Die OpenAPI-Spezifikation des Backends kann mit folgendem Link im JSON-Format abgerufen werden: http://localhost:8080/api/v1/q/openapi?format=json
 
 ### Externe technische Schnittstelle - Open Brewery DB
-
-Die externe Schnittstelle ermöglicht das Abrufen einer Liste von Brauereiinformationen für eine bestimmte Stadt.
+Externe REST-API, die Brauereiinformationen basierend auf Stadtnamen zurückgibt. Der '*BreweryDBService*' kommuniziert direkt mit dieser API, um die Daten abzurufen und an den '*BreweryDataController*' weiterzugeben.
 
 * GET https://api.openbrewerydb.org/v1/breweries: Dies ist der externe Endpunkt, über den die Liste der Brauereien abgerufen werden, wenn kein Eintrag im Cache zwischengespeichert ist.
 
@@ -105,6 +104,11 @@ Parameter:
 * per_page: Die maximale Anzahl an Brauereien als Queryparameter.
 
 API-Dokumentation des externen Endpunkts: https://openbrewerydb.org/documentation#list-breweries
+
+### Mapping fachlicher auf technische Schnittstellen
+
+- **Fachliche Eingabe: Stadtnamen** -> **Technische Schnittstelle: HTTP Request von der Angular Application an BreweryDataResource**
+- **Fachliche Ausgabe: Brauereiinformationen** -> **Technische Schnittstelle: HTTP Response von BreweryDataResource an die Angular Application**
 
 # Lösungsstrategie
 
