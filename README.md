@@ -108,7 +108,7 @@ API-Dokumentation des externen Endpunkts: https://openbrewerydb.org/documentatio
 ### Mapping fachlicher auf technische Schnittstellen
 
 - **Fachliche Eingabe: Stadtnamen** -> **Technische Schnittstelle: HTTP Request von der Angular Application an BreweryDataResource**
-- **Fachliche Ausgabe: Brauereiinformationen** -> **Technische Schnittstelle: HTTP Response von BreweryDataResource an die Angular Application**
+- **Fachliche Ausgabe: Brauereidaten** -> **Technische Schnittstelle: HTTP Response von BreweryDataResource an die Angular Application**
 
 # Lösungsstrategie
 
