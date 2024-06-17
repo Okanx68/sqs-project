@@ -50,16 +50,16 @@ Das System interagiert mit der Open Brewery DB API, um Brauereiinformationen im 
 
 | Technischer Kanal                  | Eingabe                                      | Ausgabe                                |
 |------------------------------------|----------------------------------------------|----------------------------------------|
-| User -> Angular Frontend           | Benutzeraktionen (z.B. Stadtnamen)           | Aktualisierte Benutzeroberfläche       |
-| Angular Frontend -> BreweryDataResource | HTTP Request (Stadtnamen)              | HTTP Response (Brauereiinformationen)  |
-| BreweryDataResource -> BreweryDataController | API Call                              | Datenabfrage Ergebnis                  |
+| User -> Angular Application       | Benutzeraktionen (z.B. Stadtnamen)           | Aktualisierte Benutzeroberfläche       |
+| Angular Frontend -> BreweryDataResource | HTTP Request (Stadtnamen)              | HTTP Response (Brauereidaten)  |
+| BreweryDataResource -> BreweryDataController | API Call                              | Ergebnis der Datenabfrage                  |
 | BreweryDataController -> BreweryDBService | API Request (Stadtnamen)               | API Response (Brauereidaten)           |
 | BreweryDBService -> Open Brewery DB | API Request (Stadtnamen)                   | Liste der Brauereien                   |
 | Open Brewery DB -> BreweryDBService | -                                           | Brauereiinformationen                  |
 | BreweryDataController -> BreweryData | Datenabfrage                                | Daten speichern/abrufen                |
 | BreweryData -> PostgreSQL          | SQL Query                                   | SQL Response                           |
 | BreweryDataController -> BreweryDataDTO | Datenkonvertierung                       | DTO                                    |
-| BreweryDataResource -> Angular Frontend | HTTP Response                          | Aktualisierte Benutzeroberfläche       |
+| BreweryDataResource -> Angular Application | HTTP Response                          | Aktualisierte Benutzeroberfläche       |
 
 
 ### Schnittstelle zum Backend
