@@ -44,9 +44,9 @@ Folgende Randbedingungen wurden im Rahmen dieses Projektes festgelegt:
 
 ## Technischer Kontext
 
-### UML Diagramm
+### UML Deployment Diagramm
 
-![UML Diagramm](https://github.com/Okanx68/sqs-project/blob/main/doc/images/UMLDiagramm.png)
+![UML Deployment Diagramm](https://github.com/Okanx68/sqs-project/blob/main/doc/images/UML_Deployment_Diagram.png)
 
 ### Schnittstelle zum Backend
 Das System interagiert mit der Open Brewery DB API, um Brauereiinformationen im Quarkus-Backend abzurufen. Diese Daten werden in der PostgreSQL-Datenbank zwischengespeichert und Benutzern über die Angular-Webanwendung zugänglich gemacht.
