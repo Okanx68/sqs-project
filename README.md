@@ -43,7 +43,7 @@ Folgende Randbedingungen wurden im Rahmen dieses Projektes festgelegt:
 | Brewery Explorer <-> Open Brewery DB | Suchanfrage mit Stadtnamen  | Liste der gefundenen Brauereien        |
 
 ## Technischer Kontext
-Das System interagiert mit der Open Brewery DB API, um Brauereiinformationen im Quarkus-Backend abzurufen. Diese Daten werden in der PostgreSQL-Datenbank zwischengespeichert und Benutzern über die Angular-Webanwendung zugänglich gemacht.
+Das System interagiert mit der externen Open Brewery DB API, um Brauereiinformationen im Quarkus-Backend abzurufen. Diese Daten werden in der PostgreSQL-Datenbank zwischengespeichert und Benutzern über die Angular-Webanwendung zugänglich gemacht.
 ### UML Deployment Diagramm
 
 ![UML Deployment Diagramm](https://github.com/Okanx68/sqs-project/blob/main/doc/images/UML_Deployment_Diagram.png)
