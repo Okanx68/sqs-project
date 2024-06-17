@@ -233,7 +233,7 @@ Wichtige Schnittstellen
 
 ### Laufzeitdiagramm
 
-![Laufzeitdiagramm_Szenario1](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Laufzeitdiagramm_Szenario1.drawio.png)
+![Laufzeitdiagramm_Szenario1](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Laufzeitdiagramm_Szenario1_cache_hit_modified.drawio.png)
 
 ## Szenario 2: Abruf von Brauereiinformationen (Cache-Miss)
 
@@ -250,7 +250,7 @@ Wichtige Schnittstellen
 
 ### Laufzeitdiagramm
 
-![Laufzeitdiagramm_Szenario2](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Laufzeitdiagramm_Szenario2.drawio.png)
+![Laufzeitdiagramm_Szenario2](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Laufzeitdiagramm_Szenario2_cache_miss.drawio.png)
 
 # Verteilungssicht
 
