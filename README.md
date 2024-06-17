@@ -24,7 +24,7 @@ Das Ziel der Brewery Explorer Webanwendung ist es, Brauereien in einer bestimmte
 |--------------|----------------|-------------------|
 | Dozent | Beneken, Gerd (gerd.beneken@th-rosenheim.de) | "Will ein funktionierendes und gutes Projekt sehen!"  |
 | Dozent | Reimer, Mario-Leander (mario-leander.reimer@th-rosenheim.de) | "Will ein funktionierendes und sehr gutes Projekt sehen!"  |
-| Entwickler | Karaoglan, Okan (okan.karaoglan@stud.th-rosenheim.de) | "Wiel ein funktionierendes und sehr gutes Projekt entwickeln!" |
+| Entwickler | Karaoglan, Okan (okan.karaoglan@stud.th-rosenheim.de) | "Will ein funktionierendes und sehr gutes Projekt entwickeln!" |
 
 # Randbedingungen
 
