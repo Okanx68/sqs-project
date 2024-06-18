@@ -144,7 +144,7 @@ Ein weiteres wichtiges Qualitätsziel ist die **Übertragbarkeit (Portability)**
 Darüber hinaus spielt die **Benutzerfreundlichkeit (Usability)** eine entscheidende Rolle. Eine einfache Interaktion mit der Benutzeroberfläche ist essentiell. Die Ziele hierbei sind eine simple Bedienung und schnelle Ladezeiten. Maßnahmen zur Erreichung dieser Ziele umfassen End-to-End-Tests mit Playwright und UI-Tests, um eine optimale Benutzererfahrung zu gewährleisten.
 
 ## Organisatorische Entscheidungen
-Ein wesentlicher Bestandteil der organisatorischen Entscheidungen in diesem Projekt ist die Implementierung einer CI/CD-Pipeline mithilfe von GitHub Actions um für eine hohe Qualität und Zuverlässigkeit des Codes zu sorgen. Diese Pipeline automatisiert den gesamten Prozess vom Code-Commit bis zur Bereitstellung und gewährleistet eine kontinuierliche Integration und Auslieferung neuer Funktionen und Verbesserungen. Bei jedem Push oder Pull-Request wird der Code automatisch gebaut und durch eine Reihe automatisierter Tests, einschließlich Unit-, Integrations- und End-to-End-Tests, geprüft. Zusätzlich werden Frontend-Tests durchgeführt, um sicherzustellen, dass die Benutzeroberfläche den Erwartungen entspricht. ArchUnit-Tests werden im Backend verwendet, um die Einhaltung von Architekturregeln zu überprüfen. SonarCloud ergänzt als statisches Code-Analyse-Tool die Tests, um sicherzustellen, dass der Code den Qualitätsstandards entspricht. Nach erfolgreichem Bestehen aller Tests werden Docker-Container erstellt und in einer Registry gespeichert. Diese Container können dann in die verschiedenen Umgebungen mithilfe der Docker-Compose-Datei bereitgestellt werden. Um die Leistungsfähigkeit und Stabilität der Anwendung unter hoher Last zu gewährleisten, werden zudem automatisierte Lasttests mit Artillery durchgeführt.
+Ein wesentlicher Bestandteil der organisatorischen Entscheidungen in diesem Projekt ist die Implementierung einer CI/CD-Pipeline mithilfe von GitHub Actions um für eine hohe Qualität und Zuverlässigkeit des Codes zu sorgen. Diese Pipeline automatisiert den gesamten Prozess vom Code-Commit bis zur Bereitstellung und gewährleistet eine kontinuierliche Integration und Auslieferung neuer Funktionen und Verbesserungen. Bei jedem Push oder Pull-Request wird der Code automatisch gebaut und durch eine Reihe automatisierter Tests, einschließlich Unit-, Integrations- und End-to-End-Tests, geprüft. Zusätzlich werden Frontend-Tests durchgeführt, um sicherzustellen, dass die Benutzeroberfläche den Erwartungen entspricht. ArchUnit-Tests werden im Backend verwendet, um die Einhaltung von Architekturregeln zu überprüfen. Die Dockerfiles werden in der Pipeline gelintet, um sicherzustellen, dass sie syntaktisch korrekt und effizient geschrieben sind. SonarCloud ergänzt als statisches Code-Analyse-Tool die Tests, um sicherzustellen, dass der Code den Qualitätsstandards entspricht. Nach erfolgreichem Bestehen aller Tests werden Docker-Container erstellt und in einer Registry gespeichert. Diese Container können dann in die verschiedenen Umgebungen mithilfe der Docker-Compose-Datei bereitgestellt werden. Um die Leistungsfähigkeit und Stabilität der Anwendung unter hoher Last zu gewährleisten, werden zudem automatisierte Lasttests mit Artillery durchgeführt.
 
 # Bausteinsicht
 
@@ -400,6 +400,8 @@ Die Architekturentscheidungen für dieses Projekt wurden sorgfältig getroffen, 
 
 **ArchUnit**: ArchUnit wurde genutzt, um Architektur- und Design-Prinzipien im Backend zu überprüfen, sicherzustellen und durchzusetzen. Dies unterstützt die langfristige Wartbarkeit und Konsistenz des Codes.
 
+**Hadolint**: Hadolint wurde verwendet, um die Dockerfiles zu linten und sicherzustellen, dass sie syntaktisch korrekt und nach bewährten Methoden geschrieben sind.
+
 ## Schichtenmodell
 
 Das System wurde in mehreren Schichten organisiert, um eine klare Trennung von Präsentation, Geschäftslogik und Datenzugriff zu gewährleisten. Diese Struktur erhöht die Wartbarkeit und Skalierbarkeit der Anwendung. Im Detail besteht die Architektur aus folgenden Schichten:
@@ -447,6 +449,7 @@ Die CI/CD-Pipeline, implementiert mit GitHub Actions, automatisierte den gesamte
 |----------------|-----------------|
 | JUnit      | 5 |
 | ArchUnit | 1.3.0 |
+| Hadolint | 2.12.0 |
 | Artillery    | latest |
 | Playwright | latest |
 
