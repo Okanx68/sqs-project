@@ -144,7 +144,7 @@ Ein weiteres wichtiges Qualitätsziel ist die **Übertragbarkeit (Portability)**
 Darüber hinaus spielt die **Benutzerfreundlichkeit (Usability)** eine entscheidende Rolle. Eine einfache Interaktion mit der Benutzeroberfläche ist essentiell. Die Ziele hierbei sind eine simple Bedienung und schnelle Ladezeiten. Maßnahmen zur Erreichung dieser Ziele umfassen End-to-End-Tests mit Playwright und UI-Tests, um eine optimale Benutzererfahrung zu gewährleisten.
 
 ## Organisatorische Entscheidungen
-Ein wesentlicher Bestandteil der organisatorischen Entscheidungen in diesem Projekt ist die Implementierung einer CI/CD-Pipeline mithilfe von GitHub Actions um für eine hohe Qualität und Zuverlässigkeit des Codes zu sorgen. Diese Pipeline automatisiert den gesamten Prozess vom Code-Commit bis zur Bereitstellung und gewährleistet eine kontinuierliche Integration und Auslieferung neuer Funktionen und Verbesserungen. Bei jedem Push oder Pull-Request wird der Code automatisch gebaut und durch eine Reihe automatisierter Tests, einschließlich Unit-, Integrations- und End-to-End-Tests, geprüft. Zusätzlich werden Frontend-Tests durchgeführt, um sicherzustellen, dass die Benutzeroberfläche den Erwartungen entspricht. SonarCloud ergänzt als statisches Code-Analyse-Tool die Tests, um sicherzustellen, dass der Code den Qualitätsstandards entspricht. Nach erfolgreichem Bestehen aller Tests werden Docker-Container erstellt und in einer Registry gespeichert. Diese Container können dann in die verschiedenen Umgebungen mithilfe der Docker-Compose-Datei bereitgestellt werden. Um die Leistungsfähigkeit und Stabilität der Anwendung unter hoher Last zu gewährleisten, werden zudem automatisierte Lasttests mit Artillery durchgeführt.
+Ein wesentlicher Bestandteil der organisatorischen Entscheidungen in diesem Projekt ist die Implementierung einer CI/CD-Pipeline mithilfe von GitHub Actions um für eine hohe Qualität und Zuverlässigkeit des Codes zu sorgen. Diese Pipeline automatisiert den gesamten Prozess vom Code-Commit bis zur Bereitstellung und gewährleistet eine kontinuierliche Integration und Auslieferung neuer Funktionen und Verbesserungen. Bei jedem Push oder Pull-Request wird der Code automatisch gebaut und durch eine Reihe automatisierter Tests, einschließlich Unit-, Integrations- und End-to-End-Tests, geprüft. Zusätzlich werden Frontend-Tests durchgeführt, um sicherzustellen, dass die Benutzeroberfläche den Erwartungen entspricht. ArchUnit-Tests werden im Backend verwendet, um die Einhaltung von Architekturregeln zu überprüfen. SonarCloud ergänzt als statisches Code-Analyse-Tool die Tests, um sicherzustellen, dass der Code den Qualitätsstandards entspricht. Nach erfolgreichem Bestehen aller Tests werden Docker-Container erstellt und in einer Registry gespeichert. Diese Container können dann in die verschiedenen Umgebungen mithilfe der Docker-Compose-Datei bereitgestellt werden. Um die Leistungsfähigkeit und Stabilität der Anwendung unter hoher Last zu gewährleisten, werden zudem automatisierte Lasttests mit Artillery durchgeführt.
 
 # Bausteinsicht
 
@@ -390,9 +390,11 @@ Die Architekturentscheidungen für dieses Projekt wurden sorgfältig getroffen, 
 
 **Artillery**: Für Lasttests wurde Artillery verwendet, um die Leistungsfähigkeit und Stabilität der Anwendung unter hoher Last zu überprüfen.
 
-* **JUnit**: JUnit wurde für Unit- und Integrationstests genutzt, um die Qualität und Korrektheit des Codes sicherzustellen.
+**JUnit**: JUnit wurde für Unit- und Integrationstests genutzt, um die Qualität und Korrektheit des Codes sicherzustellen.
 
-* **SonarCloud**: SonarCloud wurde zur statischen Code-Analyse verwendet, um die Codequalität zu überwachen und potenzielle Sicherheitslücken und Bugs frühzeitig zu identifizieren.
+**SonarCloud**: SonarCloud wurde zur statischen Code-Analyse verwendet, um die Codequalität zu überwachen und potenzielle Sicherheitslücken und Bugs frühzeitig zu identifizieren.
+
+**ArchUnit**: ArchUnit wurde genutzt, um Architektur- und Design-Prinzipien im Backend zu überprüfen, sicherzustellen und durchzusetzen. Dies unterstützt die langfristige Wartbarkeit und Konsistenz des Codes.
 
 ## Schichtenmodell
 
@@ -400,14 +402,14 @@ Das System wurde in mehreren Schichten organisiert, um eine klare Trennung von P
 
 * **Präsentationsschicht**: Diese Schicht umfasst das Angular-Frontend, das für die Benutzeroberfläche zuständig ist. Sie ermöglicht eine reaktive und benutzerfreundliche Interaktion mit dem System.
 
-* **Geschäftslogikschicht**: Diese Schicht wird durch das Quarkus-Backend repräsentiert. Hier wird die Anwendungslogik implementiert, die die Geschäftsprozesse steuert und verarbeitet. Diese Schicht nimmt Anfragen vom Frontend entgegen, bearbeitet sie und kommuniziert mit der Datenzugriffsschicht, um die erforderlichen Daten zu erhalten oder zu speichern.
+* **Geschäftslogikschicht**: Diese Schicht wird durch das Quarkus-Backend repräsentiert. Hier wird die Anwendungslogik implementiert, die die Geschäftsprozesse steuert und verarbeitet. Diese Schicht nimmt Anfragen vom Frontend entgegen, bearbeitet sie und kommuniziert mit der Datenzugriffsschicht, um die erforderlichen Daten zu erhalten oder zu speichern. ArchUnit-Tests werden hier verwendet, um sicherzustellen, dass die Architekturregeln in dieser Schicht eingehalten werden.
 
 * **Datenzugriffsschicht**: Diese Schicht beinhaltet die Interaktionen mit der PostgreSQL-Datenbank. Sie kümmert sich um das Speichern, Abrufen und Verwalten der Daten. Die Datenbank dient auch als Cache für die Daten der externen API (Open Brewery DB).
 
 ## Entwicklungsprozess
 Die Entwicklung des Projekts begann mit einem Backend-First Ansatz, um eine stabile Grundlage zu schaffen. Dieser Ansatz stellte sicher, dass die Geschäftslogik und Datenverwaltung solide implementiert wurden, bevor die Benutzeroberfläche entwickelt wurde. Nach der Fertigstellung und gründlichen Testung des Backends, das API- und Datenbankinteraktionen sicherstellt, wurde das Angular-Frontend entwickelt und nahtlos integriert.
 
-Um eine hohe Qualität zu gewährleisten, wurden umfassende Tests durchgeführt, darunter Unit-Tests, Integrationstests, End-to-End-Tests mit Playwright sowie Lasttests mit Artillery. Diese Teststrategien stellten sicher, dass alle Systemkomponenten zuverlässig und performant zusammenarbeiten.
+Um eine hohe Qualität zu gewährleisten, wurden umfassende Tests durchgeführt, darunter Unit-Tests, Integrationstests, End-to-End-Tests mit Playwright sowie Lasttests mit Artillery. Diese Teststrategien stellten sicher, dass alle Systemkomponenten zuverlässig und performant zusammenarbeiten. ArchUnit-Tests wurden im Backend eingesetzt, um zusätzlich die Einhaltung von Architektur- und Designprinzipien zu überprüfen und sicherzustellen.
 
 Die CI/CD-Pipeline, implementiert mit GitHub Actions, automatisierte den gesamten Prozess vom Code-Commit bis zur Bereitstellung. Diese Pipeline baute, testete und stellte die Anwendung bereit, wodurch kontinuierliche Integration und Auslieferung neuer Funktionen und Verbesserungen gewährleistet wurden. Zudem wurde eine statische Code-Analyse mit SonarCloud in der Pipeline durchgeführt, um die Codequalität zu überwachen und potenzielle Sicherheitslücken frühzeitig zu erkennen.
 
@@ -440,6 +442,7 @@ Die CI/CD-Pipeline, implementiert mit GitHub Actions, automatisierte den gesamte
 | Technologie  | Version       |
 |----------------|-----------------|
 | JUnit      | 5 |
+| ArchUnit | 1.3.0 |
 | Artillery    | latest |
 | Playwright | latest |
 
