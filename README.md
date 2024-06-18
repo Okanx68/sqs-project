@@ -293,34 +293,43 @@ Die Open Brewery DB API dient als externe Quelle für Brauereiinformationen und 
 
 # Verteilungssicht
 
-## Infrastruktur Ebene 1
+## Infrastruktur 
 
-***\<Übersichtsdiagramm>***
+![Verteilungssicht](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Verteilungssicht.drawio.png)
 
-Begründung  
-*\<Erläuternder Text>*
+**Begründung**
+Das System wird in einer Container-Umgebung mittels einer Docker-Compose-Datei betrieben, um eine einfache Skalierbarkeit, Portabilität und Konsistenz zu gewährleisten. Docker-Container werden verwendet, um die einzelnen Komponenten des Systems zu isolieren und zu verwalten.
 
-Qualitäts- und/oder Leistungsmerkmale  
-*\<Erläuternder Text>*
+**Qualitäts- und/oder Leistungsmerkmale**
+* **Skalierbarkeit**: Durch den Einsatz von Docker-Containern kann das System leicht horizontal skaliert werden, indem zusätzliche Container bei Bedarf gestartet werden.
+* **Portabilität**: Docker gewährleistet, dass die Anwendung in verschiedenen Umgebungen gleich läuft, was die Portabilität zwischen Entwicklungs-, Test- und Produktionsumgebungen verbessert.
+* **Isolation**: Jeder Dienst läuft in seinem eigenen Container, was die Isolation und damit die Stabilität und Sicherheit des Systems erhöht.
+* **Wiederholbarkeit**: Die Verwendung von Docker-Compose ermöglicht eine einfache und wiederholbare Bereitstellung der gesamten Systemumgebung.
 
-Zuordnung von Bausteinen zu Infrastruktur  
-*\<Beschreibung der Zuordnung>*
+**Zuordnung von Bausteinen zu Infrastruktur**
 
-## Infrastruktur Ebene 2
+| Baustein               | Infrastruktur                                  |
+|--------------------|----------------------------------------------|
+| Frontend-Container    | Docker-Container "sqs_frontend" wird bereitgestellt auf Nginx-Container "nginx:alpine" |
+| Backend-Container | Docker-Container "sqs_backend" wird bereitsgestellt auf JVM-Container "registry.access.redhat.com/ubi8/openjdk-17:1.18" |
+| PostgeSQL Datenbank | Docker-Container "db" wird bereitgestellt auf Datenbank-Container "postgres:14" |
+| Open Brewery DB API | Externer Service |
 
-### *\<Infrastrukturelement 1>*
+**Docker-Compose-Datei**
 
-*\<Diagramm + Erläuterungen>*
+[Docker-Compose](https://github.com/Okanx68/sqs-project/blob/main/docker-compose.yml)
 
-### *\<Infrastrukturelement 2>*
+Die Images für das Front- und Backend werden aus der GitHub-Registry des Projektes gezogen.
 
-*\<Diagramm + Erläuterungen>*
-
-…
-
-### *\<Infrastrukturelement n>*
-
-*\<Diagramm + Erläuterungen>*
+    +-------------------------+           +---------------------------+           +----------------------------+  
+    |                         |           |                           |           |                            |  
+    |          db             |---------->|         backend           |---------->|         frontend           |  
+    |   postgres:14           |           |  sqs_backend              |           |  sqs_frontend              |  
+    |   Port: 5432            |           |  Ports: 8080              |           |  Port: 4200                |  
+    |   Volumes:              |           |  Depends on: db           |           |  Depends on: backend       |  
+    |   postgres_data         |           |                           |           |                            |  
+    |                         |           |                           |           |                            |  
+    +-------------------------+           +---------------------------+           +----------------------------+
 
 # Querschnittliche Konzepte
 
