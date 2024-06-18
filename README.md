@@ -145,48 +145,68 @@ Darüber hinaus spielt die **Benutzerfreundlichkeit (Usability)** eine entscheid
 
 ## Organisatorische Entscheidungen
 Ein wesentlicher Bestandteil der organisatorischen Entscheidungen in diesem Projekt ist die Implementierung einer CI/CD-Pipeline mithilfe von GitHub Actions um für eine hohe Qualität und Zuverlässigkeit des Codes zu sorgen. Diese Pipeline automatisiert den gesamten Prozess vom Code-Commit bis zur Bereitstellung und gewährleistet eine kontinuierliche Integration und Auslieferung neuer Funktionen und Verbesserungen. Bei jedem Push oder Pull-Request wird der Code automatisch gebaut und durch eine Reihe automatisierter Tests, einschließlich Unit-, Integrations- und End-to-End-Tests, geprüft. Zusätzlich werden Frontend-Tests durchgeführt, um sicherzustellen, dass die Benutzeroberfläche den Erwartungen entspricht. SonarCloud ergänzt als statisches Code-Analyse-Tool die Tests, um sicherzustellen, dass der Code den Qualitätsstandards entspricht. Nach erfolgreichem Bestehen aller Tests werden Docker-Container erstellt und in einer Registry gespeichert. Diese Container können dann in die verschiedenen Umgebungen mithilfe der Docker-Compose-Datei bereitgestellt werden. Um die Leistungsfähigkeit und Stabilität der Anwendung unter hoher Last zu gewährleisten, werden zudem automatisierte Lasttests mit Artillery durchgeführt.
+
 # Bausteinsicht
 
 ## Whitebox Gesamtsystem
 
-***\<Übersichtsdiagramm>***
+**Übersichtsdiagramm**
 
-Begründung  
-*\<Erläuternder Text>*
+![Whitebox Gesamtsystem](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Whitebox_Gesamtsystem.drawio.png)
 
-Enthaltene Bausteine  
-*\<Beschreibung der enthaltenen Bausteine (Blackboxen)>*
+**Begründung**
+Die Zerlegung des Gesamtsystems in Bausteine folgt den Prinzipien der Modularität und der Verantwortlichkeitstrennung. Dadurch wird die Wartbarkeit und Erweiterbarkeit des Systems verbessert.
 
-Wichtige Schnittstellen  
-*\<Beschreibung wichtiger Schnittstellen>*
+**Enthaltene Bausteine**
 
-### \<Name Blackbox 1>
+| Name               | Verantwortung                                  |
+|--------------------|----------------------------------------------|
+| Angular Frontend    | Bereitstellungg der Benutzeroberfläche        |
+| Quarkus Backend | Verarbeitung der Geschäftslogik und Bereitstellung der API-Endpunkte            |
+| PostgeSQL Datenbank | Speicherung und Verwaltung der Daten           |
+| Open Brewery DB API | Externe Quelle für Brauereiinformationen           |
 
-*\<Zweck/Verantwortung>*
 
-*\<Schnittstelle(n)>*
+**Wichtige Schnittstellen**  
 
-*\<(Optional) Qualitäts-/Leistungsmerkmale>*
+| Schnittstelle      | Beschreibung                                  |
+|--------------------|----------------------------------------------|
+| Frontend-Backend   | Schnittstelle für die Kommunikation zwischen Angular Frontend und Quarkus Backend       |
+| Backend-Datenbank | Schnittstelle für die Kommunikation zwischen Quarkus Backend und PostgreSQL-Datenbank            |
+| Backend-Externe-API | Schnittstelle für die Kommunikation zwischen Quarkus Backend und Open Brewery DB API          |
 
-*\<(Optional) Ablageort/Datei(en)>*
+### Angular Frontend
 
-*\<(Optional) Erfüllte Anforderungen>*
+**Zweck/Verantwortung**
+Das Angular Frontend ist verantwortlich für die Bereitstellung der Benutzeroberfläche, über die Benutzer nach Brauereien suchen und Informationen anzeigen können.
 
-*\<(optional) Offene Punkte/Probleme/Risiken>*
+**Schnittstelle(n)**
+* HTTP GET `api/v1/breweries/{cityName}`: Schnittstelle zur Abfrage von Brauereiinformationen basierend auf dem Stadtnamen.
 
-### \<Name Blackbox 2>
+### Quarkus Backend
 
-*\<Blackbox-Template>*
+**Zweck/Verantwortung**
+Das Quarkus Backend verarbeitet die Geschäftslogik und stellt API-Endpunkte zur Verfügung, über die das Frontend und andere externe Systeme auf die Anwendung zugreifen können.
 
-### \<Name Blackbox n>
+**Schnittstelle(n)**
+* HTTP GET `api/v1/breweries/{cityName}`: Endpunkt zur Abfrage von Brauereiinformationen.
+* JDBC: Schnittstelle zur Kommunikation mit der PostgreSQL-Datenbank.
+  
+### PostgreSQL Datenbank
 
-*\<Blackbox-Template>*
+**Zweck/Verantwortung**
+Die PostgreSQL Datenbank speichert und verwaltet alle Daten, die von der Anwendung benötigt werden, einschließlich der gecachten Brauereiinformationen.
 
-### \<Name Schnittstelle 1>
+**Schnittstelle(n)
+* JDBC: Schnittstelle zur Kommunikation mit dem Quarkus Backend.
 
-…
+### Open Brewery DB API
 
-### \<Name Schnittstelle m>
+**Zweck/Verantwortung**
+Die Open Brewery DB API dient als externe Quelle für Brauereiinformationen und wird vom Backend verwendet, um Daten abzurufen, die nicht im lokalen Cache verfügbar sind.
+
+**Schnittstelle(n)
+* HTTP GET `https://api.openbrewerydb.org/v1/breweries?by_city={cityName}&per_page={count}`: Endpunkt zur Abfrage von Brauereiinformationen basierend auf dem Stadtnamen und der maximalen Anzahl an Brauerein.
 
 ## Ebene 2
 
