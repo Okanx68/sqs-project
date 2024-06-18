@@ -317,7 +317,7 @@ Das System wird in einer Container-Umgebung mittels einer Docker-Compose-Datei b
 
 **Docker-Compose-Datei**
 
-Link zur genutzten Docker-Compose-Datei: [*\<Docker-Compose-File\>*](https://github.com/Okanx68/sqs-project/blob/main/docker-compose.yml)
+In diesem Projekt genutzte Docker-Compose-Datei: [*\<Docker-Compose-File\>*](https://github.com/Okanx68/sqs-project/blob/main/docker-compose.yml)
 
 Die Images für das Front- und Backend werden aus der GitHub-Registry des Projektes gezogen.
 
