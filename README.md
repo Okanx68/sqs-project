@@ -335,7 +335,7 @@ Die Images für das Front- und Backend werden aus der GitHub-Registry des Projek
 
 ## Backend UML-Klassendiagramm 
 
-![UML-Klassendiagramm](https://github.com/Okanx68/sqs-project/blob/main/doc/images/UMLDiagramm.png)
+![UML-Klassendiagramm](https://github.com/Okanx68/sqs-project/blob/main/doc/images/UML_Klassendiagramm_Backend.png)
 
 ## GitHub Actions
 
