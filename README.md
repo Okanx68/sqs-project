@@ -161,9 +161,9 @@ Die Zerlegung des Gesamtsystems in Bausteine folgt den Prinzipien der Modularit�
 
 | Name               | Verantwortung                                  |
 |--------------------|----------------------------------------------|
-| Angular Frontend    | Bereitstellungg der Benutzeroberfläche        |
-| Quarkus Backend | Verarbeitung der Geschäftslogik und Bereitstellung der API-Endpunkte            |
-| PostgeSQL Datenbank | Speicherung und Verwaltung der Daten           |
+| Angular-Frontend    | Bereitstellungg der Benutzeroberfläche        |
+| Quarkus-Backend | Verarbeitung der Geschäftslogik und Bereitstellung der API-Endpunkte            |
+| PostgeSQL-Datenbank | Speicherung und Verwaltung der Daten           |
 | Open Brewery DB API | Externe Quelle für Brauereiinformationen           |
 
 
@@ -171,22 +171,22 @@ Die Zerlegung des Gesamtsystems in Bausteine folgt den Prinzipien der Modularit�
 
 | Schnittstelle      | Beschreibung                                  |
 |--------------------|----------------------------------------------|
-| Frontend-Backend   | Schnittstelle für die Kommunikation zwischen Angular Frontend und Quarkus Backend       |
-| Backend-Datenbank | Schnittstelle für die Kommunikation zwischen Quarkus Backend und PostgreSQL-Datenbank            |
-| Backend-Externe-API | Schnittstelle für die Kommunikation zwischen Quarkus Backend und Open Brewery DB API          |
+| Frontend-Backend   | Schnittstelle für die Kommunikation zwischen Angular-Frontend und Quarkus-Backend       |
+| Backend-Datenbank | Schnittstelle für die Kommunikation zwischen Quarkus-Backend und PostgreSQL-Datenbank            |
+| Backend-Externe-API | Schnittstelle für die Kommunikation zwischen Quarkus-Backend und Open Brewery DB API          |
 
-### Angular Frontend
+### Angular-Frontend
 
 **Zweck/Verantwortung**
-Das Angular Frontend ist verantwortlich für die Bereitstellung der Benutzeroberfläche, über die Benutzer nach Brauereien suchen und Informationen anzeigen können.
+Das Angular-Frontend ist verantwortlich für die Bereitstellung der Benutzeroberfläche, über die Benutzer nach Brauereien suchen und Informationen anzeigen können.
 
 **Schnittstelle(n)**
 * HTTP GET `api/v1/breweries/{cityName}`: Schnittstelle zur Abfrage von Brauereiinformationen basierend auf dem Stadtnamen.
 
-### Quarkus Backend
+### Quarkus-Backend
 
 **Zweck/Verantwortung**
-Das Quarkus Backend verarbeitet die Geschäftslogik und stellt API-Endpunkte zur Verfügung, über die das Frontend und andere externe Systeme auf die Anwendung zugreifen können.
+Das Quarkus-Backend verarbeitet die Geschäftslogik und stellt API-Endpunkte zur Verfügung, über die das Frontend und andere externe Systeme auf die Anwendung zugreifen können.
 
 **Schnittstelle(n)**
 * HTTP GET `api/v1/breweries/{cityName}`: Endpunkt zur Abfrage von Brauereiinformationen.
@@ -210,7 +210,7 @@ Die Open Brewery DB API dient als externe Quelle für Brauereiinformationen und 
 
 ## Ebene 2
 
-### Whitebox Quarkus Backend
+### Whitebox Quarkus-Backend
 
 **Übersichtsdiagramm**
 
@@ -226,7 +226,7 @@ Die Open Brewery DB API dient als externe Quelle für Brauereiinformationen und 
 | BreweryData | Datenmodell für Brauereidaten sowie Kommunikation mit der Datenbank          |
 | BreweryDataDTO | Datenübertragungsobjekt für Brauereiinformationen         |
 
-### Whitebox Angular Frontend
+### Whitebox Angular-Frontend
 
 **Übersichtsdiagramm**
 
@@ -373,10 +373,20 @@ Die Architekturentscheidungen für dieses Projekt wurden sorgfältig getroffen, 
 
 ## Schichtenmodell
 
-Das System wurde in mehreren Schichten organisiert, um eine klare Trennung von Präsentation, Geschäftslogik und Datenzugriff zu gewährleisten. Diese Struktur erhöht die Wartbarkeit und Skalierbarkeit der Anwendung.
+Das System wurde in mehreren Schichten organisiert, um eine klare Trennung von Präsentation, Geschäftslogik und Datenzugriff zu gewährleisten. Diese Struktur erhöht die Wartbarkeit und Skalierbarkeit der Anwendung. Im Detail besteht die Architektur aus folgenden Schichten:
+
+* **Präsentationsschicht**: Diese Schicht umfasst das Angular-Frontend, das für die Benutzeroberfläche zuständig ist. Sie ermöglicht eine reaktive und benutzerfreundliche Interaktion mit dem System.
+
+* **Geschäftslogikschicht**: Diese Schicht wird durch das Quarkus-Backend repräsentiert. Hier wird die Anwendungslogik implementiert, die die Geschäftsprozesse steuert und verarbeitet. Diese Schicht nimmt Anfragen vom Frontend entgegen, bearbeitet sie und kommuniziert mit der Datenzugriffsschicht, um die erforderlichen Daten zu erhalten oder zu speichern.
+
+* **Datenzugriffsschicht**: Diese Schicht beinhaltet die Interaktionen mit der PostgreSQL-Datenbank. Sie kümmert sich um das Speichern, Abrufen und Verwalten der Daten. Die Datenbank dient auch als Cache für die Daten der externen API (Open Brewery DB).
 
 ## Entwicklungsprozess
-Die Entwicklung des Projekts begann mit einem Backend-First Ansatz, um eine stabile Grundlage zu schaffen. Nachdem das Backend fertiggestellt und gründlich getestet war, wurde das Frontend entwickelt und nahtlos integriert. Um eine hohe Qualität zu gewährleisten, wurden umfassende Tests durchgeführt. Diese umfassten Unit-Tests, Integrationstests, End-to-End-Tests sowie Lasttests.
+Die Entwicklung des Projekts begann mit einem Backend-First Ansatz, um eine stabile Grundlage zu schaffen. Dieser Ansatz stellte sicher, dass die Geschäftslogik und Datenverwaltung solide implementiert wurden, bevor die Benutzeroberfläche entwickelt wurde. Nach der Fertigstellung und gründlichen Testung des Backends, das API- und Datenbankinteraktionen sicherstellt, wurde das Angular-Frontend entwickelt und nahtlos integriert.
+
+Um eine hohe Qualität zu gewährleisten, wurden umfassende Tests durchgeführt, darunter Unit-Tests, Integrationstests, End-to-End-Tests mit Playwright sowie Lasttests mit Artillery. Diese Teststrategien stellten sicher, dass alle Systemkomponenten zuverlässig und performant zusammenarbeiten.
+
+Die CI/CD-Pipeline, implementiert mit GitHub Actions, automatisiert den gesamten Prozess vom Code-Commit bis zur Bereitstellung. Diese Pipeline baut, testet und stellt die Anwendung bereit, wodurch kontinuierliche Integration und Auslieferung neuer Funktionen und Verbesserungen gewährleistet werden.
 
 ## Technologische Eigenschaften des Projekts
 
