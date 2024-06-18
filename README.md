@@ -337,6 +337,7 @@ Die Images für das Front- und Backend werden aus der GitHub-Registry des Projek
 
 [*\<Workflow-File\>*](https://github.com/Okanx68/sqs-project/blob/main/docker-compose.yml)
 
+```
 +---------------------+         +---------------------------+
 | lint_dockerfiles    |-------->| build_analyze_push        |
 | - Lint Backend      |         | - Build backend           |
@@ -353,16 +354,13 @@ Die Images für das Front- und Backend werden aus der GitHub-Registry des Projek
                 | - Start Docker Compose|     | - Start Docker Compose |
                 | - Run Artillery Tests |     | - Run Playwright Tests |
                 +-----------------------+     +------------------------+
+```
 
-## *\<Konzept 2>*
+## Artillery & Playwright 
 
-*\<Erklärung>*
+[*\<Artillery-Template\>*](https://github.com/Okanx68/sqs-project/blob/main/artillery-tests/artillery.yml)
 
-…
-
-## *\<Konzept n>*
-
-*\<Erklärung>*
+[*\<Playwright-Tests\>*](https://github.com/Okanx68/sqs-project/blob/main/playwright/tests/homepage.spec.js)
 
 # Architekturentscheidungen
 
