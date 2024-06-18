@@ -390,6 +390,10 @@ Die Architekturentscheidungen für dieses Projekt wurden sorgfältig getroffen, 
 
 **Artillery**: Für Lasttests wurde Artillery verwendet, um die Leistungsfähigkeit und Stabilität der Anwendung unter hoher Last zu überprüfen.
 
+* **JUnit**: JUnit wurde für Unit- und Integrationstests genutzt, um die Qualität und Korrektheit des Codes sicherzustellen.
+
+* **SonarCloud**: SonarCloud wurde zur statischen Code-Analyse verwendet, um die Codequalität zu überwachen und potenzielle Sicherheitslücken und Bugs frühzeitig zu identifizieren.
+
 ## Schichtenmodell
 
 Das System wurde in mehreren Schichten organisiert, um eine klare Trennung von Präsentation, Geschäftslogik und Datenzugriff zu gewährleisten. Diese Struktur erhöht die Wartbarkeit und Skalierbarkeit der Anwendung. Im Detail besteht die Architektur aus folgenden Schichten:
@@ -399,10 +403,6 @@ Das System wurde in mehreren Schichten organisiert, um eine klare Trennung von P
 * **Geschäftslogikschicht**: Diese Schicht wird durch das Quarkus-Backend repräsentiert. Hier wird die Anwendungslogik implementiert, die die Geschäftsprozesse steuert und verarbeitet. Diese Schicht nimmt Anfragen vom Frontend entgegen, bearbeitet sie und kommuniziert mit der Datenzugriffsschicht, um die erforderlichen Daten zu erhalten oder zu speichern.
 
 * **Datenzugriffsschicht**: Diese Schicht beinhaltet die Interaktionen mit der PostgreSQL-Datenbank. Sie kümmert sich um das Speichern, Abrufen und Verwalten der Daten. Die Datenbank dient auch als Cache für die Daten der externen API (Open Brewery DB).
-
-* **JUnit**: JUnit wurde für Unit- und Integrationstests genutzt, um die Qualität und Korrektheit des Codes sicherzustellen.
-
-* **SonarCloud**: SonarCloud wurde zur statischen Code-Analyse verwendet, um die Codequalität zu überwachen und potenzielle Sicherheitslücken und Bugs frühzeitig zu identifizieren.
 
 ## Entwicklungsprozess
 Die Entwicklung des Projekts begann mit einem Backend-First Ansatz, um eine stabile Grundlage zu schaffen. Dieser Ansatz stellte sicher, dass die Geschäftslogik und Datenverwaltung solide implementiert wurden, bevor die Benutzeroberfläche entwickelt wurde. Nach der Fertigstellung und gründlichen Testung des Backends, das API- und Datenbankinteraktionen sicherstellt, wurde das Angular-Frontend entwickelt und nahtlos integriert.
