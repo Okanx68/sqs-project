@@ -312,18 +312,18 @@ Das System wird in einer Container-Umgebung mittels einer Docker-Compose-Datei b
 |--------------------|----------------------------------------------|
 | Frontend-Container    | Docker-Container "sqs_frontend" wird bereitgestellt auf Nginx-Container "nginx:alpine" |
 | Backend-Container | Docker-Container "sqs_backend" wird bereitsgestellt auf JVM-Container "registry.access.redhat.com/ubi8/openjdk-17:1.18" |
-| PostgeSQL Datenbank | Docker-Container "db" wird bereitgestellt auf Datenbank-Container "postgres:14" |
+| PostgeSQL Datenbank | Docker-Container "sqs_pg_compose" wird bereitgestellt auf Datenbank-Container "postgres:14" |
 | Open Brewery DB API | Externer Service |
 
 **Docker-Compose-Datei**
 
-[Docker-Compose](https://github.com/Okanx68/sqs-project/blob/main/docker-compose.yml)
+[*\<Docker-Compose\>*](https://github.com/Okanx68/sqs-project/blob/main/docker-compose.yml)
 
 Die Images für das Front- und Backend werden aus der GitHub-Registry des Projektes gezogen.
 
     +-------------------------+           +---------------------------+           +----------------------------+  
     |                         |           |                           |           |                            |  
-    |          db             |---------->|         backend           |---------->|         frontend           |  
+    |   db (sqs_pg_compose)   |---------->|         backend           |---------->|         frontend           |  
     |   postgres:14           |           |  sqs_backend              |           |  sqs_frontend              |  
     |   Port: 5432            |           |  Ports: 8080              |           |  Port: 4200                |  
     |   Volumes:              |           |  Depends on: db           |           |  Depends on: backend       |  
