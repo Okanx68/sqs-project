@@ -117,7 +117,7 @@ Parameter:
 
 * by_city: Der Name der Stadt als Queryparamter, für die eine Liste an Brauereien im JSON-Format zurückgegeben werden sollen.
 
-* per_page: Die maximale Anzahl an Brauereien als Queryparameter.
+* per_page: Die maximale Anzahl an Brauereien als Queryparameter (standardmäßig maximal 20 Brauereien).
 
 API-Dokumentation des externen Endpunkts: https://openbrewerydb.org/documentation#list-breweries
 
@@ -197,7 +197,7 @@ Das Quarkus Backend verarbeitet die Geschäftslogik und stellt API-Endpunkte zur
 **Zweck/Verantwortung**
 Die PostgreSQL Datenbank speichert und verwaltet alle Daten, die von der Anwendung benötigt werden, einschließlich der gecachten Brauereiinformationen.
 
-**Schnittstelle(n)
+**Schnittstelle(n)**
 * JDBC: Schnittstelle zur Kommunikation mit dem Quarkus Backend.
 
 ### Open Brewery DB API
@@ -210,33 +210,35 @@ Die Open Brewery DB API dient als externe Quelle für Brauereiinformationen und 
 
 ## Ebene 2
 
-### Whitebox *\<Baustein 1>*
+### Whitebox Quarkus Backend
 
-*\<Whitebox-Template>*
+**Übersichtsdiagramm**
 
-### Whitebox *\<Baustein 2>*
+![Whitebox Quarkus Backend](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Quarkus_Backend_Ebene.drawio.png)
 
-*\<Whitebox-Template>*
+**Enthaltene Bausteine**
 
-…
+| Name               | Verantwortung                                  |
+|--------------------|----------------------------------------------|
+| BreweryDataResource    | Bereitstellung der API-Endpunkte zur Abfrage von Brauereidaten       |
+| BreweryDataController | Geschäftslogik zur Verarbeitung von Brauereianfragen          |
+| BreweryDBService | Kommunikation mit der Open Brewery DB API           |
+| BreweryData | Datenmodell für Brauereidaten sowie Kommunikation mit der Datenbank          |
+| BreweryDataDTO | Datenübertragungsobjekt für Brauereiinformationen         |
 
-### Whitebox *\<Baustein m>*
+### Whitebox Angular Frontend
 
-*\<Whitebox-Template>*
+**Übersichtsdiagramm**
 
-## Ebene 3
+![Whitebox Quarkus Backend](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Angular_Frontend_Ebene.drawio.png)
 
-### Whitebox \<\_Baustein x.1\_\>
+**Enthaltene Bausteine**
 
-*\<Whitebox-Template>*
-
-### Whitebox \<\_Baustein x.2\_\>
-
-*\<Whitebox-Template>*
-
-### Whitebox \<\_Baustein y.1\_\>
-
-*\<Whitebox-Template>*
+| Name               | Verantwortung                                  |
+|--------------------|----------------------------------------------|
+| AppComponent    | Bereitstellung der Weboberfläche (Suchfunktion sowie Anzeige der Liste von Brauerein)      |
+| BreweryService | Kommunikation mit dem Backend zur Abfrage von Brauerdaten        |
+| BreweryModel | Datenmodell für Brauereidaten           |
 
 # Laufzeitsicht
 
