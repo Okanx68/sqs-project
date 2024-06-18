@@ -333,9 +333,26 @@ Die Images für das Front- und Backend werden aus der GitHub-Registry des Projek
 
 # Querschnittliche Konzepte
 
-## *\<Konzept 1>*
+## GitHub Actions
 
-*\<Erklärung>*
+[*\<Workflow-File\>*](https://github.com/Okanx68/sqs-project/blob/main/docker-compose.yml)
+
++---------------------+         +---------------------------+
+| lint_dockerfiles    |-------->| build_analyze_push        |
+| - Lint Backend      |         | - Build backend           |
+|   Dockerfile        |         | - Build frontend          |
+| - Lint Frontend     |         | - Run SonarCloud Analysis |
+|   Dockerfile        |         | - Push Docker images      |
++---------------------+         +-----------+---------------+
+                                           |
+                                           v
+                              +------------+-------------+
+                              |                          |
+                +-----------------------+     +------------------------+
+                | artillery_test        |     | end-to-end-tests       |
+                | - Start Docker Compose|     | - Start Docker Compose |
+                | - Run Artillery Tests |     | - Run Playwright Tests |
+                +-----------------------+     +------------------------+
 
 ## *\<Konzept 2>*
 
