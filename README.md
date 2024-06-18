@@ -312,7 +312,7 @@ Das System wird in einer Container-Umgebung mittels einer Docker-Compose-Datei b
 |--------------------|----------------------------------------------|
 | Frontend-Container    | Docker-Container "sqs_frontend" wird bereitgestellt auf Nginx-Container "nginx:alpine" |
 | Backend-Container | Docker-Container "sqs_backend" wird bereitsgestellt auf JVM-Container "registry.access.redhat.com/ubi8/openjdk-17:1.18" |
-| PostgeSQL Datenbank | Docker-Container "sqs_pg_compose" wird bereitgestellt auf Datenbank-Container "postgres:14" |
+| PostgeSQL-Datenbank | Docker-Container "sqs_pg_compose" wird bereitgestellt auf Datenbank-Container "postgres:14" |
 | Open Brewery DB API | Externer Service |
 
 **Docker-Compose-Datei**
