@@ -295,7 +295,7 @@ Die Open Brewery DB API dient als externe Quelle für Brauereiinformationen und 
 
 ## Infrastruktur 
 
-![Verteilungssicht](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Verteilungssicht_modified_v2.drawio.png)
+![Verteilungssicht](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Verteilungssicht_modified.drawio.png)
 
 **Begründung**
 Das System wird in einer Container-Umgebung mittels einer Docker-Compose-Datei betrieben, um eine einfache Skalierbarkeit, Portabilität und Konsistenz zu gewährleisten. Docker-Container werden verwendet, um die einzelnen Komponenten des Systems zu isolieren und zu verwalten.
@@ -317,7 +317,7 @@ Das System wird in einer Container-Umgebung mittels einer Docker-Compose-Datei b
 
 **Docker-Compose-Datei**
 
-[*\<Docker-Compose\>*](https://github.com/Okanx68/sqs-project/blob/main/docker-compose.yml)
+In diesem Projekt genutzte Docker-Compose-Datei: [*\<Docker-Compose-File\>*](https://github.com/Okanx68/sqs-project/blob/main/docker-compose.yml)
 
 Die Images für das Front- und Backend werden aus der GitHub-Registry des Projektes gezogen.
 
@@ -333,19 +333,38 @@ Die Images für das Front- und Backend werden aus der GitHub-Registry des Projek
 
 # Querschnittliche Konzepte
 
-## *\<Konzept 1>*
+## Backend UML-Klassendiagramm 
 
-*\<Erklärung>*
+![UML-Klassendiagramm](https://github.com/Okanx68/sqs-project/blob/main/doc/images/UMLDiagramm.png)
 
-## *\<Konzept 2>*
+## GitHub Actions
 
-*\<Erklärung>*
+In diesem Projekt verwendete Pipeline: [*\<Workflow-File\>*](https://github.com/Okanx68/sqs-project/blob/main/docker-compose.yml)
 
-…
+```
++---------------------+         +---------------------------+
+| lint_dockerfiles    |-------->| build_analyze_push        |
+| - Lint Backend      |         | - Build backend           |
+|   Dockerfile        |         | - Build frontend          |
+| - Lint Frontend     |         | - Run SonarCloud Analysis |
+|   Dockerfile        |         | - Push Docker images      |
++---------------------+         +-----------+---------------+
+                                           |
+                                           v
+                              +------------+-------------+
+                              |                          |
+                +-----------------------+     +------------------------+
+                | artillery_test        |     | end-to-end-tests       |
+                | - Start Docker Compose|     | - Start Docker Compose |
+                | - Run Artillery Tests |     | - Run Playwright Tests |
+                +-----------------------+     +------------------------+
+```
 
-## *\<Konzept n>*
+## Artillery & Playwright 
 
-*\<Erklärung>*
+Lasttest-Skript: [*\<Artillery-Template\>*](https://github.com/Okanx68/sqs-project/blob/main/artillery-tests/artillery.yml)
+
+End-to-End-Tests: [*\<Playwright-Tests\>*](https://github.com/Okanx68/sqs-project/blob/main/playwright/tests/homepage.spec.js)
 
 # Architekturentscheidungen
 
@@ -381,12 +400,16 @@ Das System wurde in mehreren Schichten organisiert, um eine klare Trennung von P
 
 * **Datenzugriffsschicht**: Diese Schicht beinhaltet die Interaktionen mit der PostgreSQL-Datenbank. Sie kümmert sich um das Speichern, Abrufen und Verwalten der Daten. Die Datenbank dient auch als Cache für die Daten der externen API (Open Brewery DB).
 
+* **JUnit**: JUnit wurde für Unit- und Integrationstests genutzt, um die Qualität und Korrektheit des Codes sicherzustellen.
+
+* **SonarCloud**: SonarCloud wurde zur statischen Code-Analyse verwendet, um die Codequalität zu überwachen und potenzielle Sicherheitslücken und Bugs frühzeitig zu identifizieren.
+
 ## Entwicklungsprozess
 Die Entwicklung des Projekts begann mit einem Backend-First Ansatz, um eine stabile Grundlage zu schaffen. Dieser Ansatz stellte sicher, dass die Geschäftslogik und Datenverwaltung solide implementiert wurden, bevor die Benutzeroberfläche entwickelt wurde. Nach der Fertigstellung und gründlichen Testung des Backends, das API- und Datenbankinteraktionen sicherstellt, wurde das Angular-Frontend entwickelt und nahtlos integriert.
 
 Um eine hohe Qualität zu gewährleisten, wurden umfassende Tests durchgeführt, darunter Unit-Tests, Integrationstests, End-to-End-Tests mit Playwright sowie Lasttests mit Artillery. Diese Teststrategien stellten sicher, dass alle Systemkomponenten zuverlässig und performant zusammenarbeiten.
 
-Die CI/CD-Pipeline, implementiert mit GitHub Actions, automatisiert den gesamten Prozess vom Code-Commit bis zur Bereitstellung. Diese Pipeline baut, testet und stellt die Anwendung bereit, wodurch kontinuierliche Integration und Auslieferung neuer Funktionen und Verbesserungen gewährleistet werden.
+Die CI/CD-Pipeline, implementiert mit GitHub Actions, automatisierte den gesamten Prozess vom Code-Commit bis zur Bereitstellung. Diese Pipeline baute, testete und stellte die Anwendung bereit, wodurch kontinuierliche Integration und Auslieferung neuer Funktionen und Verbesserungen gewährleistet wurden. Zudem wurde eine statische Code-Analyse mit SonarCloud in der Pipeline durchgeführt, um die Codequalität zu überwachen und potenzielle Sicherheitslücken frühzeitig zu erkennen.
 
 ## Technologische Eigenschaften des Projekts
 
@@ -416,9 +439,10 @@ Die CI/CD-Pipeline, implementiert mit GitHub Actions, automatisiert den gesamten
 
 | Technologie  | Version       |
 |----------------|-----------------|
+| JUnit      | 5 |
 | Artillery    | latest |
 | Playwright | latest |
-| JUnit      | 5 |
+
 
 
 # Qualitätsanforderungen
