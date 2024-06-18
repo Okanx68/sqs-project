@@ -381,12 +381,16 @@ Das System wurde in mehreren Schichten organisiert, um eine klare Trennung von P
 
 * **Datenzugriffsschicht**: Diese Schicht beinhaltet die Interaktionen mit der PostgreSQL-Datenbank. Sie kümmert sich um das Speichern, Abrufen und Verwalten der Daten. Die Datenbank dient auch als Cache für die Daten der externen API (Open Brewery DB).
 
+* **JUnit**: JUnit wurde für Unit- und Integrationstests genutzt, um die Qualität und Korrektheit des Codes sicherzustellen.
+
+* **SonarCloud**: SonarCloud wurde zur statischen Code-Analyse verwendet, um die Codequalität zu überwachen und potenzielle Sicherheitslücken und Bugs frühzeitig zu identifizieren.
+
 ## Entwicklungsprozess
 Die Entwicklung des Projekts begann mit einem Backend-First Ansatz, um eine stabile Grundlage zu schaffen. Dieser Ansatz stellte sicher, dass die Geschäftslogik und Datenverwaltung solide implementiert wurden, bevor die Benutzeroberfläche entwickelt wurde. Nach der Fertigstellung und gründlichen Testung des Backends, das API- und Datenbankinteraktionen sicherstellt, wurde das Angular-Frontend entwickelt und nahtlos integriert.
 
 Um eine hohe Qualität zu gewährleisten, wurden umfassende Tests durchgeführt, darunter Unit-Tests, Integrationstests, End-to-End-Tests mit Playwright sowie Lasttests mit Artillery. Diese Teststrategien stellten sicher, dass alle Systemkomponenten zuverlässig und performant zusammenarbeiten.
 
-Die CI/CD-Pipeline, implementiert mit GitHub Actions, automatisiert den gesamten Prozess vom Code-Commit bis zur Bereitstellung. Diese Pipeline baut, testet und stellt die Anwendung bereit, wodurch kontinuierliche Integration und Auslieferung neuer Funktionen und Verbesserungen gewährleistet werden.
+Die CI/CD-Pipeline, implementiert mit GitHub Actions, automatisierte den gesamten Prozess vom Code-Commit bis zur Bereitstellung. Diese Pipeline baute, testete und stellte die Anwendung bereit, wodurch kontinuierliche Integration und Auslieferung neuer Funktionen und Verbesserungen gewährleistet wurden. Zudem wurde eine statische Code-Analyse mit SonarCloud in der Pipeline durchgeführt, um die Codequalität zu überwachen und potenzielle Sicherheitslücken frühzeitig zu erkennen.
 
 ## Technologische Eigenschaften des Projekts
 
@@ -416,9 +420,10 @@ Die CI/CD-Pipeline, implementiert mit GitHub Actions, automatisiert den gesamten
 
 | Technologie  | Version       |
 |----------------|-----------------|
+| JUnit      | 5 |
 | Artillery    | latest |
 | Playwright | latest |
-| JUnit      | 5 |
+
 
 
 # Qualitätsanforderungen
