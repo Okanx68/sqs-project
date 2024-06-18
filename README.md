@@ -295,7 +295,7 @@ Die Open Brewery DB API dient als externe Quelle für Brauereiinformationen und 
 
 ## Infrastruktur 
 
-![Verteilungssicht](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Verteilungssicht.drawio.png)
+![Verteilungssicht](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Verteilungssicht_modified_v2.drawio.png)
 
 **Begründung**
 Das System wird in einer Container-Umgebung mittels einer Docker-Compose-Datei betrieben, um eine einfache Skalierbarkeit, Portabilität und Konsistenz zu gewährleisten. Docker-Container werden verwendet, um die einzelnen Komponenten des Systems zu isolieren und zu verwalten.
@@ -418,6 +418,7 @@ Die CI/CD-Pipeline, implementiert mit GitHub Actions, automatisiert den gesamten
 |----------------|-----------------|
 | Artillery    | latest |
 | Playwright | latest |
+| JUnit      | 5 |
 
 
 # Qualitätsanforderungen
