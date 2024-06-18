@@ -349,6 +349,67 @@ Die Images für das Front- und Backend werden aus der GitHub-Registry des Projek
 
 # Architekturentscheidungen
 
+Die Architekturentscheidungen für dieses Projekt wurden sorgfältig getroffen, um eine robuste, skalierbare und wartbare Anwendung zu gewährleisten.
+
+## Technologiewahl
+
+**Quarkus**: Für das Backend wurde Quarkus ausgewählt, ein Framework, das sich durch schnelle Startzeiten und geringe Ressourcenanforderungen auszeichnet. Es ist besonders geeignet für Cloud-native und Microservice-Architekturen und ermöglicht eine nahtlose Integration mit Container-Technologien wie Docker.
+
+**Angular**: Angular dient als Frontend-Framework. Es bietet eine leistungsstarke Plattform für die Entwicklung dynamischer Single-Page-Anwendungen und unterstützt eine intuitive Benutzeroberfläche.
+
+**PostgreSQL**: Als Datenbank wurde PostgreSQL gewählt, um von seiner Zuverlässigkeit, Leistungsfähigkeit und Erweiterbarkeit zu profitieren. Die Datenbank wird als Cache für die Daten der externen API verwendet.
+
+**Open Brewery DB API**: Zur Beschaffung von Brauereiinformationen wird die Open Brewery DB API genutzt, die eine umfassende und zuverlässige Datenquelle bietet.
+
+**Docker**: Die Anwendung wurde mit Docker containerisiert, um eine konsistente Umgebung für Entwicklung, Test und Produktion zu gewährleisten.
+
+**Docker Compose**: Zur Verwaltung der Container wurde Docker Compose eingesetzt, um die Container-Orchestrierung zu erleichtern.
+
+**GitHub Actions**: Es wurden automatisierte CI/CD-Pipelines mit GitHub Actions eingerichtet, die das Bauen, Testen und Bereitstellen der Anwendung automatisieren. Dazu gehören auch statische Code-Analysen mit SonarCloud und das Bereitstellen der Docker-Container in einer Registry.
+
+**Playwright**: End-to-End-Tests wurden mit Playwright durchgeführt, um die Funktionalität der gesamten Anwendung sicherzustellen.
+
+**Artillery**: Für Lasttests wurde Artillery verwendet, um die Leistungsfähigkeit und Stabilität der Anwendung unter hoher Last zu überprüfen.
+
+## Schichtenmodell
+
+Das System wurde in mehreren Schichten organisiert, um eine klare Trennung von Präsentation, Geschäftslogik und Datenzugriff zu gewährleisten. Diese Struktur erhöht die Wartbarkeit und Skalierbarkeit der Anwendung.
+
+## Entwicklungsprozess
+Die Entwicklung des Projekts begann mit einem Backend-First Ansatz, um eine stabile Grundlage zu schaffen. Nachdem das Backend fertiggestellt und gründlich getestet war, wurde das Frontend entwickelt und nahtlos integriert. Um eine hohe Qualität zu gewährleisten, wurden umfassende Tests durchgeführt. Diese umfassten Unit-Tests, Integrationstests, End-to-End-Tests sowie Lasttests.
+
+## Technologische Eigenschaften des Projekts
+
+### Frontend
+
+| Technologie  | Version       |
+|----------------|-----------------|
+| Angular    | 17.3.11 |
+| Node | 20.13.0 |
+| Bootstrap | 5.3.3 |
+
+### Backend
+
+| Technologie  | Version       |
+|----------------|-----------------|
+| Quarkus    | 3.9.1 |
+| Maven | 3.8.6 |
+| Java | 17 |
+
+## Database
+
+| Technologie  | Version       |
+|----------------|-----------------|
+| PostgreSQL    | 14 |
+
+## Testing
+
+| Technologie  | Version       |
+|----------------|-----------------|
+| Artillery    | latest |
+| Playwright | latest |
+
+
 # Qualitätsanforderungen
 
 <div class="formalpara-title">
