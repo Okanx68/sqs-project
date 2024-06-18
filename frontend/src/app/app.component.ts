@@ -30,7 +30,7 @@ export class AppComponent {
     let enteredCityName = this.newForm.get('fieldVal')?.value;
     this.breweryService.getBreweriesByCity(enteredCityName).subscribe((data: any) => {
           if(data == null){
-            this.noDataMessage = "City not found. Try again.";
+            this.noDataMessage = "ng";
             this.breweries = [];
           } else {
             this.breweries = JSON.parse(data.breweries);
