@@ -214,7 +214,7 @@ Die Open Brewery DB API dient als externe Quelle für Brauereiinformationen und 
 
 **Übersichtsdiagramm**
 
-![Whitebox Quarkus Backend](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Quarkus_Backend_Ebene_new.drawio.png)
+![Whitebox Quarkus Backend](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Quarkus_Backend_Ebene_modified.drawio.png)
 
 **Enthaltene Bausteine**
 
