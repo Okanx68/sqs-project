@@ -323,7 +323,7 @@ Die Images für das Front- und Backend werden aus der GitHub-Registry des Projek
 
     +-------------------------+           +---------------------------+           +----------------------------+  
     |                         |           |                           |           |                            |  
-    |   db (sqs_pg_compose)   |---------->|         backend           |---------->|         frontend           |  
+    |           db            |---------->|         backend           |---------->|         frontend           |  
     |   postgres:14           |           |  sqs_backend              |           |  sqs_frontend              |  
     |   Port: 5432            |           |  Ports: 8080              |           |  Port: 4200                |  
     |   Volumes:              |           |  Depends on: db           |           |  Depends on: backend       |  
