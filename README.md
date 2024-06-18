@@ -366,6 +366,10 @@ Lasttest-Skript: [*\<Artillery-Template\>*](https://github.com/Okanx68/sqs-proje
 
 End-to-End-Tests: [*\<Playwright-Tests\>*](https://github.com/Okanx68/sqs-project/blob/main/playwright/tests/homepage.spec.js)
 
+## SonarCloud
+
+Statische Code-Analyse für Front- und Backend: [*\<SonarCloud-Analyse\>*](https://sonarcloud.io/organizations/sqs-project/projects)
+
 # Architekturentscheidungen
 
 Die Architekturentscheidungen für dieses Projekt wurden sorgfältig getroffen, um eine robuste, skalierbare und wartbare Anwendung zu gewährleisten.
