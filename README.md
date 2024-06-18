@@ -317,7 +317,7 @@ Das System wird in einer Container-Umgebung mittels einer Docker-Compose-Datei b
 
 **Docker-Compose-Datei**
 
-[*\<Docker-Compose\>*](https://github.com/Okanx68/sqs-project/blob/main/docker-compose.yml)
+[*\<Docker-Compose-File\>*](https://github.com/Okanx68/sqs-project/blob/main/docker-compose.yml)
 
 Die Images für das Front- und Backend werden aus der GitHub-Registry des Projektes gezogen.
 
@@ -333,9 +333,13 @@ Die Images für das Front- und Backend werden aus der GitHub-Registry des Projek
 
 # Querschnittliche Konzepte
 
+## Backend UML-Klassendiagramm 
+
+![UML-Klassendiagramm](https://github.com/Okanx68/sqs-project/blob/main/doc/images/UMLDiagramm.png)
+
 ## GitHub Actions
 
-[*\<Workflow-File\>*](https://github.com/Okanx68/sqs-project/blob/main/docker-compose.yml)
+In diesem Projekt verwendete Pipeline: [*\<Workflow-File\>*](https://github.com/Okanx68/sqs-project/blob/main/docker-compose.yml)
 
 ```
 +---------------------+         +---------------------------+
@@ -358,9 +362,9 @@ Die Images für das Front- und Backend werden aus der GitHub-Registry des Projek
 
 ## Artillery & Playwright 
 
-[*\<Artillery-Template\>*](https://github.com/Okanx68/sqs-project/blob/main/artillery-tests/artillery.yml)
+Lasttest-Skript: [*\<Artillery-Template\>*](https://github.com/Okanx68/sqs-project/blob/main/artillery-tests/artillery.yml)
 
-[*\<Playwright-Tests\>*](https://github.com/Okanx68/sqs-project/blob/main/playwright/tests/homepage.spec.js)
+End-to-End-Tests: [*\<Playwright-Tests\>*](https://github.com/Okanx68/sqs-project/blob/main/playwright/tests/homepage.spec.js)
 
 # Architekturentscheidungen
 
