@@ -429,21 +429,19 @@ Die CI/CD-Pipeline, implementiert mit GitHub Actions, automatisierte den gesamte
 | Maven | 3.8.6 |
 | Java | 17 |
 
-## Database
+### Database
 
 | Technologie  | Version       |
 |----------------|-----------------|
 | PostgreSQL    | 14 |
 
-## Testing
+### Testing
 
 | Technologie  | Version       |
 |----------------|-----------------|
 | JUnit      | 5 |
 | Artillery    | latest |
 | Playwright | latest |
-
-
 
 # Qualitätsanforderungen
 
