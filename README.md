@@ -192,10 +192,10 @@ Das Quarkus-Backend verarbeitet die Geschäftslogik und stellt API-Endpunkte zur
 * HTTP GET `api/v1/breweries/{cityName}`: Endpunkt zur Abfrage von Brauereiinformationen.
 * JDBC: Schnittstelle zur Kommunikation mit der PostgreSQL-Datenbank.
   
-### PostgreSQL Datenbank
+### PostgreSQL-Datenbank
 
 **Zweck/Verantwortung**
-Die PostgreSQL Datenbank speichert und verwaltet alle Daten, die von der Anwendung benötigt werden, einschließlich der gecachten Brauereiinformationen.
+Die PostgreSQL-Datenbank speichert und verwaltet alle Daten, die von der Anwendung benötigt werden, einschließlich der gecachten Brauereiinformationen.
 
 **Schnittstelle(n)**
 * JDBC: Schnittstelle zur Kommunikation mit dem Quarkus Backend.
@@ -214,7 +214,7 @@ Die Open Brewery DB API dient als externe Quelle für Brauereiinformationen und 
 
 **Übersichtsdiagramm**
 
-![Whitebox Quarkus Backend](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Quarkus_Backend_Ebene.drawio.png)
+![Whitebox Quarkus Backend](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Quarkus_Backend_Ebene_modified.drawio.png)
 
 **Enthaltene Bausteine**
 
@@ -230,7 +230,7 @@ Die Open Brewery DB API dient als externe Quelle für Brauereiinformationen und 
 
 **Übersichtsdiagramm**
 
-![Whitebox Quarkus Backend](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Angular_Frontend_Ebene.drawio.png)
+![Whitebox Quarkus Backend](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Angular_Frontend_Ebene_modified.drawio.png)
 
 **Enthaltene Bausteine**
 
