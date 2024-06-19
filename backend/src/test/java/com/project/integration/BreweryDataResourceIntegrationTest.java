@@ -57,7 +57,7 @@ class BreweryDataResourceIntegrationTest {
 
     // führe einen Integrationstest ohne gefundene Brauereien in der Open Brewery DB durch
     @Test
-    void testGetBreweryDataCityNotFound() throws IOException {
+    void testGetBreweryDataCityNotFound() {
         String nonExistentCityName = "NonExistentCity";
         String expectedResponse = "";
         int count = 1;
