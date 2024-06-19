@@ -19,7 +19,7 @@ services:
   backend:
     restart: unless-stopped
     container_name: sqs_backend
-    image: ghcr.io/okanx68/sqs-project/sqs_backend:latest
+    image: ghcr.io/okanx68/sqs-project/sqs-backend:latest
     ports:
       - "8080:8080"
     depends_on:
@@ -28,7 +28,7 @@ services:
   frontend:
     restart: unless-stopped
     container_name: sqs_frontend
-    image: ghcr.io/okanx68/sqs-project/sqs_frontend:latest
+    image: ghcr.io/okanx68/sqs-project/sqs-frontend:latest
     ports:
       - "4200:4200"
     depends_on:
