@@ -468,18 +468,18 @@ Darüber hinaus spielt die **Benutzerfreundlichkeit (Usability)** eine entscheid
 
 | Attribut                           | Szenario                                                                                   | Maßnahme                                                                                             |
 |------------------------------------|--------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| Reliability - Zuverlässigkeit      | Nutzungsszenario: Das System führt umfassende Tests durch, um die Zuverlässigkeit zu gewährleisten. | Unit-Tests, Integrationstests, End-to-End-Tests, Lasttests                                       |
-|                                    | Änderungsszenario: Bei einer Änderung im Code wird das Testkonzept aktualisiert und erneut ausgeführt. | Umfassende Testabdeckung                                                    |
-|                                    | Nutzungsszenario: Das System bleibt unter hoher Last stabil und reagiert effizient.         | Lasttests mit Artillery, Performance-Monitoring                                                       |
+| Reliability - Zuverlässigkeit      | Nutzungsszenario: Um die Zuverlässigkeit zu gewährleisten, wird das System umfassend getestet. | Unit-Tests, Integrationstests, End-to-End-Tests, Lasttests                                       |
+|                                    | Änderungsszenario: Regelmäßige Aktualisierung des Testskonzepts bei einer Änderung im Code. | Umfassende Testabdeckung                                                    |
+|                                    | Nutzungsszenario: Das System bleibt unter hoher Last stabil und reagiert effizient.         | Lasttests mit Artillery                                                      |
 |                                    | Änderungsszenario: Neue Anforderungen erfordern Anpassungen und erneute Tests der Systemstabilität. | Anpassung der Tests                                                         |
 | Portability - Übertragbarkeit      | Nutzungsszenario: Das System läuft in verschiedenen Docker-Containern auf unterschiedlichen Plattformen. | Containerisierung mit Docker, Nutzung von Docker Compose zur Orchestrierung                           |
-|                                    | Änderungsszenario: Neue Container-Umgebungen werden unterstützt und getestet.               | Automatisierte Tests in verschiedenen Docker-Umgebungen                                               |
-|                                    | Nutzungsszenario: Das System funktioniert in unterschiedlichen Browsers ohne Probleme.      | End-to-End-Tests mit Playwright                                 |
+|                                    | Änderungsszenario: Neue Container-Umgebungen werden unterstützt und getestet.               | Unabhängige Laufzeitumgebung                                              |
+|                                    | Nutzungsszenario: Das System funktioniert in unterschiedlichen Browsern ohne Probleme.      | End-to-End-Tests mit Playwright                                 |
 |                                    | Änderungsszenario: Zukünftige Browser-Versionen werden unterstützt und getestet.               | Regelmäßige Updates und Tests mit Playwright                                         |
 | Usability - Benutzerfreundlichkeit | Nutzungsszenario: Die Benutzer können intuitiv nach Brauereien suchen und die Ergebnisse anzeigen lassen. | Benutzerfreundliches UI-Design, einfache Navigation. End-to-End-Tests mit Playwright  |
 |                                    | Änderungsszenario: Verbesserungen in der Benutzeroberfläche werden kontinuierlich umgesetzt. | Benutzerfeedback einholen und umsetzen, regelmäßige Usability-Tests                                   |
 |                                    | Nutzungsszenario: Das System zeigt relevante Informationen zu Brauereien klar und verständlich an. | Übersichtliches Layout, konsistente Darstellung der Daten                                           |
-|                                    | Änderungsszenario: Anpassungen an neuen UX/UI-Standards.                                    | Kontinuierliche Überprüfung und Anpassung an aktuelle UX/UI-Standards                                 |
+|                                    | Änderungsszenario: Neue Nutzeranforderungen and das Design werden kontinuierlich integriert.  | Regelmäßige Überprüfung und Anpassung an Nutzeranforderungen                     |
 
 
 # Risiken und technische Schulden
