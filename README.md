@@ -4,7 +4,7 @@
 
 # Einführung und Ziele
 
-Das Ziel der Brewery Explorer Webanwendung ist es, Brauereien in einer bestimmten Stadt sowie deren Informationen wie beispielsweise Adresse, Telefonnummer oder Link zur Webseite abzurufen. Um die Effizienz der Anfragen zu verbessern, wird eine gezielte Caching-Strategie angewendet. Dafür setze ich Quarkus als Backend-Framework, Angular für das Frontend und PostgreSQL als Datenbank ein. Die benötigten Brauereiinformationen werden von der *Open Brewery DB* API (https://openbrewerydb.org) abgerufen und in der Datenbank, die hierbei als Cache dient, für erneute Anfragen abgespeichert. Die Suche nach Brauereien erfolgt durch die Eingabe des Stadtnamens mithilfe einer benutzerfreundlichen Weboberfläche.
+Das Ziel der Brewery Explorer Webanwendung ist es, Brauereien in einer bestimmten Stadt sowie deren Informationen wie beispielsweise Adresse, Telefonnummer oder Link zur Webseite abzurufen. Um die Effizienz der Anfragen zu verbessern, wird eine gezielte Caching-Strategie angewendet. Dafür setze ich Quarkus als Backend-Framework, Angular für das Frontend und PostgreSQL als Datenbank ein. Die benötigten Brauereiinformationen werden von der Open Brewery DB API (https://openbrewerydb.org) abgerufen und in der Datenbank, die hierbei als Cache dient, für erneute Anfragen abgespeichert. Die Suche nach Brauereien erfolgt durch die Eingabe des Stadtnamens mithilfe einer benutzerfreundlichen Weboberfläche.
 
 ## Aufgabenstellung
 
