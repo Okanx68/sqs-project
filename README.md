@@ -484,6 +484,20 @@ Darüber hinaus spielt die **Benutzerfreundlichkeit (Usability)** eine entscheid
 
 # Risiken und technische Schulden
 
+| Risiko/Technische Schuld           | Beschreibung                                                                                           | Maßnahme zur Risikovermeidung/Risikominimierung/Abbau der technischen Schuld                     | Priorität |
+|------------------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|-----------|
+| Fehlende Skalierbarkeit            | Quarkus-Backend könnte bei hoher Last an seine Grenzen stoßen.                                          | Lasttests durchführen, Performance-Monitoring implementieren, evtl. Skalierungstechniken anwenden| Hoch      |
+| Sicherheitslücken                  | Mögliche Sicherheitslücken in der API und im Frontend.                                                  | Regelmäßige Sicherheitsüberprüfungen, Implementierung von Sicherheitsmechanismen wie OAuth2       | Hoch      |
+| Fehlende Testabdeckung             | Unzureichende Tests, besonders im Bereich End-to-End-Tests und Lasttests.                               | Ausbau einer umfassenden Teststrategie mit Unit-, Integrations- und End-to-End-Tests              | Hoch      |
+| Komplexität der API-Kommunikation  | REST API-Kommunikation zwischen Frontend und Backend kann komplex und fehleranfällig sein.              | Umfassende API-Dokumentation und Testen der API-Endpunkte, Einsatz von API-Gateways               | Mittel    |
+| Dateninkonsistenz                  | Potenzielle Inkonsistenzen bei der Synchronisation der Daten zwischen der PostgreSQL-Datenbank und der externen API. | Implementierung von Datenintegritätsprüfungen und Synchronisationsmechanismen       | Mittel    |
+| Docker-Komplexität                 | Komplexität beim gleichzeitigen Betrieb von mehreren Docker-Containern (Backend, Frontend, Datenbank). | Automatisierung des Docker-Setups und umfassende Dokumentation der Container-Konfiguration        | Mittel    |
+| Wartungsaufwand                    | Hoher Wartungsaufwand durch regelmäßige Updates und Anpassungen der Abhängigkeiten und Dockerfiles.    | Automatisierung der Wartungsaufgaben, regelmäßige Überprüfung und Aktualisierung der Abhängigkeiten| Mittel    |
+| Performance-Probleme               | Performanceprobleme bei hoher Last und großen Datenmengen.                                             | Performance-Optimierungen durch Caching, Indexierung und effiziente Datenverarbeitungsmethoden    | Mittel    |
+| Abhängigkeit von externer API      | Verfügbarkeit und Zuverlässigkeit der Open Brewery DB API könnte die Systemstabilität beeinflussen.    | Implementierung von Fallback-Mechanismen und Caching der API-Daten                                | Mittel    |
+| Fehlende Dokumentation             | Unzureichende Dokumentation des Codes und der Architektur.                                             | Erstellung und Pflege einer umfassenden Dokumentation                                            | Niedrig   |
+
+
 # Glossar
 
 | Begriff        | Definition        |
