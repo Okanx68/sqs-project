@@ -15,8 +15,8 @@ Das Ziel der Brewery Explorer Webanwendung ist es, Brauereien in einer bestimmte
 | Qualitätskriterium | Beschreibung | Ziele | Maßnahmen |
 |---------------------|---------------|-------|-----------|
 | **1. Reliability - Zuverlässigkeit** | Die Fähigkeit der Anwendung, stabil und fehlerfrei zu laufen, selbst bei unerwarteten Eingaben und hoher Last. | - Resiliente Verarbeitung von Benutzereingaben <br>- Hohe Stabilität bei starker Nutzung | - Umfangreiche Testabdeckung<br>- Lasttests mit Artillery<br>- Integrationstest|
-| **2. Portability - Übertragbarkeit** | Flexibilität der Anwendung in Bezug auf die Laufzeitumgebung. |- Externe Abhängigkeiten verringern<br>- Ressourcen effizient nutzen | - Containerisierung mithilfe von Docker zur Isolierung der Laufzeitumgebungen sowie Sicherstellung der Plattformunabhängigkeit<br>- Docker-Compose-Datei zum Starten der Services|
-| **3. Usability - Benutzerfreundlichkeit** | Einfache Interaktion mit der Benutzeroberfläche. | - Simple Bedienung<br>- Schnelle Ladezeiten | - End-to-End-Tests mit Playwright<br>- UI-Tests |
+| **2. Portability - Übertragbarkeit** | Flexibilität der Anwendung in Bezug auf die Laufzeitumgebung. |- Externe Abhängigkeiten verringern<br>- Ressourcen effizient nutzen<br>-Browserunabhängige Nutzbarkeit | - Containerisierung mithilfe von Docker zur Isolierung der Laufzeitumgebungen sowie Sicherstellung der Plattformunabhängigkeit<br>- Docker-Compose-Datei zum Starten der Services<br>- End-to-End-Tests mit Playwright |
+| **3. Usability - Benutzerfreundlichkeit** | Einfache Interaktion mit der Benutzeroberfläche. | - Simple Bedienung<br>- Übersichtliche Weboberfläche | - End-to-End-Tests mit Playwright<br>- UI-Tests |
 
 ## Stakeholder
 
@@ -139,9 +139,9 @@ Das System folgt einer Microservices-Architektur, bei der mehrere lose gekoppelt
 ## Qualitätsanforderungen
 Ein zentraler Aspekt der Entwurfsstrategie ist die Sicherstellung der **Zuverlässigkeit (Reliability)** der Anwendung. Diese umfasst die Fähigkeit der Anwendung, stabil und fehlerfrei zu laufen, selbst bei unerwarteten Eingaben und hoher Last. Um diese Ziele zu erreichen, wird eine resiliente Verarbeitung von Benutzereingaben und eine hohe Stabilität bei starker Nutzung angestrebt. Maßnahmen zur Erreichung dieser Ziele umfassen eine umfangreiche Testabdeckung, Lasttests mit Artillery sowie Integrationstests.
 
-Ein weiteres wichtiges Qualitätsziel ist die **Übertragbarkeit (Portability)** der Anwendung. Dies bezieht sich auf die Flexibilität der Anwendung in Bezug auf die Laufzeitumgebung. Um dies zu gewährleisten, sollen externe Abhängigkeiten verringert und die Ressourcennutzung effizient gestaltet werden. Hierfür wird die Containerisierung mithilfe von Docker eingesetzt, um isolierte Laufzeitumgebungen zu schaffen und die Plattformunabhängigkeit sicherzustellen. Eine Docker-Compose-Datei wird bereitgestellt, um die Verwaltung und Orchestrierung der verschiedenen Docker-Container zu erleichtern.
+Ein weiteres wichtiges Qualitätsziel ist die **Übertragbarkeit (Portability)** der Anwendung. Dies bezieht sich auf die Flexibilität der Anwendung in Bezug auf die Laufzeitumgebung. Um dies zu gewährleisten, sollen externe Abhängigkeiten verringert und die Ressourcennutzung effizient gestaltet werden. Hierfür wird die Containerisierung mithilfe von Docker eingesetzt, um isolierte Laufzeitumgebungen zu schaffen und die Plattformunabhängigkeit sicherzustellen. Eine Docker-Compose-Datei wird bereitgestellt, um die Verwaltung und Orchestrierung der verschiedenen Docker-Container zu erleichtern. End-to-End-Tests mit Playwright gewährleisten, dass die Anwendung auf verschiedenen Browsern einwandfrei funktioniert, was die browserunabhängige Nutzbarkeit sicherstellt.
 
-Darüber hinaus spielt die **Benutzerfreundlichkeit (Usability)** eine entscheidende Rolle. Eine einfache Interaktion mit der Benutzeroberfläche ist essentiell. Die Ziele hierbei sind eine simple Bedienung und schnelle Ladezeiten. Maßnahmen zur Erreichung dieser Ziele umfassen End-to-End-Tests mit Playwright und UI-Tests, um eine optimale Benutzererfahrung zu gewährleisten.
+Darüber hinaus spielt die **Benutzerfreundlichkeit (Usability)** eine entscheidende Rolle. Eine einfache Interaktion mit der Benutzeroberfläche ist essentiell. Die Ziele hierbei sind eine simple Bedienung und eine übersichtliche Weboberfläche. Maßnahmen zur Erreichung dieser Ziele umfassen End-to-End-Tests mit Playwright und UI-Tests, um eine optimale Benutzererfahrung zu gewährleisten.
 
 ## Organisatorische Entscheidungen
 Ein wesentlicher Bestandteil der organisatorischen Entscheidungen in diesem Projekt ist die Implementierung einer CI/CD-Pipeline mithilfe von GitHub Actions um für eine hohe Qualität und Zuverlässigkeit des Codes zu sorgen. Diese Pipeline automatisiert den gesamten Prozess vom Code-Commit bis zur Bereitstellung und gewährleistet eine kontinuierliche Integration und Auslieferung neuer Funktionen und Verbesserungen. Bei jedem Push oder Pull-Request wird der Code automatisch gebaut und durch eine Reihe automatisierter Tests, einschließlich Unit-, Integrations- und End-to-End-Tests, geprüft. Zusätzlich werden Frontend-Tests durchgeführt, um sicherzustellen, dass die Benutzeroberfläche den Erwartungen entspricht. ArchUnit-Tests werden im Backend verwendet, um die Einhaltung von Architekturregeln zu überprüfen. Die Dockerfiles werden in der Pipeline gelintet, um sicherzustellen, dass sie syntaktisch korrekt und effizient geschrieben sind. SonarCloud ergänzt als statisches Code-Analyse-Tool die Tests, um sicherzustellen, dass der Code den Qualitätsstandards entspricht. Nach erfolgreichem Bestehen aller Tests werden Docker-Container erstellt und in einer Registry gespeichert. Diese Container können dann in die verschiedenen Umgebungen mithilfe der Docker-Compose-Datei bereitgestellt werden. Um die Leistungsfähigkeit und Stabilität der Anwendung unter hoher Last zu gewährleisten, werden zudem automatisierte Lasttests mit Artillery durchgeführt.
@@ -454,16 +454,15 @@ Die CI/CD-Pipeline, implementiert mit GitHub Actions, automatisierte den gesamte
 
 # Qualitätsanforderungen
 
-<div class="formalpara-title">
+Ein zentraler Aspekt der Entwurfsstrategie ist die Sicherstellung der **Zuverlässigkeit (Reliability)** der Anwendung. Diese umfasst die Fähigkeit der Anwendung, stabil und fehlerfrei zu laufen, selbst bei unerwarteten Eingaben und hoher Last. Um diese Ziele zu erreichen, wird eine resiliente Verarbeitung von Benutzereingaben und eine hohe Stabilität bei starker Nutzung angestrebt. Maßnahmen zur Erreichung dieser Ziele umfassen eine umfangreiche Testabdeckung, Lasttests mit Artillery sowie Integrationstests.
 
-**Weiterführende Informationen**
+Ein weiteres wichtiges Qualitätsziel ist die **Übertragbarkeit (Portability)** der Anwendung. Dies bezieht sich auf die Flexibilität der Anwendung in Bezug auf die Laufzeitumgebung. Um dies zu gewährleisten, sollen externe Abhängigkeiten verringert und die Ressourcennutzung effizient gestaltet werden. Hierfür wird die Containerisierung mithilfe von Docker eingesetzt, um isolierte Laufzeitumgebungen zu schaffen und die Plattformunabhängigkeit sicherzustellen. Eine Docker-Compose-Datei wird bereitgestellt, um die Verwaltung und Orchestrierung der verschiedenen Docker-Container zu erleichtern. End-to-End-Tests mit Playwright gewährleisten, dass die Anwendung auf verschiedenen Browsern einwandfrei funktioniert, was die browserunabhängige Nutzbarkeit sicherstellt.
 
-</div>
-
-Siehe [Qualitätsanforderungen](https://docs.arc42.org/section-10/) in
-der online-Dokumentation (auf Englisch!).
+Darüber hinaus spielt die **Benutzerfreundlichkeit (Usability)** eine entscheidende Rolle. Eine einfache Interaktion mit der Benutzeroberfläche ist essentiell. Die Ziele hierbei sind eine simple Bedienung und eine übersichtliche Weboberfläche. Maßnahmen zur Erreichung dieser Ziele umfassen End-to-End-Tests mit Playwright und UI-Tests, um eine optimale Benutzererfahrung zu gewährleisten.
 
 ## Qualitätsbaum
+
+![Qualitätsbaum](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Quality_Tree_modified.png)
 
 ## Qualitätsszenarien
 
