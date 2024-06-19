@@ -26,51 +26,57 @@ class BreweryDataControllerTest {
     @Inject
     BreweryDataController breweryDataController;
 
-    //teste Methode mit gefundenen Brauereien im Cache (cache hit)
+    // teste Methode mit gefundenen Brauereien im Cache (cache hit)
     @Test
     void testGetBreweryDataByCityBreweriesFoundInOwnDatabase(){
+        String testCityName = "TestCity";
+        int count = 1;
         BreweryData breweryData = new BreweryData();
         breweryData.searchInput = "TestSearchInput";
         breweryData.breweries = "TestBreweries";
         BreweryDataDTO breweryDataDTO = BreweryData.convertToDTO(breweryData);
         PanacheMock.mock(BreweryData.class);
 
-        when(BreweryData.findBySearchInput("TestCity")).thenReturn(breweryData);
+        when(BreweryData.findBySearchInput(testCityName)).thenReturn(breweryData);
         when(BreweryData.convertToDTO(breweryData)).thenReturn(breweryDataDTO);
 
-        BreweryDataDTO result = breweryDataController.getBreweryDataByCity("TestCity", 1);
+        BreweryDataDTO result = breweryDataController.getBreweryDataByCity(testCityName, count);
 
         assertEquals("TestSearchInput", result.getSearchInput());
         assertEquals("TestBreweries", result.getBreweries());
     }
 
-    //teste Methode mit gefundenen Brauereien in der Open Brewery DB (cache miss)
+    // teste Methode mit gefundenen Brauereien in der Open Brewery DB (cache miss)
     @Test
     @Transactional
     void testGetBreweryDataByCityBreweriesNotFoundInOwnDatabase() {
+        String notCachedCityName = "NotCachedCity";
+        int count = 1;
         String breweryData = "{\"name\":\"TestBrewery\"}";
         PanacheMock.mock(BreweryData.class);
 
-        when(BreweryData.findBySearchInput("NotCachedCity")).thenReturn(null);
-        when(breweryDBService.getBreweriesByCity("NotCachedCity", 1)).thenReturn(breweryData);
+        when(BreweryData.findBySearchInput(notCachedCityName)).thenReturn(null);
+        when(breweryDBService.getBreweriesByCity(notCachedCityName, 1)).thenReturn(breweryData);
         when(BreweryData.convertToDTO(any(BreweryData.class))).thenCallRealMethod();
 
-        BreweryDataDTO result = breweryDataController.getBreweryDataByCity("NotCachedCity", 1);
+        BreweryDataDTO result = breweryDataController.getBreweryDataByCity(notCachedCityName, count);
 
-        assertEquals("NotCachedCity", result.getSearchInput());
+        assertEquals(notCachedCityName, result.getSearchInput());
         assertEquals(breweryData, result.getBreweries());
     }
 
-    //teste Methode ohne gefundene Brauereien in der Open Brewery DB
+    // teste Methode ohne gefundene Brauereien in der Open Brewery DB
     @Test
     @Transactional
     void testGetBreweryDataByCityBreweriesNotFoundByService() {
+        String notCachedCityName = "NotCachedCity";
+        int count = 1;
         PanacheMock.mock(BreweryData.class);
 
-        when(BreweryData.findBySearchInput("NotCachedCity")).thenReturn(null);
-        when(breweryDBService.getBreweriesByCity("NotCachedCity", 1)).thenReturn("[]");
+        when(BreweryData.findBySearchInput(notCachedCityName)).thenReturn(null);
+        when(breweryDBService.getBreweriesByCity(notCachedCityName, 1)).thenReturn("[]");
 
-        BreweryDataDTO result = breweryDataController.getBreweryDataByCity("NotCachedCity", 1);
+        BreweryDataDTO result = breweryDataController.getBreweryDataByCity(notCachedCityName, count);
 
         assertNull(result);
     }

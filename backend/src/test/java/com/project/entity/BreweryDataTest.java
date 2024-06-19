@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 @QuarkusTest
 class BreweryDataTest {
 
-    //prüfe, ob die Datenbank Einträge abspeichert
+    // prüfe, ob die Datenbank Einträge abspeichert
     @Test
     @Transactional
     void testFindBySearchInputReturnsBreweryData(){
@@ -24,7 +24,7 @@ class BreweryDataTest {
         assertEquals("TestSearchInput", foundBreweryData.searchInput);
     }
 
-    //prüfe, ob Brewery Entity in BreweryDTO umgewandelt wird
+    // prüfe, ob Brewery in BreweryDTO umgewandelt wird
     @Test
     void testConvertToDTO() {
         BreweryData breweryData = new BreweryData();
@@ -37,7 +37,7 @@ class BreweryDataTest {
         assertEquals(breweryData.breweries, breweryDataDTO.getBreweries());
     }
 
-    //prüfe, ob Umwandlung in DTO mit fehlender Entity fehlschlägt
+    // prüfe, ob Umwandlung in DTO mit fehlender Entity fehlschlägt
     @Test
     void testConvertToDTOBreweryDataIsNull() {
         BreweryData breweryData = null;

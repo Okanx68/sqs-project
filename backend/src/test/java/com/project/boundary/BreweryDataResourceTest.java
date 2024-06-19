@@ -19,19 +19,21 @@ class BreweryDataResourceTest {
     @InjectMock
     BreweryDataController breweryDataController;
 
-    //Endpoint prüfen
+    // Endpoint prüfen
     @Test
     void testGetBreweryDataByCityEndpoint(){
+        String testCityName = "TestCity";
+        int count = 1;
         BreweryData breweryData = new BreweryData();
         breweryData.searchInput = "TestSearchInput";
         breweryData.breweries = "TestBreweries";
         BreweryDataDTO breweryDataDTO = BreweryData.convertToDTO(breweryData);
 
-        when(breweryDataController.getBreweryDataByCity("TestCity", 1)).thenReturn(breweryDataDTO);
+        when(breweryDataController.getBreweryDataByCity(testCityName, count)).thenReturn(breweryDataDTO);
 
         given()
-                .pathParam("cityName", "TestCity")
-                .queryParam("count", 1)
+                .pathParam("cityName", testCityName)
+                .queryParam("count", count)
                 .when()
                 .get("/breweries/{cityName}")
                 .then()
@@ -40,14 +42,17 @@ class BreweryDataResourceTest {
                         "breweries", is("TestBreweries"));
     }
 
-    //Endpoint mit einer Stadt prüfen, die nicht in der Open Brewery DB vorhanden ist
+    // Endpoint mit einer Stadt prüfen, die nicht in der Open Brewery DB vorhanden ist
     @Test
     void testGetBreweryDataByCityEndpointReturnsNoContent() {
-        when(breweryDataController.getBreweryDataByCity("NonExistentCity", 1)).thenReturn(null);
+        String testNonExistentCityName = "NonExistentCity";
+        int count = 1;
+
+        when(breweryDataController.getBreweryDataByCity(testNonExistentCityName, count)).thenReturn(null);
 
         given()
-                .pathParam("cityName", "NonExistentCity")
-                .queryParam("count", 1)
+                .pathParam("cityName", testNonExistentCityName)
+                .queryParam("count", count)
                 .when()
                 .get("/breweries/{cityName}")
                 .then()
