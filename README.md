@@ -496,10 +496,30 @@ Darüber hinaus spielt die **Benutzerfreundlichkeit (Usability)** eine entscheid
 | Wartungsaufwand                      | Hoher Wartungsaufwand durch regelmäßige Updates und Anpassungen der Abhängigkeiten und Dockerfiles.        | Automatisierung der Wartungsaufgaben, regelmäßige Überprüfung und Aktualisierung der Abhängigkeiten | Mittel    |
 | Dateninkonsistenz                    | Inkonsistenzen bei der Synchronisation der Daten zwischen der PostgreSQL-Datenbank und der externen API.    | Implementierung von Datenintegritätsprüfungen, regelmäßige Datenabgleich- und Synchronisationsmechanismen | Mittel    |
 
-
 # Glossar
 
-| Begriff        | Definition        |
-|----------------|-------------------|
-| *\<Begriff-1>* | *\<Definition-1>* |
-| *\<Begriff-2*  | *\<Definition-2>* |
+| Begriff                 | Definition                                                                                                    |
+|-------------------------|--------------------------------------------------------------------------------------------------------------|
+| **Quarkus**             | Ein Java-Framework, das schnelle Startzeiten und geringe Ressourcenanforderungen bietet, ideal für Cloud-native und Microservice-Architekturen.   |
+| **Angular**             | Ein Frontend-Framework zur Entwicklung dynamischer Single-Page-Anwendungen mit einer intuitiven Benutzeroberfläche.                                |
+| **PostgreSQL**          | Eine relationale Datenbank, bekannt für ihre Zuverlässigkeit, Leistungsfähigkeit und Erweiterbarkeit, die als Cache verwendet wird.               |
+| **Open Brewery DB API** | Eine externe REST-API, die Brauereiinformationen basierend auf Stadtnamen bereitstellt.                                                            |
+| **Docker**              | Eine Containerisierungsplattform, die eine konsistente Umgebung für Entwicklung, Test und Produktion gewährleistet.                                |
+| **Docker-Compose**      | Ein Tool zur Definition und Ausführung mehrerer Docker-Container zur Orchestrierung der Anwendungsservices.                                         |
+| **GitHub Actions**      | Ein CI/CD-Tool von GitHub, das automatisierte Workflows zum Bauen, Testen und Bereitstellen von Anwendungen ermöglicht.                             |
+| **Playwright**          | Ein End-to-End-Testframework zur Sicherstellung der Funktionalität der gesamten Anwendung auf verschiedenen Browsern.                               |
+| **Artillery**           | Ein Lasttesttool zur Überprüfung der Leistungsfähigkeit und Stabilität der Anwendung unter hoher Last.                                             |
+| **JUnit**               | Ein Framework für Unit- und Integrationstests in Java, das die Qualität und Korrektheit des Codes sicherstellt.                                     |
+| **SonarCloud**          | Ein statisches Code-Analyse-Tool zur Überwachung der Codequalität und frühzeitigen Identifikation von Sicherheitslücken und Bugs.                   |
+| **ArchUnit**            | Ein Tool zur Überprüfung von Architektur- und Design-Prinzipien im Backend, um die langfristige Wartbarkeit und Konsistenz des Codes zu unterstützen. |
+| **Hadolint**            | Ein Linter für Dockerfiles, der sicherstellt, dass sie syntaktisch korrekt und nach bewährten Methoden geschrieben sind.                            |
+| **Unit-Test**           | Ein Test, der einzelne Softwarekomponenten isoliert überprüft, um deren korrekte Funktion sicherzustellen.                                          |
+| **Integrationstest**    | Ein Test, der das Zusammenspiel mehrerer Komponenten überprüft, um deren korrekte Zusammenarbeit sicherzustellen.                                  |
+| **End-to-End-Test**     | Ein Test, der das gesamte System von Anfang bis Ende aus der Benutzerperspektive überprüft.                                                        |
+| **CI/CD-Pipeline**      | Continuous Integration/Continuous Deployment-Pipeline, die den Prozess vom Code-Commit bis zur Bereitstellung automatisiert.                        |
+| **Caching**             | Eine Strategie zur Zwischenspeicherung von Daten, um die Effizienz und Geschwindigkeit von Anfragen zu verbessern.                                 |
+| **Microservices**       | Eine Architektur, bei der die Anwendung in kleine, lose gekoppelte Dienste unterteilt ist, die unabhängig voneinander entwickelt und skaliert werden können. |
+| **API-Gateway**         | Ein Server, der als einheitlicher Einstiegspunkt für alle API-Aufrufe dient und verschiedene Services orchestriert.                                |
+| **OAuth2**              | Ein Autorisierungs-Framework, das sichere Zugriffstoken für API-Anfragen bereitstellt.                                                             |
+| **Fallback-Mechanismus**| Ein Mechanismus, der alternative Verfahren aktiviert, wenn die primäre Methode fehlschlägt, um die Systemverfügbarkeit zu gewährleisten.            |
+
