@@ -14,7 +14,7 @@ Das Ziel der Brewery Explorer Webanwendung ist es, Brauereien in einer bestimmte
 
 | Qualitätskriterium | Beschreibung | Ziele | Maßnahmen |
 |---------------------|---------------|-------|-----------|
-| **1. Reliability - Zuverlässigkeit** | Die Fähigkeit der Anwendung, stabil und fehlerfrei zu laufen, selbst bei unerwarteten Eingaben und hoher Last. | - Resiliente Verarbeitung von Benutzereingaben <br>- Hohe Stabilität bei starker Nutzung | - Umfangreiche Testabdeckung<br>- Lasttests mit Artillery<br>- Integrationstest|
+| **1. Reliability - Zuverlässigkeit** | Die Fähigkeit der Anwendung, stabil und fehlerfrei zu laufen, selbst bei unerwarteten Eingaben und hoher Last. | - Resiliente Verarbeitung von Benutzereingaben <br>- Hohe Stabilität bei starker Nutzung | - Umfangreiche Testabdeckung mit Unit-Tests<br>- Lasttests mit Artillery<br>- Integrationstest|
 | **2. Portability - Übertragbarkeit** | Flexibilität der Anwendung in Bezug auf die Laufzeitumgebung. |- Externe Abhängigkeiten verringern<br>- Ressourcen effizient nutzen<br>-Browserunabhängige Nutzbarkeit | - Containerisierung mithilfe von Docker zur Isolierung der Laufzeitumgebungen sowie Sicherstellung der Plattformunabhängigkeit<br>- Docker-Compose-Datei zum Starten der Services<br>- End-to-End-Tests mit Playwright |
 | **3. Usability - Benutzerfreundlichkeit** | Einfache Interaktion mit der Benutzeroberfläche. | - Simple Bedienung<br>- Übersichtliche Weboberfläche | - End-to-End-Tests mit Playwright<br>- UI-Tests |
 
@@ -137,7 +137,7 @@ Für das Backend wurde Quarkus als Framework ausgewählt. Quarkus bietet schnell
 Das System folgt einer Microservices-Architektur, bei der mehrere lose gekoppelte Dienste jeweils spezifische Funktionalitäten bereitstellen. Diese Architektur ermöglicht eine einfachere Wartung, Skalierung und Weiterentwicklung der einzelnen Komponenten. Zudem werden alle Services als Docker-Container bereitgestellt, was für Konsistenz zwischen Entwicklungs- und Produktionsumgebungen sorgt und die Bereitstellung und Skalierung mithilfe einer Docker-Compose-Datei erleichtert.
 
 ## Qualitätsanforderungen
-Ein zentraler Aspekt der Entwurfsstrategie ist die Sicherstellung der **Zuverlässigkeit (Reliability)** der Anwendung. Diese umfasst die Fähigkeit der Anwendung, stabil und fehlerfrei zu laufen, selbst bei unerwarteten Eingaben und hoher Last. Um diese Ziele zu erreichen, wird eine resiliente Verarbeitung von Benutzereingaben und eine hohe Stabilität bei starker Nutzung angestrebt. Maßnahmen zur Erreichung dieser Ziele umfassen eine umfangreiche Testabdeckung, Lasttests mit Artillery sowie Integrationstests.
+Ein zentraler Aspekt der Entwurfsstrategie ist die Sicherstellung der **Zuverlässigkeit (Reliability)** der Anwendung. Diese umfasst die Fähigkeit der Anwendung, stabil und fehlerfrei zu laufen, selbst bei unerwarteten Eingaben und hoher Last. Um diese Ziele zu erreichen, wird eine resiliente Verarbeitung von Benutzereingaben und eine hohe Stabilität bei starker Nutzung angestrebt. Maßnahmen zur Erreichung dieser Ziele umfassen eine umfangreiche Testabdeckung mit Unit-Tests, Lasttests mit Artillery sowie Integrationstests.
 
 Ein weiteres wichtiges Qualitätsziel ist die **Übertragbarkeit (Portability)** der Anwendung. Dies bezieht sich auf die Flexibilität der Anwendung in Bezug auf die Laufzeitumgebung. Um dies zu gewährleisten, sollen externe Abhängigkeiten verringert und die Ressourcennutzung effizient gestaltet werden. Hierfür wird die Containerisierung mithilfe von Docker eingesetzt, um isolierte Laufzeitumgebungen zu schaffen und die Plattformunabhängigkeit sicherzustellen. Eine Docker-Compose-Datei wird bereitgestellt, um die Verwaltung und Orchestrierung der verschiedenen Docker-Container zu erleichtern. End-to-End-Tests mit Playwright gewährleisten, dass die Anwendung auf verschiedenen Browsern einwandfrei funktioniert, was die browserunabhängige Nutzbarkeit sicherstellt.
 
@@ -454,7 +454,7 @@ Die CI/CD-Pipeline, implementiert mit GitHub Actions, automatisierte den gesamte
 
 # Qualitätsanforderungen
 
-Ein zentraler Aspekt der Entwurfsstrategie ist die Sicherstellung der **Zuverlässigkeit (Reliability)** der Anwendung. Diese umfasst die Fähigkeit der Anwendung, stabil und fehlerfrei zu laufen, selbst bei unerwarteten Eingaben und hoher Last. Um diese Ziele zu erreichen, wird eine resiliente Verarbeitung von Benutzereingaben und eine hohe Stabilität bei starker Nutzung angestrebt. Maßnahmen zur Erreichung dieser Ziele umfassen eine umfangreiche Testabdeckung, Lasttests mit Artillery sowie Integrationstests.
+Ein zentraler Aspekt der Entwurfsstrategie ist die Sicherstellung der **Zuverlässigkeit (Reliability)** der Anwendung. Diese umfasst die Fähigkeit der Anwendung, stabil und fehlerfrei zu laufen, selbst bei unerwarteten Eingaben und hoher Last. Um diese Ziele zu erreichen, wird eine resiliente Verarbeitung von Benutzereingaben und eine hohe Stabilität bei starker Nutzung angestrebt. Maßnahmen zur Erreichung dieser Ziele umfassen eine umfangreiche Testabdeckung mit Unit-Tests, Lasttests mit Artillery sowie Integrationstests.
 
 Ein weiteres wichtiges Qualitätsziel ist die **Übertragbarkeit (Portability)** der Anwendung. Dies bezieht sich auf die Flexibilität der Anwendung in Bezug auf die Laufzeitumgebung. Um dies zu gewährleisten, sollen externe Abhängigkeiten verringert und die Ressourcennutzung effizient gestaltet werden. Hierfür wird die Containerisierung mithilfe von Docker eingesetzt, um isolierte Laufzeitumgebungen zu schaffen und die Plattformunabhängigkeit sicherzustellen. Eine Docker-Compose-Datei wird bereitgestellt, um die Verwaltung und Orchestrierung der verschiedenen Docker-Container zu erleichtern. End-to-End-Tests mit Playwright gewährleisten, dass die Anwendung auf verschiedenen Browsern einwandfrei funktioniert, was die browserunabhängige Nutzbarkeit sicherstellt.
 
@@ -462,7 +462,7 @@ Darüber hinaus spielt die **Benutzerfreundlichkeit (Usability)** eine entscheid
 
 ## Qualitätsbaum
 
-![Qualitätsbaum](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Quality_Tree.png)
+![Qualitätsbaum](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Quality_Tree_modified.png)
 
 ## Qualitätsszenarien
 
