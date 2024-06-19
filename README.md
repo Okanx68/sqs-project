@@ -449,7 +449,6 @@ Die CI/CD-Pipeline, implementiert mit GitHub Actions, automatisierte den gesamte
 |----------------|-----------------|
 | JUnit      | 5 |
 | ArchUnit | 1.3.0 |
-| Hadolint | 2.12.0 |
 | Artillery    | latest |
 | Playwright | latest |
 
