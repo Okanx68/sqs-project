@@ -516,6 +516,7 @@ Darüber hinaus spielt die **Benutzerfreundlichkeit (Usability)** eine entscheid
 | **Unit-Test**           | Ein Test, der einzelne Softwarekomponenten isoliert überprüft, um deren korrekte Funktion sicherzustellen.                                          |
 | **Integrationstest**    | Ein Test, der das Zusammenspiel mehrerer Komponenten überprüft, um deren korrekte Zusammenarbeit sicherzustellen.                                  |
 | **End-to-End-Test**     | Ein Test, der das gesamte System von Anfang bis Ende aus der Benutzerperspektive überprüft.                                                        |
+| **Lasttest**            | Ein Testverfahren, das die Leistungsfähigkeit und Stabilität einer Anwendung unter hoher Last prüft, um sicherzustellen, dass das System auch bei Spitzenbelastungen effizient arbeitet. |
 | **CI/CD-Pipeline**      | Continuous Integration/Continuous Deployment-Pipeline, die den Prozess vom Code-Commit bis zur Bereitstellung automatisiert.                        |
 | **Caching**             | Eine Strategie zur Zwischenspeicherung von Daten, um die Effizienz und Geschwindigkeit von Anfragen zu verbessern.                                 |
 | **Microservices**       | Eine Architektur, bei der die Anwendung in kleine, lose gekoppelte Dienste unterteilt ist, die unabhängig voneinander entwickelt und skaliert werden können. |
