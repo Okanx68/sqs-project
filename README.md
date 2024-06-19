@@ -462,7 +462,7 @@ Darüber hinaus spielt die **Benutzerfreundlichkeit (Usability)** eine entscheid
 
 ## Qualitätsbaum
 
-![Qualitätsbaum](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Quality_Tree_modified.png)
+![Qualitätsbaum](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Quality_Tree.png)
 
 ## Qualitätsszenarien
 
