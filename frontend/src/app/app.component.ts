@@ -26,6 +26,7 @@ export class AppComponent {
     this.noDataMessage = "No data fetched, please insert a city name!";
   }
 
+  // Methode zum Abrufen von Brauereidaten aus dem Backend basierend auf dem vom Benutzer eingegebenen Stadtnamen
   onSearch() {
     let enteredCityName = this.newForm.get('fieldVal')?.value;
     this.breweryService.getBreweriesByCity(enteredCityName).subscribe((data: any) => {

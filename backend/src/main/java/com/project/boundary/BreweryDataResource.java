@@ -73,6 +73,5 @@ public class BreweryDataResource {
         }
 
         return Response.ok().entity(breweryDataDTO).build();
-
     }
 }

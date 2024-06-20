@@ -12,6 +12,7 @@ export class BreweryService {
 
   params = new HttpParams().set('count', '20');
 
+  // erhalte Brauereien vom Backend, die auf den übergebenen Stadtnamen basieren
   getBreweriesByCity(cityName: any): any {
     return this.http.get<Brewery[]>(environment.apiUrl + '/breweries/' + cityName, {params: this.params});
   }

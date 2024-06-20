@@ -63,7 +63,7 @@ class IntegrationTest {
         int count = 1;
 
         // erhalte eine Response vom eigenen API Endpoint
-        String response = given()
+        String actualResponse = given()
                 .pathParam("cityName", nonExistentCityName)
                 .queryParam("count", count)
                 .when().get("/breweries/{cityName}")
@@ -76,6 +76,6 @@ class IntegrationTest {
 
         // gleiche Datenbankergebnis sowie Response ab
         Assertions.assertNull(testPersistedEntity);
-        Assertions.assertEquals(expectedResponse, response);
+        Assertions.assertEquals(expectedResponse, actualResponse);
     }
 }
