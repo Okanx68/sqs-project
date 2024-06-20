@@ -15,7 +15,7 @@ import java.net.http.HttpResponse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @QuarkusTest
-public class BreweryDBServiceTest {
+class BreweryDBServiceTest {
 
     @Inject
     @RestClient
@@ -23,7 +23,7 @@ public class BreweryDBServiceTest {
 
     // prüfe, ob Rest-Client Response und Open Brewery DB Response gleich sind
     @Test
-    public void testRestClient() throws IOException, InterruptedException {
+    void testRestClient() throws IOException, InterruptedException {
         String testCityName = "Austin";
         int count = 3;
 
@@ -36,7 +36,7 @@ public class BreweryDBServiceTest {
 
     // gleiche Response vom Rest-Client und Response von der Open Brewery DB mit einer nicht existierenden Stadt ab
     @Test
-    public void testRestClientWithNonExistentCity() throws IOException, InterruptedException {
+    void testRestClientWithNonExistentCity() throws IOException, InterruptedException {
         String testNonExistentCityName = "NonExistentCity";
         int count = 3;
 
