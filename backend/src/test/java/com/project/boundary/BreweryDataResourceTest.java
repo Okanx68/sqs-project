@@ -19,7 +19,7 @@ class BreweryDataResourceTest {
     @InjectMock
     BreweryDataController breweryDataController;
 
-    // Endpoint prüfen
+    // Endpunkt prüfen
     @Test
     void testGetBreweryDataByCityEndpoint(){
         String testCityName = "TestCity";
@@ -42,7 +42,7 @@ class BreweryDataResourceTest {
                         "breweries", is("TestBreweries"));
     }
 
-    // Endpoint mit einer Stadt prüfen, die nicht in der Open Brewery DB vorhanden ist
+    // Endpunkt mit einer Stadt prüfen, die nicht in der Open Brewery DB vorhanden ist
     @Test
     void testGetBreweryDataByCityEndpointReturnsNoContent() {
         String testNonExistentCityName = "NonExistentCity";

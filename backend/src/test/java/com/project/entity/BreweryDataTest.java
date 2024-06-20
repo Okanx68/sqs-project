@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 @QuarkusTest
 class BreweryDataTest {
 
-    // prüfe, ob die Datenbank Einträge abspeichert
+    // prüfe, ob Einträge in der Datenbank abgespeichert werden
     @Test
     @Transactional
     void testFindBySearchInputReturnsBreweryData(){

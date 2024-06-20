@@ -30,12 +30,12 @@ class IntegrationTest {
         ObjectMapper mapper = new ObjectMapper();
         int count = 5;
 
-        // erhalte eine Response aus der Open Brewery DB
+        // erhalte eine Response mit Brauereidaten aus der Open Brewery DB
         String testBreweriesFromRestClient = breweryDBService.getBreweriesByCity(city, count);
         JsonNode testJson = mapper.readTree(testBreweriesFromRestClient);
         String testData = mapper.writeValueAsString(testJson);
 
-        // erhalte eine Response vom eigenen API Endpoint
+        // erhalte eine Response vom eigenen API-Endpunkt
         String response = given()
                 .pathParam("cityName", city)
                 .queryParam("count", count)
@@ -50,7 +50,7 @@ class IntegrationTest {
         JsonNode responseJson = mapper.readTree(response);
         String responseData = responseJson.get("breweries").asText();
 
-        // gleiche Datenbankergebnis und Response mit der Open Brewery DB Response ab
+        // gleiche Datenbankergebnis und Response vom eigenen API-Endpunkt mit der Open Brewery DB Response ab
         Assertions.assertEquals(testData, responseData);
         Assertions.assertEquals(testData, testPersistedEntity.breweries);
     }

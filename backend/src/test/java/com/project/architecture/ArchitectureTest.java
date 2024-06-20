@@ -152,7 +152,7 @@ class ArchitectureTest {
     @Test
     void test_classes_should_have_specific_naming_convention() {
         ArchRule rule = classes().that()
-                .resideInAnyPackage("..architecture..", "..boundary..", "..controller..", "..entity..", "..integration..")
+                .resideInAnyPackage("..architecture..", "..boundary..", "..controller..", "..entity..", "..integration..", "..service..")
                 .and().areAnnotatedWith(Test.class).or().areAnnotatedWith(QuarkusTest.class).or().areAnnotatedWith(ParameterizedTest.class)
                 .should().haveSimpleNameEndingWith("Test")
                 .because("Test classes should end with 'Test'");
