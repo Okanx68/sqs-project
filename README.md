@@ -22,7 +22,7 @@ docker-compose up
 Dieser Befehl lädt die erforderlichen Docker-Images aus der Projekt-Registry und startet die in der `docker-compose.yml`-Datei definierten Docker-Container.
 
 ### Anwendung aufrufen
-Sobald sowohl das Backend als auch das Frontend ausgeführt werden, kann die Anwendung im Webbrowser unter `http://localhost:4200` aufgerufen werden. Das Frontend kommuniziert mit dem Backend, das unter `http://localhost:8080` läuft.
+Sobald das Backend, die Datenbank als auch das Frontend ausgeführt werden, kann die Anwendung im Webbrowser unter `http://localhost:4200` aufgerufen werden. Das Frontend kommuniziert mit dem Backend, welches unter `http://localhost:8080` läuft.
 
 Die Backend API-Dokumentation kann über folgenden Link aufgerufen werden: http://localhost:8080/api/v1/q/swagger-ui
 
