@@ -29,7 +29,7 @@ Die Backend API-Dokumentation kann über folgenden Link aufgerufen werden: http:
 ## SonarCloud
 Die Analyseergebnisse und Code-Qualitätsberichte sind über SonarCloud verfügbar und können über folgendem Link eingesehen werden: [SonarCloud-Analyse](https://sonarcloud.io/organizations/sqs-project/projects)
 
-### Backend
+### Backend-Analyse
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sqs-project_sqs-backend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=sqs-project_sqs-backend)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=sqs-project_sqs-backend&metric=bugs)](https://sonarcloud.io/summary/new_code?id=sqs-project_sqs-backend)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=sqs-project_sqs-backend&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=sqs-project_sqs-backend)
@@ -37,7 +37,7 @@ Die Analyseergebnisse und Code-Qualitätsberichte sind über SonarCloud verfügb
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=sqs-project_sqs-backend&metric=coverage)](https://sonarcloud.io/summary/new_code?id=sqs-project_sqs-backend)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=sqs-project_sqs-backend&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=sqs-project_sqs-backend)
 
-### Frontend
+### Frontend-Analyse
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sqs-project_sqs-frontend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=sqs-project_sqs-frontend)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=sqs-project_sqs-frontend&metric=bugs)](https://sonarcloud.io/summary/new_code?id=sqs-project_sqs-frontend)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=sqs-project_sqs-frontend&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=sqs-project_sqs-frontend)
