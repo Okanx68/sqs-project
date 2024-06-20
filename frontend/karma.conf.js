@@ -31,12 +31,6 @@ module.exports = function (config) {
         { type: 'html' },
         { type: 'lcovonly' },
         { type: 'text-summary' }
-      ],
-      exclude: [
-        'src/app/app.config.ts',
-        'src/app/app.routes.ts',
-        'src/environments/**/*.ts',
-        'src/main.ts',
       ]
     },
     reporters: ['progress', 'kjhtml'],
