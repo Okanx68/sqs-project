@@ -2,6 +2,30 @@
 
 **Software-Qualitätssicherung SoSe 2024** 
 
+# Setup
+
+### Vorraussetzungen
+* Docker
+
+### Anwendung klonen
+Das Projekt-Repository kann mit dem folgenden Befehl auf den lokalen Rechner geklont werden:
+```
+git clone https://github.com/Okanx68/sqs-project.git
+cd sqs-project
+```
+
+### Projekt mit Docker Compose starten
+Um das Projekt mit Docker Compose zu starten, muss im Stammverzeichnis folgender Befehl ausgeführt werden:
+```
+docker-compose up
+```
+Dieser Befehl lädt die erforderlichen Docker-Images aus der Projekt-Registry und startet die in der `docker-compose.yml`-Datei definierten Docker-Container.
+
+Sobald sowohl das Backend als auch das Frontend ausgeführt werden, kann die Anwendung im Webbrowser unter `http://localhost:4200` aufgerufen werden. Das Frontend kommuniziert mit dem Backend, das unter `http://localhost:8080` läuft.
+## Backend
+
+## Frontend
+
 # Einführung und Ziele
 
 Das Ziel der Brewery Explorer Webanwendung ist es, Brauereien in einer bestimmten Stadt sowie deren Informationen wie beispielsweise Adresse, Telefonnummer oder Link zur Webseite abzurufen. Um die Effizienz der Anfragen zu verbessern, wird eine gezielte Caching-Strategie angewendet. Dafür setze ich Quarkus als Backend-Framework, Angular für das Frontend und PostgreSQL als Datenbank ein. Die benötigten Brauereiinformationen werden von der Open Brewery DB API (https://openbrewerydb.org) abgerufen und in der Datenbank, die hierbei als Cache dient, für erneute Anfragen abgespeichert. Die Suche nach Brauereien erfolgt durch die Eingabe des Stadtnamens mithilfe einer benutzerfreundlichen Weboberfläche.
@@ -304,7 +328,7 @@ Das System wird in einer Container-Umgebung mittels einer Docker-Compose-Datei b
 * **Skalierbarkeit**: Durch den Einsatz von Docker-Containern kann das System leicht horizontal skaliert werden, indem zusätzliche Container bei Bedarf gestartet werden.
 * **Portabilität**: Docker gewährleistet, dass die Anwendung in verschiedenen Umgebungen gleich läuft, was die Portabilität zwischen Entwicklungs-, Test- und Produktionsumgebungen verbessert.
 * **Isolation**: Jeder Dienst läuft in seinem eigenen Container, was die Isolation und damit die Stabilität und Sicherheit des Systems erhöht.
-* **Wiederholbarkeit**: Die Verwendung von Docker-Compose ermöglicht eine einfache und wiederholbare Bereitstellung der gesamten Systemumgebung.
+* **Wiederholbarkeit**: Die Verwendung von Docker Compose ermöglicht eine einfache und wiederholbare Bereitstellung der gesamten Systemumgebung.
 
 **Zuordnung von Bausteinen zu Infrastruktur**
 
@@ -505,7 +529,7 @@ Darüber hinaus spielt die **Benutzerfreundlichkeit (Usability)** eine entscheid
 | **PostgreSQL**          | Eine relationale Datenbank, bekannt für ihre Zuverlässigkeit, Leistungsfähigkeit und Erweiterbarkeit, die als Cache verwendet wird.               |
 | **Open Brewery DB API** | Eine externe REST-API, die Brauereiinformationen basierend auf Stadtnamen bereitstellt.                                                            |
 | **Docker**              | Eine Containerisierungsplattform, die eine konsistente Umgebung für Entwicklung, Test und Produktion gewährleistet.                                |
-| **Docker-Compose**      | Ein Tool zur Definition und Ausführung mehrerer Docker-Container zur Orchestrierung der Anwendungsservices.                                         |
+| **Docker Compose**      | Ein Tool zur Definition und Ausführung mehrerer Docker-Container zur Orchestrierung der Anwendungsservices.                                         |
 | **GitHub Actions**      | Ein CI/CD-Tool von GitHub, das automatisierte Workflows zum Bauen, Testen und Bereitstellen von Anwendungen ermöglicht.                             |
 | **Playwright**          | Ein End-to-End-Testframework zur Sicherstellung der Funktionalität der gesamten Anwendung auf verschiedenen Browsern.                               |
 | **Artillery**           | Ein Lasttesttool zur Überprüfung der Leistungsfähigkeit und Stabilität der Anwendung unter hoher Last.                                             |
