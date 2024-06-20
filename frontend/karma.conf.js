@@ -31,6 +31,12 @@ module.exports = function (config) {
         { type: 'html' },
         { type: 'lcovonly' },
         { type: 'text-summary' }
+      ],
+      exclude: [
+        'src/app/app.config.ts',
+        'src/app/app.routes.ts',
+        'src/environments/**/*.ts',
+        'src/main.ts',
       ]
     },
     reporters: ['progress', 'kjhtml'],
@@ -42,13 +48,6 @@ module.exports = function (config) {
         flags: ['--no-sandbox', '--disable-translate', '--disable-extensions', '--remote-debugging-port=9223', '--remote-debugging-address=0.0.0.0', '--disable-gpu', '--disable-software-rasterizer', '--disable-dev-shm-usage']
       }
     },
-    exclude: [
-      'src/app/app.config.ts',
-      'src/app/app.routes.ts',
-      'src/environments/**/*.ts',
-      'src/main.ts',
-      'src/polyfills.ts'
-    ],
     restartOnFileChange: true
   });
 };

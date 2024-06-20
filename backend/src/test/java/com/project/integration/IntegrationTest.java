@@ -17,7 +17,7 @@ import java.io.IOException;
 import static io.restassured.RestAssured.given;
 
 @QuarkusTest
-class BreweryDataResourceIntegrationTest {
+class IntegrationTest {
 
     @Inject
     @RestClient
@@ -57,7 +57,7 @@ class BreweryDataResourceIntegrationTest {
 
     // führe einen Integrationstest ohne gefundene Brauereien in der Open Brewery DB durch
     @Test
-    void testGetBreweryDataCityNotFound() {
+    void testGetBreweryDataCityNotFoundIntegrationTest() {
         String nonExistentCityName = "NonExistentCity";
         String expectedResponse = "";
         int count = 1;
