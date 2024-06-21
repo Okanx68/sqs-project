@@ -5,18 +5,19 @@
 # Setup
 
 ### Vorraussetzungen
+* Git
 * Docker
 
 ### Anwendung klonen
 Das Projekt-Repository kann mit dem folgenden Befehl auf den lokalen Rechner geklont werden:
-```
+```bash
 git clone https://github.com/Okanx68/sqs-project.git
 cd sqs-project
 ```
 
 ### Projekt mit Docker Compose starten
 Um das Projekt mit Docker Compose zu starten, muss im Stammverzeichnis folgender Befehl ausgeführt werden:
-```
+```bash
 docker-compose up
 ```
 Dieser Befehl lädt die erforderlichen Docker-Images aus der Projekt-Registry und startet die in der `docker-compose.yml`-Datei definierten Docker-Container.
@@ -419,31 +420,32 @@ Die Architekturentscheidungen für dieses Projekt wurden sorgfältig getroffen, 
 
 ## Technologiewahl
 
-**Quarkus**: Für das Backend wurde Quarkus ausgewählt, ein Framework, das sich durch schnelle Startzeiten und geringe Ressourcenanforderungen auszeichnet. Es ist besonders geeignet für Cloud-native und Microservice-Architekturen und ermöglicht eine nahtlose Integration mit Container-Technologien wie Docker.
+Folgende Technologien wurden in diesem Projekt eingesetzt:
+* **Quarkus**: Für das Backend wurde Quarkus ausgewählt, ein Framework, das sich durch schnelle Startzeiten und geringe Ressourcenanforderungen auszeichnet. Es ist besonders geeignet für Cloud-native und Microservice-Architekturen und ermöglicht eine nahtlose Integration mit Container-Technologien wie Docker.
 
-**Angular**: Angular dient als Frontend-Framework. Es bietet eine leistungsstarke Plattform für die Entwicklung dynamischer Single-Page-Anwendungen und unterstützt eine intuitive Benutzeroberfläche.
+* **Angular**: Angular dient als Frontend-Framework. Es bietet eine leistungsstarke Plattform für die Entwicklung dynamischer Single-Page-Anwendungen und unterstützt eine intuitive Benutzeroberfläche.
 
-**PostgreSQL**: Als Datenbank wurde PostgreSQL gewählt, um von seiner Zuverlässigkeit, Leistungsfähigkeit und Erweiterbarkeit zu profitieren. Die Datenbank wird als Cache für die Daten der externen API verwendet.
+* **PostgreSQL**: Als Datenbank wurde PostgreSQL gewählt, um von seiner Zuverlässigkeit, Leistungsfähigkeit und Erweiterbarkeit zu profitieren. Die Datenbank wird als Cache für die Daten der externen API verwendet.
 
-**Open Brewery DB API**: Zur Beschaffung von Brauereiinformationen wird die Open Brewery DB API genutzt, die eine umfassende und zuverlässige Datenquelle bietet.
+* **Open Brewery DB API**: Zur Beschaffung von Brauereiinformationen wird die Open Brewery DB API genutzt, die eine umfassende und zuverlässige Datenquelle bietet.
 
-**Docker**: Die Anwendung wurde mit Docker containerisiert, um eine konsistente Umgebung für Entwicklung, Test und Produktion zu gewährleisten.
+* **Docker**: Die Anwendung wurde mit Docker containerisiert, um eine konsistente Umgebung für Entwicklung, Test und Produktion zu gewährleisten.
 
-**Docker Compose**: Zur Verwaltung der Container wurde Docker Compose eingesetzt, um die Container-Orchestrierung zu erleichtern.
+* **Docker Compose**: Zur Verwaltung der Container wurde Docker Compose eingesetzt, um die Container-Orchestrierung zu erleichtern.
 
-**GitHub Actions**: Es wurden automatisierte CI/CD-Pipelines mit GitHub Actions eingerichtet, die das Bauen, Testen und Bereitstellen der Anwendung automatisieren. Dazu gehören auch statische Code-Analysen mit SonarCloud und das Bereitstellen der Docker-Container in einer Registry.
+* **GitHub Actions**: Es wurden automatisierte CI/CD-Pipelines mit GitHub Actions eingerichtet, die das Bauen, Testen und Bereitstellen der Anwendung automatisieren. Dazu gehören auch statische Code-Analysen mit SonarCloud und das Bereitstellen der Docker-Container in einer Registry.
 
-**Playwright**: End-to-End-Tests wurden mit Playwright durchgeführt, um die Funktionalität der gesamten Anwendung sicherzustellen.
+* **Playwright**: End-to-End-Tests wurden mit Playwright durchgeführt, um die Funktionalität der gesamten Anwendung sicherzustellen.
 
-**Artillery**: Für Lasttests wurde Artillery verwendet, um die Leistungsfähigkeit und Stabilität der Anwendung unter hoher Last zu überprüfen.
+* **Artillery**: Für Lasttests wurde Artillery verwendet, um die Leistungsfähigkeit und Stabilität der Anwendung unter hoher Last zu überprüfen.
 
-**JUnit**: JUnit wurde für Unit- und Integrationstests genutzt, um die Qualität und Korrektheit des Codes sicherzustellen.
+* **JUnit**: JUnit wurde für Unit- und Integrationstests genutzt, um die Qualität und Korrektheit des Codes sicherzustellen.
 
-**SonarCloud**: SonarCloud wurde zur statischen Code-Analyse verwendet, um die Codequalität zu überwachen und potenzielle Sicherheitslücken und Bugs frühzeitig zu identifizieren.
+* **SonarCloud**: SonarCloud wurde zur statischen Code-Analyse verwendet, um die Codequalität zu überwachen und potenzielle Sicherheitslücken und Bugs frühzeitig zu identifizieren.
 
-**ArchUnit**: ArchUnit wurde genutzt, um Architektur- und Design-Prinzipien im Backend zu überprüfen, sicherzustellen und durchzusetzen. Dies unterstützt die langfristige Wartbarkeit und Konsistenz des Codes.
+* **ArchUnit**: ArchUnit wurde genutzt, um Architektur- und Design-Prinzipien im Backend zu überprüfen, sicherzustellen und durchzusetzen. Dies unterstützt die langfristige Wartbarkeit und Konsistenz des Codes.
 
-**Hadolint**: Hadolint wurde verwendet, um die Dockerfiles zu linten und sicherzustellen, dass sie syntaktisch korrekt und nach bewährten Methoden geschrieben sind.
+* **Hadolint**: Hadolint wurde verwendet, um die Dockerfiles zu linten und sicherzustellen, dass sie syntaktisch korrekt und nach bewährten Methoden geschrieben sind.
 
 ## Schichtenmodell
 
