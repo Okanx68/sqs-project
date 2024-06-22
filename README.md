@@ -333,7 +333,7 @@ Die Open Brewery DB API dient als externe Quelle für Brauereiinformationen und 
 
 ### Laufzeitdiagramm
 
-![Laufzeitdiagramm_Szenario2](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Laufzeitdiagramm_Szenario3_modified_v2.drawio.png)
+![Laufzeitdiagramm_Szenario3](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Laufzeitdiagramm_Szenario3_modified_v2.drawio.png)
 
 # Verteilungssicht
 
