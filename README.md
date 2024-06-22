@@ -93,9 +93,9 @@ Das Ziel der Brewery Explorer Webanwendung ist es, Brauereien in einer bestimmte
 
 ## Organisatorische Randbedingungen 
 
-* Abgabe: Sonntag, 23.06.2024 
-* Dauer des Projekts: ein Semester
-* Projektdurchführung in Einzelarbeit
+* **Abgabe des Projekts**: Sonntag, 23.06.2024 
+* **Projektdauer**: ein Semester
+* **Projektdurchführung**: in Einzelarbeit
 
 
 # Kontextabgrenzung
