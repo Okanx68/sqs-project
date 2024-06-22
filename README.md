@@ -72,9 +72,10 @@ Das Ziel der Brewery Explorer Webanwendung ist es, Brauereien in einer bestimmte
 
 # Randbedingungen
 
-Folgende Randbedingungen wurden im Rahmen dieses Projekts festgelegt:
+## Technische Randbedingungen 
 
 * Das Projekt besteht aus einem Frontend, einem Backend, einer Datenbank und einer externen API
+* GitHub wird als Code-Repository für die Versionierung und Verwaltung des Codes genutzt
 * Zur Datenbeschaffung wird eine externe API verwendet
 * Die Datenbank dient als Cache bzw. Zwischenspeicher für die Daten
 * Das Backend speichert die Daten der externen API in der Datenbank
@@ -88,6 +89,14 @@ Folgende Randbedingungen wurden im Rahmen dieses Projekts festgelegt:
 * Alle Services werden als Docker-Container bereitgestellt
 * Die Docker-Container werden nach jedem Push in der Pipeline neu gebaut und in der Registry abgelegt
 * Über eine Docker-Compose-Datei können die Docker-Container gestartet werden
+* Die Projektdokumentation wird im arc42-Format erstellt
+
+## Organisatorische Randbedingungen 
+
+* Abgabe: Sonntag, 23.06.2024 
+* Dauer des Projekts: ein Semester
+* Projektdurchführung in Einzelarbeit
+
 
 # Kontextabgrenzung
 
