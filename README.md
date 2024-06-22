@@ -5,29 +5,30 @@
 # Setup
 
 ### Vorraussetzungen
+* Git
 * Docker
 
 ### Anwendung klonen
 Das Projekt-Repository kann mit dem folgenden Befehl auf den lokalen Rechner geklont werden:
-```
+```bash
 git clone https://github.com/Okanx68/sqs-project.git
 cd sqs-project
 ```
 
 ### Projekt mit Docker Compose starten
 Um das Projekt mit Docker Compose zu starten, muss im Stammverzeichnis folgender Befehl ausgeführt werden:
-```
+```bash
 docker-compose up
 ```
 Dieser Befehl lädt die erforderlichen Docker-Images aus der Projekt-Registry und startet die in der `docker-compose.yml`-Datei definierten Docker-Container.
 
 ### Anwendung aufrufen
-Sobald sowohl das Backend als auch das Frontend ausgeführt werden, kann die Anwendung im Webbrowser unter `http://localhost:4200` aufgerufen werden. Das Frontend kommuniziert mit dem Backend, das unter `http://localhost:8080` läuft.
+Sobald das Backend, die Datenbank als auch das Frontend ausgeführt werden, kann die Anwendung im Webbrowser unter `http://localhost:4200` aufgerufen werden. Das Frontend kommuniziert mit dem Backend, welches unter `http://localhost:8080` läuft.
 
-Die Backend API-Dokumentation kann über folgenden Link aufgerufen werden: http://localhost:8080/api/v1/q/swagger-ui
+Die OpenAPI-Dokumentation des Backends kann über folgenden Link aufgerufen werden: http://localhost:8080/api/v1/q/swagger-ui
 
 ## SonarCloud
-Die Analyseergebnisse und Code-Qualitätsberichte sind über SonarCloud verfügbar und können über folgendem Link eingesehen werden: [SonarCloud-Analyse](https://sonarcloud.io/organizations/sqs-project/projects)
+Die Ergebnisse der statischen Code-Analyse sind über SonarCloud verfügbar und können unter folgendem Link eingesehen werden: [SonarCloud-Analyse](https://sonarcloud.io/organizations/sqs-project/projects)
 
 ### Backend-Analyse
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sqs-project_sqs-backend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=sqs-project_sqs-backend)
@@ -71,7 +72,7 @@ Das Ziel der Brewery Explorer Webanwendung ist es, Brauereien in einer bestimmte
 
 # Randbedingungen
 
-Folgende Randbedingungen wurden im Rahmen dieses Projektes festgelegt:
+Folgende Randbedingungen wurden im Rahmen dieses Projekts festgelegt:
 
 * Das Projekt besteht aus einem Frontend, einem Backend, einer Datenbank und einer externen API
 * Zur Datenbeschaffung wird eine externe API verwendet
@@ -251,7 +252,7 @@ Die Open Brewery DB API dient als externe Quelle für Brauereiinformationen und 
 **Schnittstelle(n)
 * HTTP GET `https://api.openbrewerydb.org/v1/breweries?by_city={cityName}&per_page={count}`: Endpunkt zur Abfrage von Brauereiinformationen basierend auf dem Stadtnamen und der maximalen Anzahl an Brauerein.
 
-## Ebene 2
+## Ebene 1
 
 ### Whitebox Quarkus-Backend
 
@@ -419,31 +420,36 @@ Die Architekturentscheidungen für dieses Projekt wurden sorgfältig getroffen, 
 
 ## Technologiewahl
 
-**Quarkus**: Für das Backend wurde Quarkus ausgewählt, ein Framework, das sich durch schnelle Startzeiten und geringe Ressourcenanforderungen auszeichnet. Es ist besonders geeignet für Cloud-native und Microservice-Architekturen und ermöglicht eine nahtlose Integration mit Container-Technologien wie Docker.
+Folgende Technologien wurden in diesem Projekt eingesetzt:
+* **Quarkus**: Für das Backend wurde Quarkus ausgewählt, ein Framework, das sich durch schnelle Startzeiten und geringe Ressourcenanforderungen auszeichnet. Es ist besonders geeignet für Cloud-native und Microservice-Architekturen und ermöglicht eine nahtlose Integration mit Container-Technologien wie Docker.
 
-**Angular**: Angular dient als Frontend-Framework. Es bietet eine leistungsstarke Plattform für die Entwicklung dynamischer Single-Page-Anwendungen und unterstützt eine intuitive Benutzeroberfläche.
+* **Angular**: Angular dient als Frontend-Framework. Es bietet eine leistungsstarke Plattform für die Entwicklung dynamischer Single-Page-Anwendungen und unterstützt eine intuitive Benutzeroberfläche.
 
-**PostgreSQL**: Als Datenbank wurde PostgreSQL gewählt, um von seiner Zuverlässigkeit, Leistungsfähigkeit und Erweiterbarkeit zu profitieren. Die Datenbank wird als Cache für die Daten der externen API verwendet.
+* **PostgreSQL**: Als Datenbank wurde PostgreSQL gewählt, um von seiner Zuverlässigkeit, Leistungsfähigkeit und Erweiterbarkeit zu profitieren. Die Datenbank wird als Cache für die Daten der externen API verwendet.
 
-**Open Brewery DB API**: Zur Beschaffung von Brauereiinformationen wird die Open Brewery DB API genutzt, die eine umfassende und zuverlässige Datenquelle bietet.
+* **Open Brewery DB API**: Zur Beschaffung von Brauereiinformationen wird die Open Brewery DB API genutzt, die eine umfassende und zuverlässige Datenquelle bietet.
 
-**Docker**: Die Anwendung wurde mit Docker containerisiert, um eine konsistente Umgebung für Entwicklung, Test und Produktion zu gewährleisten.
+* **Docker**: Die Anwendung wurde mit Docker containerisiert, um isolierte Laufzeitumgebungen zu schaffen und die Plattformunabhängigkeit sicherzustellen.
 
-**Docker Compose**: Zur Verwaltung der Container wurde Docker Compose eingesetzt, um die Container-Orchestrierung zu erleichtern.
+* **Docker Compose**: Zur Verwaltung der Container wurde Docker Compose eingesetzt, um die Container-Orchestrierung zu erleichtern.
 
-**GitHub Actions**: Es wurden automatisierte CI/CD-Pipelines mit GitHub Actions eingerichtet, die das Bauen, Testen und Bereitstellen der Anwendung automatisieren. Dazu gehören auch statische Code-Analysen mit SonarCloud und das Bereitstellen der Docker-Container in einer Registry.
+* **GitHub Actions**: Es wurden automatisierte CI/CD-Pipelines mit GitHub Actions eingerichtet, die das Bauen, Testen und Bereitstellen der Anwendung automatisieren. Dazu gehören auch statische Code-Analysen mit SonarCloud und das Bereitstellen der Docker-Container in einer Registry.
 
-**Playwright**: End-to-End-Tests wurden mit Playwright durchgeführt, um die Funktionalität der gesamten Anwendung sicherzustellen.
+* **SonarCloud**: SonarCloud wurde zur statischen Code-Analyse verwendet, um die Codequalität zu überwachen und potenzielle Sicherheitslücken und Bugs frühzeitig zu identifizieren.
 
-**Artillery**: Für Lasttests wurde Artillery verwendet, um die Leistungsfähigkeit und Stabilität der Anwendung unter hoher Last zu überprüfen.
+* **Playwright**: End-to-End-Tests wurden mit Playwright durchgeführt, um die Funktionalität der gesamten Anwendung sicherzustellen.
 
-**JUnit**: JUnit wurde für Unit- und Integrationstests genutzt, um die Qualität und Korrektheit des Codes sicherzustellen.
+* **Artillery**: Für Lasttests wurde Artillery verwendet, um die Leistungsfähigkeit und Stabilität der Anwendung unter hoher Last zu überprüfen.
 
-**SonarCloud**: SonarCloud wurde zur statischen Code-Analyse verwendet, um die Codequalität zu überwachen und potenzielle Sicherheitslücken und Bugs frühzeitig zu identifizieren.
+* **JUnit**: JUnit wurde für Unit- und Integrationstests genutzt, um die Qualität und Korrektheit des Codes sicherzustellen.
 
-**ArchUnit**: ArchUnit wurde genutzt, um Architektur- und Design-Prinzipien im Backend zu überprüfen, sicherzustellen und durchzusetzen. Dies unterstützt die langfristige Wartbarkeit und Konsistenz des Codes.
+* **ArchUnit**: ArchUnit wurde genutzt, um Architektur- und Design-Prinzipien im Backend zu überprüfen, sicherzustellen und durchzusetzen. Dies unterstützt die langfristige Wartbarkeit und Konsistenz des Codes.
 
-**Hadolint**: Hadolint wurde verwendet, um die Dockerfiles zu linten und sicherzustellen, dass sie syntaktisch korrekt und nach bewährten Methoden geschrieben sind.
+* **Hadolint**: Hadolint wurde verwendet, um die Dockerfiles zu linten und sicherzustellen, dass sie syntaktisch korrekt und nach bewährten Methoden geschrieben sind.
+
+* **OpenAPI**: OpenAPI wurde verwendet, um die API-Spezifikationen des Backends zu definieren. Dies ermöglicht eine klare und standardisierte Beschreibung der API-Endpunkte, Parameter und Rückgabewerte.
+  
+* **Swagger**: Swagger wurde in Kombination mit OpenAPI eingesetzt, um eine interaktive API-Dokumentation zu generieren, die es Entwicklern und Testern erleichtert, die API zu verstehen und zu nutzen. 
 
 ## Schichtenmodell
 
@@ -547,15 +553,17 @@ Darüber hinaus spielt die **Benutzerfreundlichkeit (Usability)** eine entscheid
 | **Angular**             | Ein Frontend-Framework zur Entwicklung dynamischer Single-Page-Anwendungen mit einer intuitiven Benutzeroberfläche.                                |
 | **PostgreSQL**          | Eine relationale Datenbank, bekannt für ihre Zuverlässigkeit, Leistungsfähigkeit und Erweiterbarkeit, die als Cache verwendet wird.               |
 | **Open Brewery DB API** | Eine externe REST-API, die Brauereiinformationen basierend auf Stadtnamen bereitstellt.                                                            |
-| **Docker**              | Eine Containerisierungsplattform, die eine konsistente Umgebung für Entwicklung, Test und Produktion gewährleistet.                                |
+| **Docker**              | Eine Containerisierungsplattform, die isolierte Laufzeitumgebungen und die Plattformunabhängigkeit gewährleistet.                               |
 | **Docker Compose**      | Ein Tool zur Definition und Ausführung mehrerer Docker-Container zur Orchestrierung der Anwendungsservices.                                         |
 | **GitHub Actions**      | Ein CI/CD-Tool von GitHub, das automatisierte Workflows zum Bauen, Testen und Bereitstellen von Anwendungen ermöglicht.                             |
+| **SonarCloud**          | Ein statisches Code-Analyse-Tool zur Überwachung der Codequalität und frühzeitigen Identifikation von Sicherheitslücken und Bugs.                   |
 | **Playwright**          | Ein End-to-End-Testframework zur Sicherstellung der Funktionalität der gesamten Anwendung auf verschiedenen Browsern.                               |
 | **Artillery**           | Ein Lasttesttool zur Überprüfung der Leistungsfähigkeit und Stabilität der Anwendung unter hoher Last.                                             |
 | **JUnit**               | Ein Framework für Unit- und Integrationstests in Java, das die Qualität und Korrektheit des Codes sicherstellt.                                     |
-| **SonarCloud**          | Ein statisches Code-Analyse-Tool zur Überwachung der Codequalität und frühzeitigen Identifikation von Sicherheitslücken und Bugs.                   |
 | **ArchUnit**            | Ein Tool zur Überprüfung von Architektur- und Design-Prinzipien im Backend, um die langfristige Wartbarkeit und Konsistenz des Codes zu unterstützen. |
 | **Hadolint**            | Ein Linter für Dockerfiles, der sicherstellt, dass sie syntaktisch korrekt und nach bewährten Methoden geschrieben sind.                            |
+| **OpenAPI**             | Eine Spezifikation zur Beschreibung von RESTful APIs, die eine klare und standardisierte Dokumentation der API-Endpunkte ermöglicht.                |
+| **Swagger**             | Ein Open-Source-Tool zur Generierung interaktiver API-Dokumentationen basierend auf OpenAPI-Spezifikationen.                                        |
 | **Unit-Test**           | Ein Test, der einzelne Softwarekomponenten isoliert überprüft, um deren korrekte Funktion sicherzustellen.                                          |
 | **Integrationstest**    | Ein Test, der das Zusammenspiel mehrerer Komponenten überprüft, um deren korrekte Zusammenarbeit sicherzustellen.                                  |
 | **End-to-End-Test**     | Ein Test, der das gesamte System von Anfang bis Ende aus der Benutzerperspektive überprüft.                                                        |
