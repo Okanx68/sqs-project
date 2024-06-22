@@ -299,7 +299,7 @@ Die Open Brewery DB API dient als externe Quelle für Brauereiinformationen und 
 
 ### Laufzeitdiagramm
 
-![Laufzeitdiagramm_Szenario1](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Laufzeitdiagramm_Szenario1_cache_hit.drawio.png)
+![Laufzeitdiagramm_Szenario1](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Laufzeitdiagramm_Szenario1_cache_hit_v2.drawio.png)
 
 ## Szenario 2: Abruf von Brauereiinformationen (Cache-Miss)
 
