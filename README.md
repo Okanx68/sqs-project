@@ -25,10 +25,10 @@ Dieser Befehl lädt die erforderlichen Docker-Images aus der Projekt-Registry un
 ### Anwendung aufrufen
 Sobald das Backend, die Datenbank als auch das Frontend ausgeführt werden, kann die Anwendung im Webbrowser unter `http://localhost:4200` aufgerufen werden. Das Frontend kommuniziert mit dem Backend, welches unter `http://localhost:8080` läuft.
 
-Die Backend API-Dokumentation kann über folgenden Link aufgerufen werden: http://localhost:8080/api/v1/q/swagger-ui
+Die OpenAPI-Dokumentation des Backends kann über folgenden Link aufgerufen werden: http://localhost:8080/api/v1/q/swagger-ui
 
 ## SonarCloud
-Die Analyseergebnisse und Code-Qualitätsberichte sind über SonarCloud verfügbar und können über folgendem Link eingesehen werden: [SonarCloud-Analyse](https://sonarcloud.io/organizations/sqs-project/projects)
+Die Ergebnisse der statischen Code-Analyse sind über SonarCloud verfügbar und können unter folgendem Link eingesehen werden: [SonarCloud-Analyse](https://sonarcloud.io/organizations/sqs-project/projects)
 
 ### Backend-Analyse
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sqs-project_sqs-backend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=sqs-project_sqs-backend)
@@ -72,7 +72,7 @@ Das Ziel der Brewery Explorer Webanwendung ist es, Brauereien in einer bestimmte
 
 # Randbedingungen
 
-Folgende Randbedingungen wurden im Rahmen dieses Projektes festgelegt:
+Folgende Randbedingungen wurden im Rahmen dieses Projekts festgelegt:
 
 * Das Projekt besteht aus einem Frontend, einem Backend, einer Datenbank und einer externen API
 * Zur Datenbeschaffung wird eine externe API verwendet
@@ -252,7 +252,7 @@ Die Open Brewery DB API dient als externe Quelle für Brauereiinformationen und 
 **Schnittstelle(n)
 * HTTP GET `https://api.openbrewerydb.org/v1/breweries?by_city={cityName}&per_page={count}`: Endpunkt zur Abfrage von Brauereiinformationen basierend auf dem Stadtnamen und der maximalen Anzahl an Brauerein.
 
-## Ebene 2
+## Ebene 1
 
 ### Whitebox Quarkus-Backend
 
