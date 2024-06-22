@@ -299,7 +299,7 @@ Die Open Brewery DB API dient als externe Quelle für Brauereiinformationen und 
 
 ### Laufzeitdiagramm
 
-![Laufzeitdiagramm_Szenario1](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Laufzeitdiagramm_Szenario1_cache_hit_modified.drawio.png)
+![Laufzeitdiagramm_Szenario1](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Laufzeitdiagramm_Szenario1_cache_hit.drawio.png)
 
 ## Szenario 2: Abruf von Brauereiinformationen (Cache-Miss)
 
@@ -316,7 +316,7 @@ Die Open Brewery DB API dient als externe Quelle für Brauereiinformationen und 
 
 ### Laufzeitdiagramm
 
-![Laufzeitdiagramm_Szenario2](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Laufzeitdiagramm_Szenario2_cache_miss.drawio.png)
+![Laufzeitdiagramm_Szenario2](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Laufzeitdiagramm_Szenario2_cache_miss_v2.drawio.png)
 
 ## Szenario 3: Fehlgeschlagener Abruf von Brauereiinformationen (falscher Stadtnamen)
 
@@ -333,13 +333,13 @@ Die Open Brewery DB API dient als externe Quelle für Brauereiinformationen und 
 
 ### Laufzeitdiagramm
 
-![Laufzeitdiagramm_Szenario2](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Laufzeitdiagramm_Szenario3.drawio.png)
+![Laufzeitdiagramm_Szenario2](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Laufzeitdiagramm_Szenario3_modified_v2.drawio.png)
 
 # Verteilungssicht
 
 ## Infrastruktur 
 
-![Verteilungssicht](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Verteilungssicht_modified.drawio.png)
+![Verteilungssicht](https://github.com/Okanx68/sqs-project/blob/main/doc/images/Verteilungssicht_v2.drawio.png)
 
 **Begründung**
 Das System wird in einer Container-Umgebung mittels einer Docker-Compose-Datei betrieben, um eine einfache Skalierbarkeit, Portabilität und Konsistenz zu gewährleisten. Docker-Container werden verwendet, um die einzelnen Komponenten des Systems zu isolieren und zu verwalten.
