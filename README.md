@@ -233,7 +233,7 @@ Die Zerlegung des Gesamtsystems in Bausteine folgt den Prinzipien der Modularit�
 **Zweck/Verantwortung**
 Das Angular-Frontend ist verantwortlich für die Bereitstellung der Benutzeroberfläche, über die Benutzer nach Brauereien suchen und Informationen anzeigen können.
 
-**Schnittstelle(n)**
+**Schnittstelle**
 * HTTP GET `api/v1/breweries/{cityName}`: Schnittstelle zur Abfrage von Brauereiinformationen basierend auf dem Stadtnamen.
 
 ### Quarkus-Backend
@@ -241,7 +241,7 @@ Das Angular-Frontend ist verantwortlich für die Bereitstellung der Benutzerober
 **Zweck/Verantwortung**
 Das Quarkus-Backend verarbeitet die Geschäftslogik und stellt API-Endpunkte zur Verfügung, über die das Frontend und andere externe Systeme auf die Anwendung zugreifen können.
 
-**Schnittstelle(n)**
+**Schnittstellen**
 * HTTP GET `api/v1/breweries/{cityName}`: Endpunkt zur Abfrage von Brauereiinformationen.
 * JDBC: Schnittstelle zur Kommunikation mit der PostgreSQL-Datenbank.
   
@@ -250,7 +250,7 @@ Das Quarkus-Backend verarbeitet die Geschäftslogik und stellt API-Endpunkte zur
 **Zweck/Verantwortung**
 Die PostgreSQL-Datenbank speichert und verwaltet alle Daten, die von der Anwendung benötigt werden, einschließlich der gecachten Brauereiinformationen.
 
-**Schnittstelle(n)**
+**Schnittstelle**
 * JDBC: Schnittstelle zur Kommunikation mit dem Quarkus Backend.
 
 ### Open Brewery DB API
@@ -258,7 +258,7 @@ Die PostgreSQL-Datenbank speichert und verwaltet alle Daten, die von der Anwendu
 **Zweck/Verantwortung**
 Die Open Brewery DB API dient als externe Quelle für Brauereiinformationen und wird vom Backend verwendet, um Daten abzurufen, die nicht im lokalen Cache verfügbar sind.
 
-**Schnittstelle(n)
+**Schnittstelle**
 * HTTP GET `https://api.openbrewerydb.org/v1/breweries?by_city={cityName}&per_page={count}`: Endpunkt zur Abfrage von Brauereiinformationen basierend auf dem Stadtnamen und der maximalen Anzahl an Brauerein.
 
 ## Ebene 1
