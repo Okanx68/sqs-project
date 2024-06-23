@@ -5,13 +5,17 @@ config:
       arrivalRate: 20
     - duration: 60
       arrivalRate: 40
-    - duration: 60
-      arrivalRate: 60
-
-variables:
-  cities: ["Austin", "New York", "Chicago", "Los Angeles", "San Francisco"]
 
 scenarios:
-  - flow:
+  - name: Test with Austin
+    flow:
       - get:
-          url: "/api/v1/breweries/{{ cities }}?count=20"
+          url: "/api/v1/breweries/Austin?count=20"
+  - name: Test with Denver
+    flow:
+      - get:
+          url: "/api/v1/breweries/Denver?count=20"
+  - name: Test with Chicago
+    flow:
+      - get:
+          url: "/api/v1/breweries/Chicago?count=20"
