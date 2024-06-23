@@ -3,8 +3,15 @@ config:
   phases:
     - duration: 60
       arrivalRate: 20
+    - duration: 60
+      arrivalRate: 40
+    - duration: 60
+      arrivalRate: 60
+
+variables:
+  cities: ["Austin", "New York", "Chicago", "Los Angeles", "San Francisco"]
 
 scenarios:
   - flow:
       - get:
-          url: "/api/v1/brewery/Austin?count=20"
+          url: "/api/v1/breweries/{{ cities }}?count=20"

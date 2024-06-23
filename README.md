@@ -535,7 +535,7 @@ Darüber hinaus spielt die **Benutzerfreundlichkeit (Usability)** eine entscheid
 |                                    | Nutzungsszenario: Das System funktioniert in unterschiedlichen Browsern ohne Probleme.      | End-to-End-Tests mit Playwright                                 |
 |                                    | Änderungsszenario: Zukünftige Browser-Versionen werden unterstützt und getestet.               | Regelmäßige Updates und Tests mit Playwright                                         |
 | Usability - Benutzerfreundlichkeit | Nutzungsszenario: Die Benutzer können intuitiv nach Brauereien suchen und die Ergebnisse anzeigen lassen. | Benutzerfreundliches UI-Design, einfache Navigation. End-to-End-Tests mit Playwright  |
-|                                    | Änderungsszenario: Verbesserungen in der Benutzeroberfläche werden kontinuierlich umgesetzt. | Benutzerfeedback einholen und umsetzen, regelmäßige Usability-Tests, UI-Tests                                   |
+|                                    | Änderungsszenario: Verbesserungen in der Benutzeroberfläche werden kontinuierlich umgesetzt. | Benutzerfeedback einholen und umsetzen, UI-Tests       |
 |                                    | Nutzungsszenario: Das System zeigt relevante Informationen zu Brauereien klar und verständlich an. | Übersichtliches Layout, konsistente Darstellung der Daten                                           |
 |                                    | Änderungsszenario: Neue Nutzeranforderungen and das Design werden kontinuierlich integriert.  | Regelmäßige Überprüfung und Anpassung an Nutzeranforderungen                     |
 
