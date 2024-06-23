@@ -1,5 +1,5 @@
 config:
-  target: "http://localhost:8080"
+  target: "http://0.0.0.0:8080"
   phases:
     - duration: 60
       arrivalRate: 20
@@ -7,4 +7,4 @@ config:
 scenarios:
   - flow:
       - get:
-          url: "/api/v1/brewery/Austin?count=20"
+          url: "/api/v1/breweries/Austin?count=20"
