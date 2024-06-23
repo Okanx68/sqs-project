@@ -14,8 +14,4 @@ variables:
 scenarios:
   - flow:
       - get:
-<<<<<<< HEAD
           url: "/api/v1/breweries/{{ cities }}?count=20"
-=======
-          url: "/api/v1/breweries/Austin?count=20"
->>>>>>> 3847f577d56c0c3cd7fd3f5a770785334509e1d6
